@@ -38,16 +38,27 @@ URGENCY_RE = re.compile(r"6\.302-2|unusual and compelling urgency", re.I)
 
 
 def _extract_text(content: bytes) -> str:
-    """Best-effort text from a PDF attachment."""
-    try:
-        from pypdf import PdfReader
-    except ImportError:
-        raise SystemExit("pypdf missing — pip install pypdf")
-    try:
-        reader = PdfReader(io.BytesIO(content))
-        return "\n".join((p.extract_text() or "") for p in reader.pages)
-    except Exception:
-        return ""
+    """Best-effort text from a J&A attachment (PDF, DOCX, or XLSX)."""
+    if content[:4] == b"%PDF":
+        try:
+            from pypdf import PdfReader
+            reader = PdfReader(io.BytesIO(content))
+            return "\n".join((p.extract_text() or "") for p in reader.pages)
+        except Exception:
+            return ""
+    if content[:2] == b"PK":  # zip-based: docx / xlsx
+        try:
+            from docx import Document
+            return "\n".join(p.text for p in Document(io.BytesIO(content)).paragraphs)
+        except Exception:
+            pass
+        try:
+            from openpyxl import load_workbook
+            wb = load_workbook(io.BytesIO(content), read_only=True, data_only=True)
+            return "\n".join(str(c.value) for ws in wb for row in ws.iter_rows() for c in row if c.value)
+        except Exception:
+            return ""
+    return ""
 
 
 def search_jna(api_key: str, days: int) -> list[dict]:

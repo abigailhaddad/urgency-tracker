@@ -1,76 +1,55 @@
 # urgency-tracker
 
-Track how often the federal government skips competition by invoking **unusual
-and compelling urgency** — **FAR 6.302-2**, the exception whose standard is that
-the government would suffer *"serious injury, financial or other,"* without it —
-and pull the **actual justification** agencies file for it.
+When the government wants to skip competition on a contract, one of the reasons it's allowed to give is "unusual and compelling urgency" — FAR 6.302-2, where the standard is basically that the government would be seriously injured, financially or otherwise, if it had to take the time to compete the work. I wanted to see how often that actually gets used, and whether I could get at the actual justifications agencies write. This does both.
 
-Two sources, deliberately split by what's free:
+It's two pieces, split by what costs money to get at.
 
-- **Trend (free, no auth):** the [`abigailhaddad/usaspending-bulk-awards`](https://huggingface.co/datasets/abigailhaddad/usaspending-bulk-awards)
-  mirror of USAspending, queried directly with DuckDB over `hf://`. FY2015–present.
-- **Justification (free key):** the J&A documents agencies must post under FAR
-  6.305, pulled from **SAM.gov** (needs a `SAM_API_KEY`).
+The trend — how much urgency spending there is over time, which agencies, the biggest awards — comes from my HuggingFace mirror of USAspending. You query it with DuckDB straight over `hf://`, no download and no key. That's `demo.ipynb`, and it opens in Colab.
 
-## Quick start
+The actual justification — the J&A document the agency has to post explaining why — comes from SAM.gov, which needs a free API key. That's `fetch_justification.py`. USAspending only gives you the reason *code* (URGENCY); it never tells you why. SAM.gov has the why.
+
+## Running it
 
 ```bash
 pip install -r requirements.txt
-pip install notebook            # if you don't already have Jupyter
-jupyter notebook demo.ipynb
+jupyter notebook demo.ipynb        # the trend; also opens in Colab
 ```
-
-Or open the trend notebook in Colab (no install, no auth):
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/abigailhaddad/urgency-tracker/blob/main/demo.ipynb)
 
-## What it shows
-
-`demo.ipynb` queries the USAspending mirror for the `other_than_full_and_open_competition`
-field containing `URGENCY (FAR 6.302-2)` and builds:
-
-- **Urgency usage over time** — actions, dollars, and urgency's share of all
-  non-competed dollars, by fiscal year.
-- **A trend chart** (`urgency_trend.png`).
-- **Who uses it** — top agencies by urgency dollars.
-- **The biggest urgency awards** — aggregated to the award level.
-
-![Federal contracting under the urgency exception](urgency_trend.png)
-
-The pattern: a COVID-era spike (FY2021 ~$41B, ~18% of all non-competed dollars),
-a quiet FY2022–FY2025 (~$3–5B, ~1.5%), and an elevated **FY2026** — already
-~$18B and ~20% of non-competed dollars in a *partial* year.
-
-## The actual justification
-
-USAspending gives you the reason *code*; it doesn't tell you *why*. The J&A
-document does. `fetch_justification.py` pulls recent J&A notices from SAM.gov,
-extracts the rationale text, and flags the urgency cites:
+For the justifications, get a free key from SAM.gov (Account Details → API Key) and:
 
 ```bash
 SAM_API_KEY=... python fetch_justification.py --days 90 --urgency-only
 SAM_API_KEY=... python fetch_justification.py --days 90 --piid 70Z02326C93210002
 ```
 
-A free `SAM_API_KEY` comes from SAM.gov → Account Details → API Key. SAM.gov is a
-separate, keyed source — the trend notebook above needs no key.
+## Urgency + why + how much, in one table
 
-## Files
+`urgency_and_why.py` is the one I actually wanted. It pulls recent urgency justifications, grabs the rationale text, joins the dollar figure from the HF mirror on PIID, and flags the bridge/extension ones (the most common pattern). Output is a CSV plus a printed top-by-dollars list.
 
-- `demo.ipynb` — the urgency-over-time notebook (free, Colab-able).
-- `fetch_justification.py` — pull the actual J&A text from SAM.gov (needs `SAM_API_KEY`).
-- `requirements.txt` — `duckdb`, `pandas`, `matplotlib`, `requests`.
+```bash
+SAM_API_KEY=... python urgency_and_why.py --days 120 --year 2026
+```
 
-## Caveats
+Two honest things about it:
 
-- Rows are contract *actions*; dollars are `federal_action_obligation` summed
-  (can include de-obligations). An "award" is grouped by `award_id_piid`.
-- **FY2026 is partial** (through the latest archive snapshot) — action counts are
-  low even where dollars are high.
-- The USAspending data is a U.S. Government public-domain work; SAM.gov J&A
-  documents are public records (some are redacted).
+- **SAM's search is rate-limited, so this is built to survive it.** Every notice it processes is cached under `data/cache/`, and `--max-downloads` caps new attachment pulls per run. If SAM cuts you off, it stops, keeps everything cached, and you just re-run to pick up where it left off — nothing is lost.
+- **The HF archive runs about two months behind.** So the freshest justifications won't have a dollar match yet — you'll see "(no $ match)" on those, and they fill in once the awards land in the archive. (Also: SAM writes PIIDs with dashes and the mirror strips them, so the join normalizes both.)
 
-## License
+## What I found
 
-Code is released into the public domain under [CC0 1.0](LICENSE). The underlying
-data are U.S. Government works / public records.
+![Federal contracting under the urgency exception](urgency_trend.png)
+
+There's a big COVID-era spike — FY2021 hit ~$41B, about 18% of all the non-competed contract dollars that year. Then it calms down for a few years (~$3–5B, ~1.5%). And then FY2026, which isn't even a full year yet, is already at ~$18B and ~20% of non-competed dollars — the highest share in the series. I haven't dug into what's driving the FY2026 number, so take it as "worth a look," not a conclusion.
+
+## Caveats (worth reading before you quote a number)
+
+- These are contract *actions* (every modification is a row), and the dollars are obligations summed up — which can include de-obligations. I group by `award_id_piid` when I want award-level.
+- FY2026 is partial — only through whatever the latest archive snapshot is. The action counts are low because of that, even where the dollars are high.
+- "Urgency" here means the `other_than_full_and_open_competition` field says `URGENCY (FAR 6.302-2)`. That's the agency's own coding.
+- The J&A documents are public records, but a lot of them are partly redacted, so the rationale text you get back is sometimes thin.
+
+## Sources
+
+USAspending bulk award data (public domain, U.S. Government), mirrored at [`abigailhaddad/usaspending-bulk-awards`](https://huggingface.co/datasets/abigailhaddad/usaspending-bulk-awards). J&A documents from SAM.gov. Code's CC0 — do whatever you want with it.
