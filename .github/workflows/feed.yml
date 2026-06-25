@@ -1,9 +1,10 @@
 name: Rebuild urgency feed
 
-# The source data drops ~monthly. This runs weekly and rebuilds the feed JSON,
-# but build_feed.py keys off the data's own freshness (max action date), so on
-# weeks where HF hasn't advanced it changes nothing — no commit, no redeploy.
-# When a new monthly batch lands, it commits the updated JSON and Vercel deploys.
+# Runs weekly. Rebuilds the feed JSON (re-fetching GAO protests each run), then
+# VALIDATES the data and SMOKE-TESTS the front end before anything ships — so bad
+# data or a broken page never reaches the live site. Commits + deploys only when
+# the data actually changed. If any step fails, or the data has stopped advancing,
+# it opens a GitHub issue so we find out.
 
 on:
   workflow_dispatch:
@@ -12,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: urgency-feed
@@ -26,11 +28,22 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install duckdb pandas tango-python
-      - run: python scripts/build_feed.py
+
+      - name: Rebuild the feed
+        run: python scripts/build_feed.py
         env:
           # Optional: enables the GAO bid-protest enrichment. If unset, the feed
           # still builds (just without the protest data). Add it as a repo secret.
           TANGO_API_KEY: ${{ secrets.TANGO_API_KEY }}
+
+      - name: Validate feed data (bad data must not ship)
+        run: python scripts/validate_feed.py
+
+      - name: Front-end smoke test (page must render against the data)
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+          python scripts/test_site.py
 
       - name: Commit if the feed changed
         id: commit
@@ -57,6 +70,32 @@ jobs:
             npx --yes vercel deploy --prod --yes --token "$VERCEL_TOKEN"
           else
             echo "VERCEL_TOKEN not set — feed committed, but skipping deploy."
-            echo "Add a VERCEL_TOKEN repo secret (vercel.com/account/tokens) to auto-deploy,"
-            echo "or connect the repo to Vercel's Git integration."
+          fi
+
+      - name: Alert if the data has stopped updating
+        run: |
+          python - <<'PY'
+          import datetime, json, sys
+          d = json.load(open("site/urgent.json"))
+          age = (datetime.date.today() - datetime.date.fromisoformat(d["data_through"])).days
+          print(f"data_through {d['data_through']} — {age} days old")
+          # Source drops ~monthly with a few weeks' archive lag, so it can legitimately
+          # be ~2 months old. Past 90 days means a drop was almost certainly missed.
+          if age > 90:
+              sys.exit(f"STALE: feed hasn't advanced in {age} days (>90) — HF may have stopped updating.")
+          PY
+
+      - name: Open an issue if this run failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TITLE="Urgency feed pipeline is failing"
+          RUN="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          N=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$N" ]; then
+            gh issue comment "$N" --body "Still failing — the live site was NOT updated. $RUN"
+          else
+            gh issue create --title "$TITLE" \
+              --body "A scheduled run of the urgency feed failed (build, data validation, front-end smoke test, deploy, or staleness check). The live site was NOT updated. Run: $RUN"
           fi
