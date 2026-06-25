@@ -14,13 +14,13 @@ There's a COVID-era spike (FY2021 about $41B), then a few quiet years (about $3�
 
 ## The granular data
 
-`urgency_contracts.py` pulls every urgency contract for a year into a CSV — recipient, agency, dollars, dates, NAICS/PSC, description:
+`urgency_contracts.py` pulls every urgency contract for a year into a CSV — recipient, agency, dollars, dates, NAICS/PSC, description, and a **direct USAspending link** (`usaspending_url`) to each award's page, so you can click straight through to verify it:
 
 ```bash
 python urgency_contracts.py --year 2026
 ```
 
-The repo ships `urgency_contracts_fy2026.csv` (2,755 awards) so you can just open it without running anything.
+The repo ships `urgency_contracts_fy2026.csv` (2,755 awards) so you can just open it without running anything. (Some oddities in there: a $14M repaint of the Lincoln Reflecting Pool, State Department VVIP limousine rentals, an HHS documentary — all justified by "unusual and compelling urgency.")
 
 ## Running the notebook
 
