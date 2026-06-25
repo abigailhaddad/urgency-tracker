@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Federal contracts awarded under "urgency"</title>
+<meta name="description" content="Federal contracts awarded without competition under 'unusual and compelling urgency' (FAR 6.302-2), from a public mirror of USAspending.">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+<style>
+  :root{ --accent:#69539E; --accent-d:#52407c; --soft:#f4f1f9; --soft2:#ece5f5; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e7e7e7; --new:#2A9D8F; }
+  body{ color:var(--ink); background:#fbfbfc; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 16px 56px; }
+  header{ padding:26px 0 8px; }
+  h1{ font-size:1.5rem; font-weight:700; letter-spacing:-.01em; margin:0 0 6px; }
+  .sub{ color:var(--muted); margin:0 0 16px; font-size:.95rem; max-width:72ch; }
+  .stats{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:6px; }
+  .stat{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:9px 14px; }
+  .stat .n{ font-size:1.2rem; font-weight:700; color:var(--accent); }
+  .stat .l{ font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+  details.about{ margin:12px 0 4px; font-size:.9rem; color:var(--muted); }
+  details.about summary{ cursor:pointer; color:var(--accent); font-weight:600; }
+
+  /* top row: search + filter bar */
+  .toolbar{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:18px 0 0; }
+  .toolbar input.search{ flex:1 1 240px; padding:9px 12px; border:1px solid var(--line); border-radius:10px; font-size:.92rem; background:#fff; }
+  .toolbar input.search:focus{ outline:none; border-color:var(--accent); }
+
+  /* chip bar */
+  .filters-bar{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; min-height:46px; margin:10px 0 2px;
+    background:var(--soft); border:1px solid var(--line); border-radius:12px; padding:8px 12px; }
+  .filters-bar-empty{ color:#9a9a9a; font-size:.82rem; }
+  .add-filter-btn{ background:var(--accent); color:#fff; border:none; padding:6px 13px; border-radius:999px;
+    font-size:.8rem; font-weight:600; cursor:pointer; white-space:nowrap; transition:.15s; }
+  .add-filter-btn:hover{ background:var(--accent-d); transform:translateY(-1px); }
+  .filter-chip{ display:inline-flex; align-items:center; gap:7px; background:var(--soft2); border:1px solid var(--accent);
+    border-radius:999px; padding:4px 6px 4px 12px; font-size:.78rem; color:var(--accent); }
+  .filter-chip-label{ font-weight:700; }
+  .filter-chip-value{ max-width:240px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .filter-chip-remove{ cursor:pointer; font-weight:700; width:18px; height:18px; display:flex; align-items:center; justify-content:center; border-radius:50%; }
+  .filter-chip-remove:hover{ background:var(--accent); color:#fff; }
+
+  /* add-filter popover (PD.overlay backdrop = .filter-modal) */
+  .filter-modal{ position:fixed; inset:0; background:rgba(0,0,0,.45); display:flex; align-items:center; justify-content:center; z-index:1050; backdrop-filter:blur(2px); }
+  .filter-popover{ background:#fff; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.22); padding:18px; min-width:300px; max-width:440px; max-height:80vh; overflow-y:auto; }
+  .filter-title{ font-size:.98rem; font-weight:700; color:var(--ink); margin-bottom:12px; padding-bottom:10px; border-bottom:2px solid var(--soft2); }
+  .filter-search{ width:100%; padding:9px 11px; border:1px solid var(--line); border-radius:9px; font-size:.88rem; margin-bottom:10px; }
+  .filter-search:focus{ outline:none; border-color:var(--accent); }
+  .filter-options{ display:flex; flex-direction:column; gap:2px; max-height:320px; overflow-y:auto; }
+  .filter-option{ display:flex; align-items:center; gap:9px; padding:7px 6px; border-radius:7px; cursor:pointer; font-size:.9rem; }
+  .filter-option:hover{ background:var(--soft); }
+  .filter-option input{ width:16px; height:16px; accent-color:var(--accent); cursor:pointer; }
+  .filter-option .opt-count{ color:var(--muted); font-size:.78rem; margin-left:auto; }
+  .range-row{ display:flex; gap:10px; }
+  .range-row input{ flex:1; padding:9px 11px; border:1px solid var(--line); border-radius:9px; font-size:.9rem; }
+  .filter-buttons{ display:flex; gap:9px; justify-content:flex-end; margin-top:14px; }
+  .btn-clear{ border:1px solid var(--line); background:#fff; color:var(--muted); padding:7px 14px; border-radius:9px; cursor:pointer; font-size:.85rem; }
+  .btn-clear:hover{ border-color:var(--accent); color:var(--accent); }
+  .btn-apply{ border:none; background:var(--accent); color:#fff; padding:7px 16px; border-radius:9px; cursor:pointer; font-size:.85rem; font-weight:600; }
+  .btn-apply:hover{ background:var(--accent-d); }
+
+  /* table */
+  table.dataTable td{ font-size:.9rem; vertical-align:middle; }
+  table.dataTable tbody tr{ cursor:pointer; }
+  table.dataTable td a{ color:var(--accent); font-weight:600; text-decoration:none; white-space:nowrap; }
+  table.dataTable td a:hover{ text-decoration:underline; }
+  .amt-cell{ font-weight:700; color:var(--accent); white-space:nowrap; }
+  td.desc{ color:#444; max-width:420px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .new{ display:inline-block; font-size:.6rem; font-weight:700; color:#fff; background:var(--new); border-radius:999px; padding:1px 6px; margin-left:6px; vertical-align:middle; letter-spacing:.04em; }
+  .badge-protest{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#c1666b; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; }
+  .dispute{ margin-top:14px; padding:11px 13px; background:#fbeeef; border:1px solid #e3b9bc; border-radius:10px; font-size:.86rem; }
+  .dispute strong{ color:#a33a40; }
+  .dispute a{ color:#a33a40; font-weight:600; }
+
+  /* detail modal */
+  #detailModal .modal-header{ background:var(--accent); color:#fff; }
+  #detailModal .modal-title{ font-size:1rem; font-weight:700; }
+  .modal-kv{ display:grid; grid-template-columns:120px 1fr; gap:6px 14px; font-size:.9rem; }
+  .modal-kv dt{ color:var(--muted); font-weight:600; }
+  .modal-kv dd{ margin:0; word-break:break-word; }
+  .modal-desc{ margin-top:16px; font-size:.9rem; line-height:1.55; }
+  .modal-desc strong{ display:block; color:var(--muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; }
+  .btn-acc{ display:inline-block; margin-top:16px; background:var(--accent); color:#fff; border-radius:9px; padding:9px 14px; font-weight:600; text-decoration:none; font-size:.9rem; }
+
+  footer{ color:var(--muted); font-size:.8rem; padding-top:22px; margin-top:18px; border-top:1px solid var(--line); }
+  footer a{ color:var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Federal contracts awarded under&nbsp;"urgency"</h1>
+    <p class="sub">Contracts the government awarded <strong>without full and open competition</strong> by citing "unusual and compelling urgency" (FAR&nbsp;6.302-2). Click any row for full detail; every award links to its official USAspending page.</p>
+    <div class="stats" id="stats"></div>
+    <details class="about">
+      <summary>What is this?</summary>
+      <p>Agencies normally must compete contracts. One legal way to skip that is to claim "unusual and compelling urgency" — the standard being that the government would suffer serious injury, financial or otherwise, without it. On each award's USAspending page, the designation appears under <em>Additional Details → Competition Details</em> as "Other than Full and Open Competition: Urgency." That's the reason <em>code</em>, not the written justification.</p>
+    </details>
+
+    <div class="toolbar">
+      <input id="q" class="search" type="search" placeholder="Search recipient, agency, or description…" autocomplete="off">
+    </div>
+    <div class="filters-bar" id="filtersBar">
+      <button class="add-filter-btn" id="addFilterBtn" type="button">+ Add filter</button>
+      <span class="filters-bar-empty" id="filtersBarEmpty">No filters applied</span>
+    </div>
+  </header>
+
+  <table id="mainTable" class="table table-sm table-hover" style="width:100%">
+    <thead>
+      <tr>
+        <th>Recipient</th><th>Agency</th><th>Obligated</th><th>Date</th><th>Description</th><th>Link</th>
+        <th>amt_m</th><th>agency_top</th><th>category</th><th>dispute</th>
+      </tr>
+    </thead>
+    <tbody id="mainBody"></tbody>
+  </table>
+
+  <footer>
+    Data: USAspending bulk award archive (U.S. Government, public domain), mirrored at
+    <a href="https://huggingface.co/datasets/abigailhaddad/usaspending-bulk-awards">huggingface.co/datasets/abigailhaddad/usaspending-bulk-awards</a>.
+    Source &amp; method: <a href="https://github.com/abigailhaddad/urgency-tracker">github.com/abigailhaddad/urgency-tracker</a>.
+    <span id="through"></span>
+  </footer>
+</div>
+
+<div class="modal fade" id="detailModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+<script src="shared/format.js"></script>
+<script src="shared/chip-bar.js"></script>
+<script src="shared/overlay.js"></script>
+<script src="shared/datatable.js"></script>
+<script src="shared/filter-manager.js"></script>
+
+<script>
+const money = PD.format.compactCurrency, esc = PD.format.escapeHtml;
+const fmtDate = s => { const [y,m,d]=s.split('-'); return new Date(y,m-1,d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); };
+const createModal = o => PD.overlay.open(o), closeModal = m => PD.overlay.close(m);
+let DATA = [], piidMap = {}, dt, fm, chipBar, bsModal;
+
+// cols: 0 recipient 1 agency 2 obligated 3 date 4 desc 5 link | hidden: 6 amt_m 7 agency_top 8 category
+const FILTER_COLS = [
+  { index: 0, name: 'Recipient',  type: 'text' },
+  { index: 7, name: 'Agency',     type: 'multiselect' },
+  { index: 8, name: 'Category',   type: 'multiselect' },
+  { index: 9, name: 'Dispute',    type: 'multiselect' },
+  { index: 6, name: 'Amount ($M)',type: 'range' },
+];
+const FM_COLS = [
+  { index: 0, name: 'Recipient',  type: 'text',        urlKey: 'recipient' },
+  { index: 7, name: 'Agency',     type: 'multiselect', urlKey: 'agency' },
+  { index: 8, name: 'Category',   type: 'multiselect', urlKey: 'category' },
+  { index: 9, name: 'Dispute',    type: 'multiselect', urlKey: 'dispute' },
+  { index: 6, name: 'Amount ($M)',type: 'range',       urlKey: 'amt' },
+];
+
+function rowsHtml(rows){
+  return rows.map(a => `<tr data-piid="${esc(a.piid)}">
+    <td>${esc(a.recipient)}${a.is_new?'<span class="new">new</span>':''}${a.protest?'<span class="badge-protest">⚖ disputed</span>':''}</td>
+    <td>${esc(a.sub_agency)}</td>
+    <td data-order="${a.obligated}"><span class="amt-cell">${money(a.obligated)}</span></td>
+    <td data-order="${a.date}">${fmtDate(a.date)}</td>
+    <td class="desc">${esc(a.description||a.category)}</td>
+    <td><a href="${a.url}" target="_blank" rel="noopener">USAspending&nbsp;&rarr;</a></td>
+    <td>${(a.obligated/1e6).toFixed(3)}</td><td>${esc(a.agency)}</td><td>${esc(a.category||'')}</td>
+    <td>${a.protest?esc(a.protest.outcome):''}</td>
+  </tr>`).join('');
+}
+
+// ── Add-filter popover flow (PD.overlay) ──────────────────────────────
+function openFilterSelection(){
+  const opts = FILTER_COLS.map(c =>
+    `<label class="filter-option"><input type="checkbox" value="${c.index}"> ${esc(c.name)}</label>`).join('');
+  const m = createModal({content:
+    `<div class="filter-popover" style="min-width:280px"><div class="filter-title">Add filter</div>${opts}</div>`});
+  m.querySelectorAll('input[type=checkbox]').forEach(cb => cb.addEventListener('change', ()=>{
+    closeModal(m);
+    const col = FILTER_COLS.find(c=>c.index===parseInt(cb.value));
+    if(col.type==='multiselect') openMultiselect(col);
+    else if(col.type==='range') openRange(col);
+    else openText(col);
+  }));
+}
+
+function openMultiselect(col){
+  const cur = fm.activeFilters[col.index];
+  const selected = cur ? cur.values : [];
+  const counts = {};
+  dt.api().column(col.index).data().each(v=>{ const t=$('<div>').html(v).text().trim(); if(t) counts[t]=(counts[t]||0)+1; });
+  const vals = Object.keys(counts).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:'base'}));
+  const opts = vals.map(v =>
+    `<label class="filter-option"><input type="checkbox" value="${esc(v)}"${selected.indexOf(v)>=0?' checked':''}> <span>${esc(v)}</span><span class="opt-count">${counts[v]}</span></label>`).join('');
+  const m = createModal({content:
+    `<div class="filter-popover"><div class="filter-title">Filter: ${esc(col.name)}</div>
+     <input type="text" class="filter-search" placeholder="Search options…">
+     <div class="filter-options">${opts}</div>
+     <div class="filter-buttons"><button class="btn-clear">Clear</button><button class="btn-apply">Apply</button></div></div>`});
+  const $p = $(m).find('.filter-popover');
+  $p.find('.filter-search').on('input', function(){ const q=this.value.toLowerCase();
+    $p.find('.filter-option').each(function(){ this.style.display=this.textContent.toLowerCase().includes(q)?'':'none'; }); }).focus();
+  $p.find('.btn-clear').on('click', ()=>{ fm.clearFilter(col.index); closeModal(m); });
+  $p.find('.btn-apply').on('click', ()=>{ const c=[]; $p.find('input:checked').each(function(){ c.push($(this).val()); }); fm.applyMultiselect(col.index,c); closeModal(m); });
+}
+
+function openRange(col){
+  const cur = fm.activeFilters[col.index] || {};
+  const m = createModal({content:
+    `<div class="filter-popover" style="min-width:300px"><div class="filter-title">Filter: ${esc(col.name)}</div>
+     <div class="range-row"><input type="number" inputmode="decimal" class="r-min" placeholder="Min $M" value="${cur.min??''}">
+     <input type="number" inputmode="decimal" class="r-max" placeholder="Max $M" value="${cur.max??''}"></div>
+     <div class="filter-buttons"><button class="btn-clear">Clear</button><button class="btn-apply">Apply</button></div></div>`});
+  const $p = $(m).find('.filter-popover'); $p.find('.r-min').focus();
+  $p.find('.btn-clear').on('click', ()=>{ fm.clearFilter(col.index); closeModal(m); });
+  $p.find('.btn-apply').on('click', ()=>{ fm.applyRange(col.index,{min:$p.find('.r-min').val(),max:$p.find('.r-max').val()}); closeModal(m); });
+}
+
+function openText(col){
+  const cur = fm.activeFilters[col.index];
+  const m = createModal({content:
+    `<div class="filter-popover" style="min-width:300px"><div class="filter-title">Filter: ${esc(col.name)}</div>
+     <input type="text" class="filter-search t-in" placeholder="Enter text…" value="${cur?esc(cur.value):''}">
+     <div class="filter-buttons"><button class="btn-clear">Clear</button><button class="btn-apply">Apply</button></div></div>`});
+  const $p = $(m).find('.filter-popover'); const $in=$p.find('.t-in').focus();
+  $in.on('keypress', e=>{ if(e.key==='Enter') $p.find('.btn-apply').click(); });
+  $p.find('.btn-clear').on('click', ()=>{ fm.clearFilter(col.index); closeModal(m); });
+  $p.find('.btn-apply').on('click', ()=>{ fm.applyText(col.index,$in.val().trim()); closeModal(m); });
+}
+
+// ── Detail modal ──────────────────────────────────────────────────────
+function openDetail(a){
+  const kv = (dt,dd)=>`<dt>${dt}</dt><dd>${dd}</dd>`;
+  let rows = kv('Obligated', money(a.obligated));
+  rows += kv('Awarding agency', esc(a.sub_agency));
+  if(a.funding_agency && a.funding_agency!==a.agency) rows += kv('Funding agency', esc(a.funding_agency));
+  rows += kv('Date', fmtDate(a.date));
+  if(a.offers!=null) rows += kv('Offers received', a.offers);
+  if(a.solicitation) rows += kv('Solicitation', esc(a.solicitation));
+  if(a.place) rows += kv('Place of perf.', esc(a.place));
+  if(a.pop_start||a.pop_end) rows += kv('Period of perf.', `${a.pop_start?fmtDate(a.pop_start):'?'} – ${a.pop_end?fmtDate(a.pop_end):'?'}`);
+  if(a.naics) rows += kv('Industry (NAICS)', esc(a.naics));
+  if(a.category) rows += kv('Category (PSC)', esc(a.category));
+  rows += kv('Award ID', esc(a.piid));
+  rows += kv('Competition', 'Other than full &amp; open: Urgency (FAR 6.302-2)');
+  document.getElementById('modalTitle').textContent = a.recipient;
+  document.getElementById('modalBody').innerHTML =
+    `<dl class="modal-kv">${rows}</dl>
+     ${a.protest?`<div class="dispute"><strong>⚖ Bid protest — GAO ${esc(a.protest.case)}</strong><br>${esc(a.protest.outcome)}${a.protest.protester?`, filed by ${esc(a.protest.protester)}`:''}${a.protest.decision_date?` (decided ${fmtDate(a.protest.decision_date)})`:''}. <a href="${a.protest.url}" target="_blank" rel="noopener">View GAO docket →</a></div>`:''}
+     <div class="modal-desc"><strong>Description</strong>${esc(a.description||'—')}</div>
+     <a class="btn-acc" href="${a.url}" target="_blank" rel="noopener">View on USAspending →</a>`;
+  bsModal.show();
+}
+
+fetch('urgent.json').then(r=>r.json()).then(d=>{
+  DATA = d.awards; DATA.forEach(a=>piidMap[a.piid]=a);
+  const s = d.summary;
+  document.getElementById('stats').innerHTML =
+    `<div class="stat"><div class="n">${money(s.total_obligated)}</div><div class="l">FY${d.fiscal_year} obligated</div></div>
+     <div class="stat"><div class="n">${s.total_awards.toLocaleString()}</div><div class="l">urgency awards</div></div>
+     ${s.disputed>0?`<div class="stat"><div class="n">${s.disputed}</div><div class="l">disputed (GAO)</div></div>`:''}
+     ${s.new_since_last>0?`<div class="stat"><div class="n">${s.new_since_last}</div><div class="l">new this update</div></div>`:''}`;
+  document.getElementById('through').textContent = ` Data through ${fmtDate(d.data_through)}.`;
+
+  document.getElementById('mainBody').innerHTML = rowsHtml(DATA);
+  bsModal = new bootstrap.Modal(document.getElementById('detailModal'));
+
+  dt = new PD.DataTable('#mainTable', {
+    order: [[2,'desc']], pageLength: 25, lengthMenu: [[25,50,100,-1],[25,50,100,'All']],
+    responsive: { details: false }, dom: 'lrtip',
+    columnDefs: [
+      { visible:false, targets:[6,7,8,9] }, { type:'num', targets:[2,6] },
+      { orderable:false, targets:[4,5] },
+      { responsivePriority:1, targets:0 }, { responsivePriority:2, targets:2 }, { responsivePriority:3, targets:5 },
+    ],
+  });
+
+  chipBar = new PD.ChipBar({ barEl:'#filtersBar', emptyEl:'#filtersBarEmpty' });
+  fm = new PD.FilterManager({ dataTable: dt, columns: FM_COLS, chipBar: chipBar,
+    formatChipValue: (col,f) => col.type==='range'
+      ? (f.min!=null&&f.max!=null ? `$${f.min}M–$${f.max}M` : f.min!=null ? `≥ $${f.min}M` : `≤ $${f.max}M`)
+      : (f.type==='multiselect' ? f.values.join(', ') : f.value) });
+  fm.subscribe(()=>fm.toURL());
+
+  document.getElementById('addFilterBtn').addEventListener('click', openFilterSelection);
+  let qt; document.getElementById('q').addEventListener('input', e=>{ const v=e.target.value.trim(); clearTimeout(qt); qt=setTimeout(()=>dt.api().search(v).draw(),180); });
+  $('#mainTable tbody').on('click','tr',function(e){ if(e.target.closest('a')) return; const a=piidMap[this.getAttribute('data-piid')]; if(a) openDetail(a); });
+
+  fm.fromURL();
+}).catch(err=>{ console.error(err); document.getElementById('mainBody').innerHTML='<tr><td colspan="6">Couldn’t load the data.</td></tr>'; });
+</script>
+</body>
+</html>
