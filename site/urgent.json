@@ -5,7 +5,7 @@
   "total_awards": 1960,
   "total_obligated": 28523235816,
   "new_since_last": 0,
-  "disputed": 1
+  "disputed": 2
  },
  "awards": [
   {
@@ -3050,7 +3050,13 @@
    "place": "Williamsburg, Virginia",
    "pop_start": "2025-12-15",
    "pop_end": "2026-02-14",
-   "protest": null,
+   "protest": {
+    "case": "B-424144",
+    "outcome": "Dismissed",
+    "protester": "Professional Solutions Delivered, LLC",
+    "filed_date": "2025-12-08",
+    "decision_date": "2025-12-19"
+   },
    "url": "https://www.usaspending.gov/award/CONT_AWD_N0018926CZ002_9700_-NONE-_-NONE-",
    "is_new": false
   },

@@ -71,11 +71,16 @@ def fetch_protests(keys: set) -> dict:
     try:
         from tango import TangoClient
         c = TangoClient(api_key=os.environ["TANGO_API_KEY"])
-        out, page = {}, 1
+        out, page, pulled = {}, 1, 0
         while True:
+            # makegov caps the page size at 100 regardless of the requested limit,
+            # so paginate until we've pulled `count` rows (or hit an empty page).
             r = c.list_protests(
                 shape="case_number,title,outcome,protester,filed_date,decision_date,solicitation_number",
-                filed_date_after=f"{FY - 1}-10-01", limit=200, page=page)
+                filed_date_after=f"{FY - 1}-10-01", limit=100, page=page)
+            if not r.results:
+                break
+            pulled += len(r.results)
             for x in r.results:
                 x = dict(x)
                 cand = {_norm(x.get("solicitation_number"))}
@@ -92,7 +97,7 @@ def fetch_protests(keys: set) -> dict:
                            "decision_date": str(x.get("decision_date") or "")[:10]}
                     for k in match:
                         out[k] = rec
-            if page * 200 >= r.count or not r.results:
+            if pulled >= r.count:
                 break
             page += 1
         return out
