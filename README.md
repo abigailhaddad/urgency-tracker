@@ -20,6 +20,8 @@ There's a COVID-era spike (FY2021 about $41B), then a few quiet years (about $3�
 python urgency_contracts.py --year 2026
 ```
 
+On each award page, the urgency designation is under **Additional Details → Competition Details**, where *"Other than Full and Open Competition"* reads **"Urgency."** (That's the reason *code*, not the written justification — the page tells you it was urgency, not why.)
+
 The repo ships `urgency_contracts_fy2026.csv` (2,755 awards) so you can just open it without running anything.
 
 ## Running the notebook
