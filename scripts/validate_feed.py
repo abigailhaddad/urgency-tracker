@@ -43,7 +43,8 @@ def main() -> int:
     for k in ("fiscal_year", "data_through", "summary", "awards"):
         check(k in d, f"top-level key missing: {k}")
     s = d.get("summary", {})
-    for k in ("total_awards", "total_obligated", "new_since_last", "disputed"):
+    for k in ("total_awards", "total_obligated", "fy26_obligation_flow",
+              "excluded_older_contracts", "new_since_last", "disputed"):
         check(k in s, f"summary key missing: {k}")
 
     awards = d.get("awards", [])
@@ -59,8 +60,9 @@ def main() -> int:
         if miss:
             check(False, f"award {i} ({a.get('piid')}) missing fields: {miss}")
             continue
-        check(isinstance(a["obligated"], (int, float)) and a["obligated"] > 0,
-              f"award {a['piid']}: obligated not positive ({a['obligated']})")
+        # awards are filtered to "awarded in FY26", which can include $0 net obligated
+        check(isinstance(a["obligated"], (int, float)) and a["obligated"] >= 0,
+              f"award {a['piid']}: obligated is negative ({a['obligated']})")
         check(bool(DATE_RE.match(str(a["date"]))), f"award {a['piid']}: bad date {a['date']}")
         check(bool(URL_RE.match(str(a["url"]))), f"award {a['piid']}: bad usaspending url {a['url']}")
         check(bool(str(a["recipient"]).strip()), f"award {a['piid']}: empty recipient")

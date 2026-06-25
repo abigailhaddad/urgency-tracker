@@ -53,6 +53,9 @@ SELECT
   min(period_of_performance_start_date)     AS pop_start,
   max(period_of_performance_current_end_date) AS pop_end,
   max(solicitation_identifier)              AS solicitation_id,
+  -- True if the award has a base/new-award action (modification 0) in FY26, i.e.
+  -- it was actually *awarded* this year — not just modified or de-obligated.
+  bool_or(modification_number IN ('0', 'P00000')) AS awarded_fy26,
   max(contract_award_unique_key)            AS award_key
 FROM read_parquet('{src}')
 WHERE other_than_full_and_open_competition ILIKE '%URGENCY%'
@@ -109,8 +112,14 @@ def fetch_protests(keys: set) -> dict:
 def build() -> int:
     con = duckdb.connect()
     con.execute("INSTALL httpfs; LOAD httpfs;")
-    df = con.execute(FEED_QUERY.format(src=f"{HF}/{FY}.parquet")).df()
-    df = df[df.obligated > 0]  # drop net de-obligations from the public feed
+    df_all = con.execute(FEED_QUERY.format(src=f"{HF}/{FY}.parquet")).df()
+    # Total FY26 urgency *obligation flow* — every urgency action, including money
+    # added to (or pulled from) contracts awarded in earlier years.
+    obligation_flow = float(df_all.obligated.sum())
+    # The list is contracts AWARDED in FY26 (a new-award action this year), at any
+    # dollar amount incl. $0. Excludes FY26 mods/de-obligations of older contracts.
+    df = df_all[df_all.awarded_fy26].copy()
+    n_excluded = len(df_all) - len(df)
     data_through = str(df.last_action.max())[:10]
 
     # Always rebuild — so the makegov protest data re-fetches every run (GAO cases
@@ -170,6 +179,8 @@ def build() -> int:
         "summary": {
             "total_awards": int(len(df)),
             "total_obligated": round(float(df.obligated.sum())),
+            "fy26_obligation_flow": round(obligation_flow),
+            "excluded_older_contracts": int(n_excluded),
             "new_since_last": int(df.is_new.sum()),
             "disputed": disputed,
         },

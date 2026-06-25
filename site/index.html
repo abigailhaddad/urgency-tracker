@@ -99,12 +99,13 @@
 <div class="wrap">
   <header>
     <h1>Federal contracts awarded under&nbsp;"urgency"</h1>
-    <p class="sub">Contracts the government awarded <strong>without full and open competition</strong> by citing "unusual and compelling urgency" (FAR&nbsp;6.302-2). Click any row for full detail; every award links to its official USAspending page.</p>
+    <p class="sub">Contracts the government <strong>awarded in fiscal year 2026</strong> without full and open competition by citing "unusual and compelling urgency" (FAR&nbsp;6.302-2). Click any row for full detail; every award links to its official USAspending page.</p>
     <div class="stats" id="stats"></div>
     <p class="freshness" id="freshness"></p>
     <details class="about">
-      <summary>What is this?</summary>
+      <summary>What is this &amp; how it's counted</summary>
       <p>Agencies normally must compete contracts. One legal way to skip that is to claim "unusual and compelling urgency" — the standard being that the government would suffer serious injury, financial or otherwise, without it. On each award's USAspending page, the designation appears under <em>Additional Details → Competition Details</em> as "Other than Full and Open Competition: Urgency." That's the reason <em>code</em>, not the written justification.</p>
+      <p id="method"></p>
     </details>
 
     <div class="filterrow">
@@ -323,11 +324,13 @@ fetch('urgent.json').then(r=>r.json()).then(d=>{
   DATA = d.awards; DATA.forEach(a=>piidMap[a.piid]=a); FY = d.fiscal_year;
   const s = d.summary;
   document.getElementById('stats').innerHTML =
-    `<div class="stat"><div class="n">${money(s.total_obligated)}</div><div class="l">FY${d.fiscal_year} obligated</div></div>
-     <div class="stat"><div class="n">${s.total_awards.toLocaleString()}</div><div class="l">urgency awards</div></div>
+    `<div class="stat"><div class="n">${s.total_awards.toLocaleString()}</div><div class="l">awarded in FY${d.fiscal_year}</div></div>
+     <div class="stat"><div class="n">${money(s.total_obligated)}</div><div class="l">obligated to them</div></div>
      ${s.disputed>0?`<div class="stat"><div class="n">${s.disputed}</div><div class="l">disputed (GAO)</div></div>`:''}
      ${s.new_since_last>0?`<div class="stat"><div class="n">${s.new_since_last}</div><div class="l">new this update</div></div>`:''}`;
   document.getElementById('freshness').textContent = `↻ Updates monthly from USAspending — current through ${fmtDate(d.data_through)}`;
+  document.getElementById('method').textContent =
+    `Each contract here has a new-award action in FY${d.fiscal_year}, so it was awarded this year — even if $0 has been obligated to it so far. FY${d.fiscal_year} modifications and de-obligations of contracts awarded in earlier years (${s.excluded_older_contracts.toLocaleString()} of them) aren't listed. Counting all FY${d.fiscal_year} urgency obligations — including money added to older contracts — comes to ${money(s.fy26_obligation_flow)}, versus the ${money(s.total_obligated)} obligated to contracts newly awarded this year.`;
   document.getElementById('through').textContent = ` Data through ${fmtDate(d.data_through)}.`;
 
   document.getElementById('mainBody').innerHTML = rowsHtml(DATA);
