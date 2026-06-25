@@ -8,7 +8,7 @@ It all runs off my HuggingFace mirror of USAspending — you query it with DuckD
 
 ![Federal contracting under the urgency exception](urgency_trend.png)
 
-There's a COVID-era spike (FY2021 ~$41B), then a few quiet years (~$3–5B). And then FY2026, which isn't even a full year yet, is already at ~$28B — and **88% of that ($24.9B) is border-wall construction at Customs and Border Protection.** A handful of contractors hold most of it:
+There's a COVID-era spike (FY2021 about $41B), then a few quiet years (about $3–5B). And then FY2026, which isn't even a full year yet, is already at about $28B — and **88% of that ($24.9B) is border-wall construction at Customs and Border Protection.** A handful of contractors hold most of it:
 
 ![Top FY2026 urgency contracts](urgency_top_fy2026.png)
 
@@ -31,7 +31,7 @@ jupyter notebook demo.ipynb        # also opens in Colab — no key needed
 
 ## Why the mirror, and not the USAspending API
 
-USAspending's search API has **no working filter for the urgency reason** — I checked: it accepts the filter and silently ignores it (you get all ~2.9M contracts back either way). To pull the urgency subset through the API you'd have to page through awards and make a per-award detail call on each one to read the competition field, and the trend (aggregate dollars per year) isn't really doable at all. On the mirror it's one line —
+USAspending's search API has **no working filter for the urgency reason** — I checked: it accepts the filter and silently ignores it (you get all 2.9M-odd contracts back either way). To pull the urgency subset through the API you'd have to page through awards and make a per-award detail call on each one to read the competition field, and the trend (aggregate dollars per year) isn't really doable at all. On the mirror it's one line —
 
 ```sql
 WHERE other_than_full_and_open_competition ILIKE '%URGENCY%'
