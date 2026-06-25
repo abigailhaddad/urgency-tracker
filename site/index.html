@@ -27,6 +27,8 @@
   .toolbar{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:18px 0 0; }
   .toolbar input.search{ flex:1 1 240px; padding:9px 12px; border:1px solid var(--line); border-radius:10px; font-size:.92rem; background:#fff; }
   .toolbar input.search:focus{ outline:none; border-color:var(--accent); }
+  .dl-btn{ background:#fff; color:var(--accent); border:1px solid var(--accent); border-radius:10px; padding:9px 14px; font-size:.88rem; font-weight:600; cursor:pointer; white-space:nowrap; }
+  .dl-btn:hover{ background:var(--accent); color:#fff; }
 
   /* chip bar */
   .filters-bar{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; min-height:46px; margin:10px 0 2px;
@@ -101,6 +103,7 @@
 
     <div class="toolbar">
       <input id="q" class="search" type="search" placeholder="Search recipient, agency, or description…" autocomplete="off">
+      <button id="dlBtn" class="dl-btn" type="button">⬇ Download CSV</button>
     </div>
     <div class="filters-bar" id="filtersBar">
       <button class="add-filter-btn" id="addFilterBtn" type="button">+ Add filter</button>
@@ -154,7 +157,44 @@
 const money = PD.format.compactCurrency, esc = PD.format.escapeHtml;
 const fmtDate = s => { const [y,m,d]=s.split('-'); return new Date(y,m-1,d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); };
 const createModal = o => PD.overlay.open(o), closeModal = m => PD.overlay.close(m);
-let DATA = [], piidMap = {}, dt, fm, chipBar, bsModal;
+let DATA = [], piidMap = {}, dt, fm, chipBar, bsModal, FY = '';
+
+// CSV export of the currently-filtered/sorted rows, with EVERY field (incl. the
+// modal-only enrichment and the GAO dispute) — not just the visible columns.
+const CSV_COLS = [
+  ['piid', a => a.piid],
+  ['recipient', a => a.recipient],
+  ['awarding_sub_agency', a => a.sub_agency],
+  ['awarding_department', a => a.agency],
+  ['funding_agency', a => a.funding_agency],
+  ['obligated', a => a.obligated],
+  ['action_date', a => a.date],
+  ['category_psc', a => a.category],
+  ['naics', a => a.naics],
+  ['offers_received', a => a.offers],
+  ['solicitation_procedures', a => a.solicitation],
+  ['place_of_performance', a => a.place],
+  ['pop_start', a => a.pop_start],
+  ['pop_end', a => a.pop_end],
+  ['protest_case', a => a.protest && a.protest.case],
+  ['protest_outcome', a => a.protest && a.protest.outcome],
+  ['protest_by', a => a.protest && a.protest.protester],
+  ['protest_url', a => a.protest && a.protest.url],
+  ['description', a => a.description],
+  ['usaspending_url', a => a.url],
+];
+function csvCell(v){ v = (v==null?'':String(v)); return /[",\n]/.test(v) ? '"'+v.replace(/"/g,'""')+'"' : v; }
+function exportCSV(){
+  const nodes = dt.api().rows({ search:'applied', order:'applied' }).nodes().toArray();
+  const awards = nodes.map(tr => piidMap[tr.getAttribute('data-piid')]).filter(Boolean);
+  const rows = [CSV_COLS.map(c => c[0]).join(',')]
+    .concat(awards.map(a => CSV_COLS.map(c => csvCell(c[1](a))).join(',')));
+  const blob = new Blob([rows.join('\n')], { type:'text/csv;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = `urgency_contracts_fy${FY}${awards.length<DATA.length?'_filtered':''}.csv`;
+  link.click(); URL.revokeObjectURL(link.href);
+}
 
 // cols: 0 recipient 1 agency 2 obligated 3 date 4 desc 5 link | hidden: 6 amt_m 7 agency_top 8 category
 const FILTER_COLS = [
@@ -269,7 +309,7 @@ function openDetail(a){
 }
 
 fetch('urgent.json').then(r=>r.json()).then(d=>{
-  DATA = d.awards; DATA.forEach(a=>piidMap[a.piid]=a);
+  DATA = d.awards; DATA.forEach(a=>piidMap[a.piid]=a); FY = d.fiscal_year;
   const s = d.summary;
   document.getElementById('stats').innerHTML =
     `<div class="stat"><div class="n">${money(s.total_obligated)}</div><div class="l">FY${d.fiscal_year} obligated</div></div>
@@ -299,6 +339,7 @@ fetch('urgent.json').then(r=>r.json()).then(d=>{
   fm.subscribe(()=>fm.toURL());
 
   document.getElementById('addFilterBtn').addEventListener('click', openFilterSelection);
+  document.getElementById('dlBtn').addEventListener('click', exportCSV);
   let qt; document.getElementById('q').addEventListener('input', e=>{ const v=e.target.value.trim(); clearTimeout(qt); qt=setTimeout(()=>dt.api().search(v).draw(),180); });
   $('#mainTable tbody').on('click','tr',function(e){ if(e.target.closest('a')) return; const a=piidMap[this.getAttribute('data-piid')]; if(a) openDetail(a); });
 
