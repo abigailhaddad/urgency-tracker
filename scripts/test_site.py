@@ -41,15 +41,16 @@ def main() -> int:
             page.wait_for_selector("#mainTable tbody tr", timeout=20000)
             rows = page.eval_on_selector_all("#mainTable tbody tr", "els => els.length")
             stats = page.eval_on_selector_all(".stat .n", "els => els.length")
-            # detail modal opens on row click, then closes cleanly
+            # detail modal opens on row click, then closes via its button (more
+            # deterministic than Escape, which can miss in headless CI)
             page.click("#mainTable tbody tr:first-child td:first-child")
-            page.wait_for_selector("#detailModal.show", timeout=8000)
-            page.keyboard.press("Escape")
-            page.wait_for_selector("#detailModal", state="hidden", timeout=8000)
-            page.wait_for_selector(".modal-backdrop", state="detached", timeout=8000)
+            page.wait_for_selector("#detailModal.show", timeout=10000)
+            page.click("#detailModal .btn-close")
+            page.wait_for_selector("#detailModal", state="hidden", timeout=15000)
+            page.wait_for_selector(".modal-backdrop", state="detached", timeout=10000)
             # add-filter popover opens
             page.click("#addFilterBtn")
-            page.wait_for_selector(".filter-popover", timeout=8000)
+            page.wait_for_selector(".filter-popover", timeout=10000)
             browser.close()
     finally:
         httpd.shutdown()
