@@ -20,7 +20,7 @@ There's a COVID-era spike (FY2021 about $41B), then a few quiet years (about $3â
 python urgency_contracts.py --year 2026
 ```
 
-The repo ships `urgency_contracts_fy2026.csv` (2,755 awards) so you can just open it without running anything. (Some oddities in there: a $14M repaint of the Lincoln Reflecting Pool, State Department VVIP limousine rentals, an HHS documentary â€” all justified by "unusual and compelling urgency.")
+The repo ships `urgency_contracts_fy2026.csv` (2,755 awards) so you can just open it without running anything.
 
 ## Running the notebook
 
