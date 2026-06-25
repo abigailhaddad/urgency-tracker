@@ -33,13 +33,30 @@ jobs:
           TANGO_API_KEY: ${{ secrets.TANGO_API_KEY }}
 
       - name: Commit if the feed changed
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add site/urgent.json scripts/feed_state.json
           if git diff --cached --quiet; then
-            echo "No new HF data — nothing to commit."
+            echo "No change (HF + protests unchanged) — nothing to commit."
           else
-            git commit -m "Update urgency feed for new HF drop [skip ci]"
+            git commit -m "Update urgency feed (data/protests changed) [skip ci]"
             git pull --rebase --autostash origin main && git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy to Vercel
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          if [ -n "$VERCEL_TOKEN" ]; then
+            npx --yes vercel deploy --prod --yes --token "$VERCEL_TOKEN"
+          else
+            echo "VERCEL_TOKEN not set — feed committed, but skipping deploy."
+            echo "Add a VERCEL_TOKEN repo secret (vercel.com/account/tokens) to auto-deploy,"
+            echo "or connect the repo to Vercel's Git integration."
           fi
