@@ -157,6 +157,10 @@
 const money = PD.format.compactCurrency, esc = PD.format.escapeHtml;
 const fmtDate = s => { const [y,m,d]=s.split('-'); return new Date(y,m-1,d).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); };
 const createModal = o => PD.overlay.open(o), closeModal = m => PD.overlay.close(m);
+const protestSummary = p => `GAO ${p.case} — ${p.outcome}`
+  + (p.protester ? `; protest by ${p.protester}` : '')
+  + (p.filed_date ? `; filed ${p.filed_date}` : '')
+  + (p.decision_date ? `; decided ${p.decision_date}` : '');
 let DATA = [], piidMap = {}, dt, fm, chipBar, bsModal, FY = '';
 
 // CSV export of the currently-filtered/sorted rows, with EVERY field (incl. the
@@ -179,7 +183,7 @@ const CSV_COLS = [
   ['protest_case', a => a.protest && a.protest.case],
   ['protest_outcome', a => a.protest && a.protest.outcome],
   ['protest_by', a => a.protest && a.protest.protester],
-  ['protest_url', a => a.protest && a.protest.url],
+  ['protest_filed_date', a => a.protest && a.protest.filed_date],
   ['description', a => a.description],
   ['usaspending_url', a => a.url],
 ];
@@ -214,7 +218,7 @@ const FM_COLS = [
 
 function rowsHtml(rows){
   return rows.map(a => `<tr data-piid="${esc(a.piid)}">
-    <td>${esc(a.recipient)}${a.is_new?'<span class="new">new</span>':''}${a.protest?'<span class="badge-protest">⚖ disputed</span>':''}</td>
+    <td>${esc(a.recipient)}${a.is_new?'<span class="new">new</span>':''}${a.protest?`<span class="badge-protest" title="${esc(protestSummary(a.protest))}">⚖ disputed</span>`:''}</td>
     <td>${esc(a.sub_agency)}</td>
     <td data-order="${a.obligated}"><span class="amt-cell">${money(a.obligated)}</span></td>
     <td data-order="${a.date}">${fmtDate(a.date)}</td>
@@ -302,7 +306,7 @@ function openDetail(a){
   document.getElementById('modalTitle').textContent = a.recipient;
   document.getElementById('modalBody').innerHTML =
     `<dl class="modal-kv">${rows}</dl>
-     ${a.protest?`<div class="dispute"><strong>⚖ Bid protest — GAO ${esc(a.protest.case)}</strong><br>${esc(a.protest.outcome)}${a.protest.protester?`, filed by ${esc(a.protest.protester)}`:''}${a.protest.decision_date?` (decided ${fmtDate(a.protest.decision_date)})`:''}. <a href="${a.protest.url}" target="_blank" rel="noopener">View GAO docket →</a></div>`:''}
+     ${a.protest?`<div class="dispute"><strong>⚖ Bid protest — GAO ${esc(a.protest.case)}</strong><br>${esc(a.protest.outcome)}${a.protest.protester?`, protest by ${esc(a.protest.protester)}`:''}${a.protest.filed_date?` · filed ${fmtDate(a.protest.filed_date)}`:''}${a.protest.decision_date?` · decided ${fmtDate(a.protest.decision_date)}`:''}<br><span style="font-size:.75rem;opacity:.75">GAO docket data via makegov</span></div>`:''}
      <div class="modal-desc"><strong>Description</strong>${esc(a.description||'—')}</div>
      <a class="btn-acc" href="${a.url}" target="_blank" rel="noopener">View on USAspending →</a>`;
   bsModal.show();

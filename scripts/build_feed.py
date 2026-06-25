@@ -82,11 +82,14 @@ def fetch_protests(keys: set) -> dict:
                 cand |= {_norm(t) for t in re.findall(r"\(([^)]+)\)", str(x.get("title") or ""))}
                 match = (cand & keys) - {""}
                 if match:
-                    rec = {"case": x.get("case_number"),
+                    # GAO has no stable public per-case URL (and pending cases have no
+                    # decision page), so we don't link out — just surface what makegov
+                    # returned. Uppercase the case number to match GAO's own style.
+                    rec = {"case": (x.get("case_number") or "").upper(),
                            "outcome": x.get("outcome") or "Pending",
                            "protester": x.get("protester"),
-                           "decision_date": str(x.get("decision_date") or "")[:10],
-                           "url": f"https://www.gao.gov/products/{x.get('case_number')}"}
+                           "filed_date": str(x.get("filed_date") or "")[:10],
+                           "decision_date": str(x.get("decision_date") or "")[:10]}
                     for k in match:
                         out[k] = rec
             if page * 200 >= r.count or not r.results:
