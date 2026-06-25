@@ -12,7 +12,6 @@ chart in demo.ipynb.
 from __future__ import annotations
 
 import argparse
-import math
 
 import duckdb
 
@@ -39,32 +38,13 @@ SELECT
   any_value(product_or_service_code_description)  AS psc_description,
   any_value(other_than_full_and_open_competition) AS urgency_reason,
   any_value(transaction_description)              AS description,
-  -- fields used to build the USAspending award-page link
-  any_value(awarding_sub_agency_code)             AS url_sub,
-  any_value(parent_award_id_piid)                 AS url_ppiid,
-  any_value(parent_award_agency_id)               AS url_pagency
+  -- USAspending's own canonical award key (handles awards vs IDVs correctly)
+  any_value(contract_award_unique_key)            AS award_key
 FROM read_parquet('{src}')
 WHERE other_than_full_and_open_competition ILIKE '%URGENCY%'
 GROUP BY award_id_piid
 ORDER BY obligated DESC
 """
-
-
-def _missing(v) -> bool:
-    return v is None or (isinstance(v, float) and math.isnan(v)) or str(v).strip() in ("", "None", "nan", "<NA>")
-
-
-def usaspending_url(row) -> str:
-    """USAspending award-page URL. The page id is
-    CONT_AWD_<piid>_<awarding-subtier>_<parent-piid|-NONE->_<parent-subtier|-NONE->.
-    Verified to match the USAspending API across standalone awards, delivery orders,
-    and purchase orders."""
-    sub = "-NONE-" if _missing(row.url_sub) else row.url_sub
-    if _missing(row.url_ppiid):
-        tail = "-NONE-_-NONE-"
-    else:
-        tail = f"{row.url_ppiid}_{'-NONE-' if _missing(row.url_pagency) else row.url_pagency}"
-    return f"https://www.usaspending.gov/award/CONT_AWD_{row.piid}_{sub}_{tail}"
 
 
 def main() -> int:
@@ -77,8 +57,9 @@ def main() -> int:
     con = duckdb.connect()
     con.execute("INSTALL httpfs; LOAD httpfs;")
     df = con.execute(QUERY.format(src=f"{HF}/{args.year}.parquet")).df()
-    df["usaspending_url"] = [usaspending_url(r) for r in df.itertuples()]
-    df = df.drop(columns=["url_sub", "url_ppiid", "url_pagency"])
+    # USAspending's award page is /award/<contract_award_unique_key> (CONT_AWD_… or CONT_IDV_…).
+    df["usaspending_url"] = "https://www.usaspending.gov/award/" + df["award_key"].astype(str)
+    df = df.drop(columns=["award_key"])
     # surface the link right after the PIID
     df = df[["piid", "usaspending_url"] + [c for c in df.columns if c not in ("piid", "usaspending_url")]]
     df.to_csv(out, index=False)
