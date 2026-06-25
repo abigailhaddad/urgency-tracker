@@ -1,7 +1,3 @@
 duckdb
 pandas
 matplotlib
-requests        # SAM.gov justification fetch (fetch_justification.py)
-pypdf           # } justification attachment text extraction
-python-docx     # }
-openpyxl        # }

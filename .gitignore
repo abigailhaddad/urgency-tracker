@@ -4,5 +4,4 @@ __pycache__/
 .venv/
 venv/
 *.parquet
-data/
-urgency_and_why.csv
+.DS_Store
