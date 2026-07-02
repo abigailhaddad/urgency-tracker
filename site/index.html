@@ -101,6 +101,7 @@
   .ja-text p.ja-h{ font-weight:700; }
   .ja-text strong{ font-weight:700; }
   .ja-text hr{ border:0; border-top:1px solid rgba(0,0,0,.14); margin:12px 0; }
+  .ja-text mark{ background:#fde68a; color:inherit; padding:0 1px; border-radius:2px; }
   .ja-src{ font-size:.75rem; opacity:.75; margin-top:6px; }
   .ja-note{ font-size:.86rem; color:var(--muted); }
   .btn-acc{ display:inline-block; margin-top:16px; background:var(--accent); color:#fff; border-radius:9px; padding:9px 14px; font-weight:600; text-decoration:none; font-size:.9rem; }
@@ -335,27 +336,39 @@ function openDetail(a){
      <div class="modal-desc"><strong>Description</strong>${esc(a.description||'—')}</div>
      ${a.ja?`<div class="modal-ja"><strong>Justification for the urgency (J&amp;A)</strong><div class="ja-body ja-note">Loading the written justification…</div></div>`:''}
      <a class="btn-acc" href="${a.url}" target="_blank" rel="noopener">View on USAspending →</a>`;
-  if(a.ja) loadJustification(a.piid);
   bsModal.show();
+  if(a.ja){
+    loadJustification(a.piid);                                   // render + highlight
+    document.getElementById('detailModal')
+      .addEventListener('shown.bs.modal', scrollJaToMark, { once:true });  // then scroll to it
+  }
 }
 
-// The full J&A text lives in justifications/<piid>.json (not in urgent.json, which
+// The J&A corpus is loaded once with the feed (JA map); the modal reads it in-memory —
 // would bloat it), so fetch it on demand the first time a row with one is opened.
 // Render reflowed J&A text (paragraphs separated by blank lines) as HTML: bold ALL-CAPS
 // headings and the numbered "N. Title (FAR …)." lead-ins, render our em-dash separator
 // as a rule.
-function jaHtml(text){
+function jaHtml(text, query){
   const capsHead = p => { const n=(p.match(/[A-Za-z]/g)||[]).length; return n>=3 && p===p.toUpperCase() && p.length<=90; };
+  // Highlight the active justification search term. We wrap matches in the ALREADY
+  // escaped string (escaping the query too), so nothing user-supplied becomes markup.
+  const q = (query||'').trim();
+  const re = q ? new RegExp(esc(q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'gi') : null;
+  const hl = s => re ? s.replace(re, m=>`<mark>${m}</mark>`) : s;
   return String(text||'').split(/\n{2,}/).map(p=>{
     p = p.trim(); if(!p) return '';
     if(/^[—-]{2,}$/.test(p)) return '<hr>';
-    if(capsHead(p)) return `<p class="ja-h">${esc(p)}</p>`;
+    if(capsHead(p)) return `<p class="ja-h">${hl(esc(p))}</p>`;
     const m = p.match(/^(\d+\.\s[\s\S]*?\)\.)(\s[\s\S]*)?$/);   // "3. Title (FAR 6.303-2(b)(3))." + body
-    if(m){ const body=(m[2]||'').trim(); return `<p><strong>${esc(m[1])}</strong>${body?'<br>'+esc(body):''}</p>`; }
-    return `<p>${esc(p)}</p>`;
+    if(m){ const body=(m[2]||'').trim(); return `<p><strong>${hl(esc(m[1]))}</strong>${body?'<br>'+hl(esc(body)):''}</p>`; }
+    return `<p>${hl(esc(p))}</p>`;
   }).join('');
 }
-function renderJustificationInto(el, j){
+// The term currently typed into the "Justification text" filter (col 10), if any.
+function currentJaQuery(){ const f = fm && fm.activeFilters && fm.activeFilters['10']; return f ? f.value : ''; }
+
+function renderJustificationInto(el, j, query){
   if(!el) return;
   if(!j){ el.textContent = 'Justification unavailable.'; return; }
   const link = j.sam_url
@@ -364,14 +377,26 @@ function renderJustificationInto(el, j){
   if(j.text){
     el.classList.remove('ja-note');
     const ocrNote = j.ocr ? `<div class="ja-src">Transcribed from a scanned/image PDF by an LLM — verify against the source before quoting.</div>` : '';
-    el.innerHTML = `<div class="ja-text">${jaHtml(j.text)}</div>${ocrNote}${link}`;
+    el.innerHTML = `<div class="ja-text">${jaHtml(j.text, query)}</div>${ocrNote}${link}`;
+    // The scroll-to-highlight happens on the modal's shown.bs.modal event (see
+    // openDetail) — the nested scroll boxes only have layout once it's fully shown.
   } else {  // 'empty' — a J&A notice exists but the PDF had no extractable text
     el.innerHTML = `<div class="ja-note">A Justification &amp; Approval was posted, but its text couldn't be extracted (likely a scanned document).</div>${link}`;
   }
 }
 function loadJustification(piid){
-  // The corpus is already in memory (loaded with the feed) — render synchronously.
-  renderJustificationInto(document.querySelector('#modalBody .modal-ja .ja-body'), JA[piid]);
+  // The corpus is already in memory (loaded with the feed) — render synchronously,
+  // highlighting whatever the user searched the justification text for.
+  renderJustificationInto(document.querySelector('#modalBody .modal-ja .ja-body'), JA[piid], currentJaQuery());
+}
+// Scroll the modal to the first highlighted match — called on shown.bs.modal, when the
+// nested scroll containers (modal body + the .ja-text box) finally have layout.
+function scrollJaToMark(){
+  const box = document.querySelector('#modalBody .modal-ja .ja-text'), mk = box && box.querySelector('mark');
+  if(!mk) return;
+  const mb = document.getElementById('modalBody'), sec = box.closest('.modal-ja');
+  if(mb && sec) mb.scrollTop += sec.getBoundingClientRect().top - mb.getBoundingClientRect().top - 8;
+  box.scrollTop += mk.getBoundingClientRect().top - box.getBoundingClientRect().top - box.clientHeight/2;
 }
 
 // Stats reflect the CURRENT filtered view (recomputed on every table draw).
