@@ -78,6 +78,7 @@
   td.desc > div{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
   .new{ display:inline-block; font-size:.6rem; font-weight:700; color:#fff; background:var(--new); border-radius:999px; padding:1px 6px; margin-left:6px; vertical-align:middle; letter-spacing:.04em; }
   .badge-protest{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#c1666b; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; }
+  .badge-ja{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#3b7a57; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
   .dispute{ margin-top:14px; padding:11px 13px; background:#fbeeef; border:1px solid #e3b9bc; border-radius:10px; font-size:.86rem; }
   .dispute strong{ color:#a33a40; }
   .dispute a{ color:#a33a40; font-weight:600; }
@@ -90,6 +91,18 @@
   .modal-kv dd{ margin:0; word-break:break-word; }
   .modal-desc{ margin-top:16px; font-size:.9rem; line-height:1.55; }
   .modal-desc strong{ display:block; color:var(--muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; }
+  /* written J&A (lazy-loaded from justifications/<piid>.json) */
+  .modal-ja{ margin-top:16px; }
+  .modal-ja > strong{ display:block; color:var(--muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; margin-bottom:4px; }
+  .ja-text{ font-size:.86rem; line-height:1.55; word-break:break-word; max-height:360px; overflow:auto;
+            background:var(--panel,#f7f7f8); border:1px solid rgba(0,0,0,.08); border-radius:8px; padding:12px 14px; }
+  .ja-text p{ margin:0 0 9px; }
+  .ja-text p:last-child{ margin-bottom:0; }
+  .ja-text p.ja-h{ font-weight:700; }
+  .ja-text strong{ font-weight:700; }
+  .ja-text hr{ border:0; border-top:1px solid rgba(0,0,0,.14); margin:12px 0; }
+  .ja-src{ font-size:.75rem; opacity:.75; margin-top:6px; }
+  .ja-note{ font-size:.86rem; color:var(--muted); }
   .btn-acc{ display:inline-block; margin-top:16px; background:var(--accent); color:#fff; border-radius:9px; padding:9px 14px; font-weight:600; text-decoration:none; font-size:.9rem; }
 
   footer{ color:var(--muted); font-size:.8rem; padding-top:22px; margin-top:18px; border-top:1px solid var(--line); }
@@ -227,7 +240,7 @@ const FM_COLS = [
 
 function rowsHtml(rows){
   return rows.map(a => `<tr data-piid="${esc(a.piid)}">
-    <td>${esc(a.recipient)}${a.is_new?'<span class="new">new</span>':''}${a.protest?`<span class="badge-protest" title="${esc(protestSummary(a.protest))}">⚖ disputed</span>`:''}</td>
+    <td>${esc(a.recipient)}${a.is_new?'<span class="new">new</span>':''}${a.protest?`<span class="badge-protest" title="${esc(protestSummary(a.protest))}">⚖ disputed</span>`:''}${a.ja?'<span class="badge-ja" title="The agency\'s written justification for skipping competition is on file — click the row to read it">📄 Justification</span>':''}</td>
     <td>${esc(a.sub_agency)}</td>
     <td data-order="${a.obligated}"><span class="amt-cell">${money(a.obligated)}</span></td>
     <td data-order="${a.date}">${fmtDate(a.date)}</td>
@@ -317,8 +330,51 @@ function openDetail(a){
     `<dl class="modal-kv">${rows}</dl>
      ${a.protest?`<div class="dispute"><strong>⚖ Bid protest — GAO ${esc(a.protest.case)}</strong><br>${esc(a.protest.outcome)}${a.protest.protester?`, protest by ${esc(a.protest.protester)}`:''}${a.protest.filed_date?` · filed ${fmtDate(a.protest.filed_date)}`:''}${a.protest.decision_date?` · decided ${fmtDate(a.protest.decision_date)}`:''}<br><span style="font-size:.75rem;opacity:.75">GAO docket data via makegov</span></div>`:''}
      <div class="modal-desc"><strong>Description</strong>${esc(a.description||'—')}</div>
+     ${a.ja?`<div class="modal-ja"><strong>Justification for the urgency (J&amp;A)</strong><div class="ja-body ja-note">Loading the written justification…</div></div>`:''}
      <a class="btn-acc" href="${a.url}" target="_blank" rel="noopener">View on USAspending →</a>`;
+  if(a.ja) loadJustification(a.piid);
   bsModal.show();
+}
+
+// The full J&A text lives in justifications/<piid>.json (not in urgent.json, which
+// would bloat it), so fetch it on demand the first time a row with one is opened.
+const jaCache = {};
+// Render reflowed J&A text (paragraphs separated by blank lines) as HTML: bold ALL-CAPS
+// headings and the numbered "N. Title (FAR …)." lead-ins, render our em-dash separator
+// as a rule.
+function jaHtml(text){
+  const capsHead = p => { const n=(p.match(/[A-Za-z]/g)||[]).length; return n>=3 && p===p.toUpperCase() && p.length<=90; };
+  return String(text||'').split(/\n{2,}/).map(p=>{
+    p = p.trim(); if(!p) return '';
+    if(/^[—-]{2,}$/.test(p)) return '<hr>';
+    if(capsHead(p)) return `<p class="ja-h">${esc(p)}</p>`;
+    const m = p.match(/^(\d+\.\s[\s\S]*?\)\.)(\s[\s\S]*)?$/);   // "3. Title (FAR 6.303-2(b)(3))." + body
+    if(m){ const body=(m[2]||'').trim(); return `<p><strong>${esc(m[1])}</strong>${body?'<br>'+esc(body):''}</p>`; }
+    return `<p>${esc(p)}</p>`;
+  }).join('');
+}
+function renderJustificationInto(el, j){
+  if(!el) return;
+  if(!j){ el.textContent = 'Justification unavailable.'; return; }
+  const link = j.sam_url
+    ? `<div class="ja-src">Source: <a href="${esc(j.sam_url)}" target="_blank" rel="noopener">Justification &amp; Approval on SAM.gov →</a>${j.pdfs&&j.pdfs[0]?` · ${esc(j.pdfs[0].name)}`:''}</div>`
+    : '';
+  if(j.text){
+    el.classList.remove('ja-note');
+    const ocrNote = j.ocr ? `<div class="ja-src">Transcribed from a scanned/image PDF by an LLM — verify against the source before quoting.</div>` : '';
+    el.innerHTML = `<div class="ja-text">${jaHtml(j.text)}</div>${ocrNote}${link}`;
+  } else {  // 'empty' — a J&A notice exists but the PDF had no extractable text
+    el.innerHTML = `<div class="ja-note">A Justification &amp; Approval was posted, but its text couldn't be extracted (likely a scanned document).</div>${link}`;
+  }
+}
+function loadJustification(piid){
+  const sel = () => { const s=document.querySelector('#modalBody .modal-ja .ja-body'); return s; };
+  const done = j => { jaCache[piid]=j; renderJustificationInto(sel(), j); };
+  if(piid in jaCache){ renderJustificationInto(sel(), jaCache[piid]); return; }
+  fetch(`justifications/${encodeURIComponent(piid)}.json`, {cache:'no-store'})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP '+r.status)))
+    .then(done)
+    .catch(() => { const el=sel(); if(el){ el.textContent='Could not load the justification.'; } });
 }
 
 // Stats reflect the CURRENT filtered view (recomputed on every table draw).

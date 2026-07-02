@@ -27,7 +27,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install duckdb pandas tango-python
+      # pymupdf + litellm are only needed for the optional J&A OCR fallback; harmless if unused.
+      - run: pip install duckdb pandas tango-python pypdf pymupdf litellm
 
       - name: Rebuild the feed
         run: python scripts/build_feed.py
@@ -35,6 +36,9 @@ jobs:
           # Optional: enables the GAO bid-protest enrichment. If unset, the feed
           # still builds (just without the protest data). Add it as a repo secret.
           TANGO_API_KEY: ${{ secrets.TANGO_API_KEY }}
+          # Optional: enables OCR of scanned/image J&A PDFs via a vision LLM. If unset,
+          # scanned J&As stay link-only (no text). Add OPENAI_API_KEY as a repo secret.
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Validate feed data (bad data must not ship)
         run: python scripts/validate_feed.py
@@ -50,11 +54,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/urgent.json scripts/feed_state.json
+          git add site/urgent.json scripts/feed_state.json scripts/ja_state.json site/justifications
           if git diff --cached --quiet; then
-            echo "No change (HF + protests unchanged) — nothing to commit."
+            echo "No change (HF + protests + justifications unchanged) — nothing to commit."
           else
-            git commit -m "Update urgency feed (data/protests changed) [skip ci]"
+            git commit -m "Update urgency feed (data/protests/justifications changed) [skip ci]"
             git pull --rebase --autostash origin main && git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi

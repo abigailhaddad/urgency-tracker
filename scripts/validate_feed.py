@@ -13,14 +13,16 @@ import pathlib
 import re
 import sys
 
-OUT = pathlib.Path(__file__).resolve().parent.parent / "site" / "urgent.json"
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+OUT = ROOT / "site" / "urgent.json"
+JA_DIR = ROOT / "site" / "justifications"
 
 # Every field the table rows, the detail modal, and the CSV export read. If one
 # goes missing, the front end silently breaks — so require it on every award.
 REQUIRED = [
     "piid", "recipient", "agency", "sub_agency", "funding_agency", "obligated",
     "date", "description", "category", "naics", "offers", "solicitation", "place",
-    "pop_start", "pop_end", "protest", "url", "is_new",
+    "pop_start", "pop_end", "protest", "url", "is_new", "ja",
 ]
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 URL_RE = re.compile(r"^https://www\.usaspending\.gov/award/CONT_(AWD|IDV)_")
@@ -44,7 +46,7 @@ def main() -> int:
         check(k in d, f"top-level key missing: {k}")
     s = d.get("summary", {})
     for k in ("total_awards", "total_obligated", "fy26_obligation_flow",
-              "excluded_older_contracts", "new_since_last", "disputed"):
+              "excluded_older_contracts", "new_since_last", "disputed", "with_justification"):
         check(k in s, f"summary key missing: {k}")
 
     awards = d.get("awards", [])
@@ -54,12 +56,16 @@ def main() -> int:
     check(s.get("total_obligated", 0) > 0, "summary.total_obligated is not positive")
     check(bool(DATE_RE.match(str(d.get("data_through")))), f"bad data_through: {d.get('data_through')}")
 
-    disputed = new = 0
+    disputed = new = with_ja = 0
     for i, a in enumerate(awards):
         miss = [k for k in REQUIRED if k not in a]
         if miss:
             check(False, f"award {i} ({a.get('piid')}) missing fields: {miss}")
             continue
+        if a["ja"]:
+            with_ja += 1
+            f = JA_DIR / f"{a['piid']}.json"
+            check(f.exists(), f"award {a['piid']}: ja=True but {f.name} is missing")
         # awards are filtered to "awarded in FY26", which can include $0 net obligated
         check(isinstance(a["obligated"], (int, float)) and a["obligated"] >= 0,
               f"award {a['piid']}: obligated is negative ({a['obligated']})")
@@ -75,6 +81,8 @@ def main() -> int:
 
     check(s.get("disputed") == disputed, f"summary.disputed ({s.get('disputed')}) != counted ({disputed})")
     check(s.get("new_since_last") == new, f"summary.new_since_last ({s.get('new_since_last')}) != counted ({new})")
+    check(s.get("with_justification") == with_ja,
+          f"summary.with_justification ({s.get('with_justification')}) != counted ({with_ja})")
 
     if errors:
         print(f"FEED VALIDATION FAILED — {len(errors)} problem(s):")

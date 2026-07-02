@@ -30,6 +30,9 @@ from urgency_contracts import HF  # noqa: E402
 FY = 2026
 OUT = ROOT / "site" / "urgent.json"
 STATE = ROOT / "scripts" / "feed_state.json"
+# Written J&A text: per-award files the modal lazy-fetches, + a compact checked-cache.
+JA_DIR = ROOT / "site" / "justifications"
+JA_STATE = ROOT / "scripts" / "ja_state.json"
 
 # Award-level rollup with the extra fields the detail modal needs (offers,
 # solicitation, place/period of performance, NAICS) — things not in the table.
@@ -169,9 +172,33 @@ def build() -> int:
             "protest": protests.get(_norm(r.piid)) or protests.get(_norm(r.solicitation_id)),
             "url": r.url,
             "is_new": bool(r.is_new),
+            "ja": False,   # set by justification enrichment below (modal lazy-loads the text)
         }
         for r in df.sort_values(["obligated", "piid"], ascending=[False, True]).itertuples()
     ]
+
+    # Written J&A text: for awards that posted a Justification notice to SAM.gov, pull
+    # the PDF and stash its text in site/justifications/<piid>.json for the modal. Needs
+    # TANGO_API_KEY + the tango SDK + pypdf; if any is missing it's skipped and every
+    # award just keeps ja=False (the section simply won't show). Best-effort, never fatal.
+    with_ja = 0
+    if os.environ.get("TANGO_API_KEY"):
+        try:
+            import justifications  # noqa: E402  (local module in scripts/)
+            sol_by_piid = {p: clean(s) for p, s in zip(df.piid, df.solicitation_id)}
+            # Optional: OCR scanned/image J&As with a vision LLM. Enabled only if an
+            # OpenAI key is present; without it, scanned J&As stay 'empty' (link-only).
+            ocr_key = os.environ.get("OPENAI_API_KEY")
+            with_ja = justifications.enrich(
+                awards, sol_by_piid, JA_DIR, JA_STATE, os.environ["TANGO_API_KEY"],
+                ocr_api_key=ocr_key,
+                ocr_model=os.environ.get("OCR_MODEL", justifications.OCR_MODEL_DEFAULT),
+                # Set JA_RECHECK_NONE=0 for a one-time full seed (skip re-querying
+                # awards already known to have no J&A). Default on for scheduled CI.
+                recheck_none=os.environ.get("JA_RECHECK_NONE", "1") != "0")
+        except Exception as e:  # noqa: BLE001
+            print(f"  (justification enrichment skipped: {e})")
+
     disputed = sum(1 for a in awards if a["protest"])
     feed = {
         "fiscal_year": FY,
@@ -183,6 +210,7 @@ def build() -> int:
             "excluded_older_contracts": int(n_excluded),
             "new_since_last": int(df.is_new.sum()),
             "disputed": disputed,
+            "with_justification": with_ja,
         },
         "awards": awards,
     }
@@ -195,7 +223,8 @@ def build() -> int:
         "prev_piids": sorted(baseline),
     }, indent=1))
     print(f"Wrote {OUT} — {len(df):,} awards, ${df.obligated.sum()/1e9:.1f}B, "
-          f"{feed['summary']['new_since_last']} new, {disputed} with a GAO protest (data through {data_through}).")
+          f"{feed['summary']['new_since_last']} new, {disputed} with a GAO protest, "
+          f"{with_ja} with a J&A on file (data through {data_through}).")
     return 0
 
 
