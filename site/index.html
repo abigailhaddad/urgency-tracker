@@ -181,7 +181,7 @@ const protestSummary = p => `GAO ${p.case} — ${p.outcome}`
   + (p.protester ? `; protest by ${p.protester}` : '')
   + (p.filed_date ? `; filed ${p.filed_date}` : '')
   + (p.decision_date ? `; decided ${p.decision_date}` : '');
-let DATA = [], piidMap = {}, dt, fm, chipBar, bsModal, FY = '';
+let DATA = [], piidMap = {}, JA = {}, dt, fm, chipBar, bsModal, FY = '';
 
 // CSV export of the currently-filtered/sorted rows, with EVERY field (incl. the
 // modal-only enrichment and the GAO dispute) — not just the visible columns.
@@ -220,10 +220,11 @@ function exportCSV(){
   link.click(); URL.revokeObjectURL(link.href);
 }
 
-// cols: 0 recipient 1 agency 2 obligated 3 date 4 desc 5 link | hidden: 6 amt_m 7 agency_top 8 category
+// cols: 0 recipient 1 agency 2 obligated 3 date 4 desc 5 link | hidden: 6 amt_m 7 agency_top 8 category 9 dispute 10 justification text
 const FILTER_COLS = [
   { index: 0, name: 'Recipient',  type: 'text' },
   { index: 4, name: 'Description', type: 'text' },
+  { index: 10, name: 'Justification text', type: 'text' },
   { index: 7, name: 'Agency',     type: 'multiselect' },
   { index: 8, name: 'Category',   type: 'multiselect' },
   { index: 9, name: 'Dispute',    type: 'multiselect' },
@@ -232,6 +233,7 @@ const FILTER_COLS = [
 const FM_COLS = [
   { index: 0, name: 'Recipient',  type: 'text',        urlKey: 'recipient' },
   { index: 4, name: 'Description', type: 'text',        urlKey: 'desc' },
+  { index: 10, name: 'Justification text', type: 'text', urlKey: 'justification' },
   { index: 7, name: 'Agency',     type: 'multiselect', urlKey: 'agency' },
   { index: 8, name: 'Category',   type: 'multiselect', urlKey: 'category' },
   { index: 9, name: 'Dispute',    type: 'multiselect', urlKey: 'dispute' },
@@ -248,6 +250,7 @@ function rowsHtml(rows){
     <td><a href="${a.url}" target="_blank" rel="noopener">USAspending&nbsp;&rarr;</a></td>
     <td>${(a.obligated/1e6).toFixed(3)}</td><td>${esc(a.agency)}</td><td>${esc(a.category||'')}</td>
     <td>${a.protest?esc(a.protest.outcome):''}</td>
+    <td>${a.ja && JA[a.piid] && JA[a.piid].text ? esc(JA[a.piid].text) : ''}</td>
   </tr>`).join('');
 }
 
@@ -338,7 +341,6 @@ function openDetail(a){
 
 // The full J&A text lives in justifications/<piid>.json (not in urgent.json, which
 // would bloat it), so fetch it on demand the first time a row with one is opened.
-const jaCache = {};
 // Render reflowed J&A text (paragraphs separated by blank lines) as HTML: bold ALL-CAPS
 // headings and the numbered "N. Title (FAR …)." lead-ins, render our em-dash separator
 // as a rule.
@@ -368,13 +370,8 @@ function renderJustificationInto(el, j){
   }
 }
 function loadJustification(piid){
-  const sel = () => { const s=document.querySelector('#modalBody .modal-ja .ja-body'); return s; };
-  const done = j => { jaCache[piid]=j; renderJustificationInto(sel(), j); };
-  if(piid in jaCache){ renderJustificationInto(sel(), jaCache[piid]); return; }
-  fetch(`justifications/${encodeURIComponent(piid)}.json`, {cache:'no-store'})
-    .then(r => r.ok ? r.json() : Promise.reject(new Error('HTTP '+r.status)))
-    .then(done)
-    .catch(() => { const el=sel(); if(el){ el.textContent='Could not load the justification.'; } });
+  // The corpus is already in memory (loaded with the feed) — render synchronously.
+  renderJustificationInto(document.querySelector('#modalBody .modal-ja .ja-body'), JA[piid]);
 }
 
 // Stats reflect the CURRENT filtered view (recomputed on every table draw).
@@ -395,7 +392,13 @@ function renderStats(){
      ${nw>0?`<div class="stat"><div class="n">${nw}</div><div class="l">new this update</div></div>`:''}`;
 }
 
-fetch('urgent.json').then(r=>r.json()).then(d=>{
+Promise.all([
+  fetch('urgent.json').then(r=>r.json()),
+  // Consolidated J&A corpus — powers the modal + full-text search. Tolerate its
+  // absence (the feed still works without justifications).
+  fetch('justifications.json').then(r=>r.ok?r.json():{}).catch(()=>({})),
+]).then(([d, ja])=>{
+  JA = ja || {};
   DATA = d.awards; DATA.forEach(a=>piidMap[a.piid]=a); FY = d.fiscal_year;
   const s = d.summary;
   document.getElementById('freshness').textContent = `↻ Updates monthly from USAspending — current through ${fmtDate(d.data_through)}`;
@@ -410,8 +413,8 @@ fetch('urgent.json').then(r=>r.json()).then(d=>{
     order: [[3,'desc']], pageLength: 25, lengthMenu: [[25,50,100,-1],[25,50,100,'All']],   // newest first (date)
     responsive: { details: false }, dom: 'lrtip',
     columnDefs: [
-      { visible:false, targets:[6,7,8,9] }, { type:'num', targets:[2,6] },
-      { orderable:false, targets:[4,5] },
+      { visible:false, targets:[6,7,8,9,10] }, { type:'num', targets:[2,6] },
+      { orderable:false, targets:[4,5,10] },
       { responsivePriority:1, targets:0 }, { responsivePriority:2, targets:2 }, { responsivePriority:3, targets:5 },
     ],
   });

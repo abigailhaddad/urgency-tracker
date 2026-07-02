@@ -30,9 +30,11 @@ from urgency_contracts import HF  # noqa: E402
 FY = 2026
 OUT = ROOT / "site" / "urgent.json"
 STATE = ROOT / "scripts" / "feed_state.json"
-# Written J&A text: per-award files the modal lazy-fetches, + a compact checked-cache.
+# Written J&A text: per-award files (durable cache) + a compact checked-cache, plus a
+# single consolidated corpus the site loads once (powers the detail modal AND search).
 JA_DIR = ROOT / "site" / "justifications"
 JA_STATE = ROOT / "scripts" / "ja_state.json"
+JA_JSON = ROOT / "site" / "justifications.json"
 
 # Award-level rollup with the extra fields the detail modal needs (offers,
 # solicitation, place/period of performance, NAICS) — things not in the table.
@@ -198,6 +200,17 @@ def build() -> int:
                 recheck_none=os.environ.get("JA_RECHECK_NONE", "1") != "0")
         except Exception as e:  # noqa: BLE001
             print(f"  (justification enrichment skipped: {e})")
+
+    # Consolidated corpus (piid -> {text, ocr, sam_url, pdfs}) for every award with a
+    # J&A on file. The site fetches this once and uses it for BOTH the modal and
+    # full-text search, so the justification text is never bundled into urgent.json.
+    corpus = {}
+    for a in awards:
+        f = JA_DIR / f"{a['piid']}.json"
+        if a["ja"] and f.exists():
+            r = json.loads(f.read_text())
+            corpus[a["piid"]] = {k: r[k] for k in ("text", "ocr", "sam_url", "pdfs") if k in r}
+    JA_JSON.write_text(json.dumps(corpus, indent=1))
 
     disputed = sum(1 for a in awards if a["protest"])
     feed = {

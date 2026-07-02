@@ -16,6 +16,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "site" / "urgent.json"
 JA_DIR = ROOT / "site" / "justifications"
+JA_JSON = ROOT / "site" / "justifications.json"
 
 # Every field the table rows, the detail modal, and the CSV export read. If one
 # goes missing, the front end silently breaks — so require it on every award.
@@ -83,6 +84,18 @@ def main() -> int:
     check(s.get("new_since_last") == new, f"summary.new_since_last ({s.get('new_since_last')}) != counted ({new})")
     check(s.get("with_justification") == with_ja,
           f"summary.with_justification ({s.get('with_justification')}) != counted ({with_ja})")
+
+    # The consolidated corpus the site loads for the modal + search must exist and
+    # cover exactly the awards flagged ja=True.
+    try:
+        corpus = json.loads(JA_JSON.read_text())
+    except Exception as e:
+        corpus = None
+        check(False, f"{JA_JSON.name} missing or invalid JSON ({e})")
+    if corpus is not None:
+        ja_piids = {a["piid"] for a in awards if a.get("ja")}
+        check(set(corpus) == ja_piids,
+              f"justifications.json keys ({len(corpus)}) != ja=True awards ({len(ja_piids)})")
 
     if errors:
         print(f"FEED VALIDATION FAILED — {len(errors)} problem(s):")

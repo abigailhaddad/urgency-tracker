@@ -54,7 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/urgent.json scripts/feed_state.json scripts/ja_state.json site/justifications
+          git add site/urgent.json site/justifications.json scripts/feed_state.json scripts/ja_state.json site/justifications
           if git diff --cached --quiet; then
             echo "No change (HF + protests + justifications unchanged) — nothing to commit."
           else
