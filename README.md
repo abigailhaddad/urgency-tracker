@@ -8,9 +8,13 @@ It all runs off my HuggingFace mirror of USAspending — you query it with DuckD
 
 ## What I found
 
-> **A note on how this is counted.** In FPDS, a delivery order *inherits* the "urgency" competition code from the parent contract vehicle it's placed against — so the order's real competition basis is the *order-level* field (`fair_opportunity_limited_sources`, FAR 16.505), not that inherited code. Filtering on the code alone sweeps in orders that were actually **competed** among the vehicle's awardees ("fair opportunity given") or sole-sourced on a **different** basis ("only one source") — for FY2026, most of the big border-wall delivery orders. The site and `urgency_contracts.py` keep an award only when its *order-level* basis is actually urgency (or it's a standalone contract, where the urgency code *is* the basis). That takes FY2026 from ~$27B (raw urgency code) down to about **$3.8B** — mostly definitive-contract sole sources plus genuine order-level urgency. (The trend chart below still reflects the raw urgency code and needs regenerating with this filter.)
+There are two defensible ways to count this, and the chart shows both.
 
-![Federal contracting under the urgency exception](urgency_trend.png)
+![Federal contracting under the urgency exception, counted two ways](urgency_trend.png)
+
+**Why two bars.** The obvious filter is the FPDS competition code `other_than_full_and_open_competition = URGENCY (FAR 6.302-2)` (the light bars). But that code has a wrinkle: a task or delivery order *inherits* it from the parent contract vehicle it's placed against. So an order can carry the urgency code while its own competition basis — the *order-level* field `fair_opportunity_limited_sources` (FAR 16.505) — says the order was actually **competed** among the vehicle's awardees ("fair opportunity given") or sole-sourced on a **different** ground ("only one source"). The dark bars keep an award only when its order-level basis is genuinely urgency, or it's a standalone contract where the Part-6 urgency code *is* the basis.
+
+For eleven of the twelve years the two counts are the same — most urgency awards are standalone sole-source contracts, so there's no parent code to inherit. They diverge in one place: **FY2026, ~$27B on the code alone vs. ~$3.8B order-level**. The gap is almost entirely border-wall delivery orders placed off larger vehicles, which carry the inherited urgency code but weren't sole-sourced *for* urgency at the order level. The live site and `urgency_contracts.py` use the order-level count (the dark bars); if you want the raw-code number instead, drop the `fair_opportunity_limited_sources` filter.
 
 ## The granular data
 
