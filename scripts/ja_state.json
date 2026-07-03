@@ -785,9 +785,20 @@
   "status": "none"
  },
  "15B21726F00000013": {
+  "notice_id": "5726e62d88f745058ea21e46b0442ab6",
+  "ocr": false,
+  "parent_piid": "36C10G20D0029",
+  "pdfs": [
+   {
+    "chars": 32721,
+    "name": "MSPV-NG Bridge JA_VISN 6 and 8_Medline_Redacted_Final.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15B21726F00000013",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/5726e62d88f745058ea21e46b0442ab6/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15B21726P00000084": {
   "piid": "15B21726P00000084",
@@ -1070,9 +1081,20 @@
   "status": "none"
  },
  "15B40926F00000132": {
+  "notice_id": "5726e62d88f745058ea21e46b0442ab6",
+  "ocr": false,
+  "parent_piid": "36C10G20D0029",
+  "pdfs": [
+   {
+    "chars": 32721,
+    "name": "MSPV-NG Bridge JA_VISN 6 and 8_Medline_Redacted_Final.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15B40926F00000132",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/5726e62d88f745058ea21e46b0442ab6/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15B41426F00000012": {
   "piid": "15B41426F00000012",
@@ -1270,9 +1292,20 @@
   "status": "none"
  },
  "15B50726F00000016": {
+  "notice_id": "5726e62d88f745058ea21e46b0442ab6",
+  "ocr": false,
+  "parent_piid": "36C10G20D0029",
+  "pdfs": [
+   {
+    "chars": 32721,
+    "name": "MSPV-NG Bridge JA_VISN 6 and 8_Medline_Redacted_Final.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15B50726F00000016",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/5726e62d88f745058ea21e46b0442ab6/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15B50926F00000029": {
   "piid": "15B50926F00000029",
@@ -1280,19 +1313,52 @@
   "status": "none"
  },
  "15B51626F00000053": {
+  "notice_id": "5726e62d88f745058ea21e46b0442ab6",
+  "ocr": false,
+  "parent_piid": "36C10G20D0029",
+  "pdfs": [
+   {
+    "chars": 32721,
+    "name": "MSPV-NG Bridge JA_VISN 6 and 8_Medline_Redacted_Final.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15B51626F00000053",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/5726e62d88f745058ea21e46b0442ab6/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15B51626F00000138": {
+  "notice_id": "5726e62d88f745058ea21e46b0442ab6",
+  "ocr": false,
+  "parent_piid": "36C10G20D0029",
+  "pdfs": [
+   {
+    "chars": 32721,
+    "name": "MSPV-NG Bridge JA_VISN 6 and 8_Medline_Redacted_Final.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15B51626F00000138",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/5726e62d88f745058ea21e46b0442ab6/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15B51626F00000141": {
+  "notice_id": "5726e62d88f745058ea21e46b0442ab6",
+  "ocr": false,
+  "parent_piid": "36C10G20D0029",
+  "pdfs": [
+   {
+    "chars": 32721,
+    "name": "MSPV-NG Bridge JA_VISN 6 and 8_Medline_Redacted_Final.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15B51626F00000141",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/5726e62d88f745058ea21e46b0442ab6/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15B51626P00000010": {
   "piid": "15B51626P00000010",
@@ -1880,114 +1946,356 @@
   "status": "none"
  },
  "15UALL26F00000002": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000002",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000010": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000010",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000013": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000013",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000031": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000031",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000062": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000062",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000081": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000081",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000111": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000111",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000121": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000121",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000142": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000142",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000166": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000166",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000182": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000182",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000222": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000222",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000243": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000243",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UALL26F00000261": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UALL26F00000261",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBEC26F00000001": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UBEC26F00000001",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBEC26F00000021": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UBEC26F00000021",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBEC26F00000022": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UBEC26F00000022",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBEC26F00000035": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UBEC26F00000035",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBEC26F00000101": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UBEC26F00000101",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBEC26F00000112": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UBEC26F00000112",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBEC26F00000125": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UBEC26F00000125",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBEC26F00000171": {
+  "notice_id": "536986a0743146fabecb3702cfd15e05",
+  "ocr": false,
+  "parent_piid": "15UC0C25D00000521",
+  "pdfs": [
+   {
+    "chars": 6535,
+    "name": "J and A Nightingale Bridge Contract need Proc Exec Signature (003) (002) EP Signed 11-5-2024.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15UBEC26F00000171",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/536986a0743146fabecb3702cfd15e05/view",
+  "source": "parent",
+  "status": "ok"
  },
  "15UBUT26P00000009": {
   "piid": "15UBUT26P00000009",
@@ -2176,12 +2484,12 @@
  },
  "191T7026D0001": {
   "notice_id": "fa04bb81a5d9471b83336217bb856401",
-  "ocr": false,
+  "ocr": true,
   "pdfs": [
    {
-    "chars": 10,
+    "chars": 8286,
     "name": "JOFOC 191T7026D0001.pdf",
-    "via": "text"
+    "via": "ocr"
    }
   ],
   "piid": "191T7026D0001",
@@ -2190,44 +2498,132 @@
   "status": "ok"
  },
  "191T7026F0257": {
+  "notice_id": "fa04bb81a5d9471b83336217bb856401",
+  "ocr": true,
+  "parent_piid": "191T7026D0001",
+  "pdfs": [
+   {
+    "chars": 8305,
+    "name": "JOFOC 191T7026D0001.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "191T7026F0257",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/fa04bb81a5d9471b83336217bb856401/view",
+  "source": "parent",
+  "status": "ok"
  },
  "191T7026F0258": {
+  "notice_id": "fa04bb81a5d9471b83336217bb856401",
+  "ocr": true,
+  "parent_piid": "191T7026D0001",
+  "pdfs": [
+   {
+    "chars": 8295,
+    "name": "JOFOC 191T7026D0001.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "191T7026F0258",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/fa04bb81a5d9471b83336217bb856401/view",
+  "source": "parent",
+  "status": "ok"
  },
  "191T7026F0259": {
+  "notice_id": "fa04bb81a5d9471b83336217bb856401",
+  "ocr": true,
+  "parent_piid": "191T7026D0001",
+  "pdfs": [
+   {
+    "chars": 8265,
+    "name": "JOFOC 191T7026D0001.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "191T7026F0259",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/fa04bb81a5d9471b83336217bb856401/view",
+  "source": "parent",
+  "status": "ok"
  },
  "191T7026F0260": {
+  "notice_id": "fa04bb81a5d9471b83336217bb856401",
+  "ocr": true,
+  "parent_piid": "191T7026D0001",
+  "pdfs": [
+   {
+    "chars": 8264,
+    "name": "JOFOC 191T7026D0001.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "191T7026F0260",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/fa04bb81a5d9471b83336217bb856401/view",
+  "source": "parent",
+  "status": "ok"
  },
  "191T7026F0266": {
+  "notice_id": "fa04bb81a5d9471b83336217bb856401",
+  "ocr": true,
+  "parent_piid": "191T7026D0001",
+  "pdfs": [
+   {
+    "chars": 8299,
+    "name": "JOFOC 191T7026D0001.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "191T7026F0266",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/fa04bb81a5d9471b83336217bb856401/view",
+  "source": "parent",
+  "status": "ok"
  },
  "191T7026F0267": {
+  "notice_id": "fa04bb81a5d9471b83336217bb856401",
+  "ocr": true,
+  "parent_piid": "191T7026D0001",
+  "pdfs": [
+   {
+    "chars": 8287,
+    "name": "JOFOC 191T7026D0001.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "191T7026F0267",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/fa04bb81a5d9471b83336217bb856401/view",
+  "source": "parent",
+  "status": "ok"
  },
  "191T7026F0268": {
+  "notice_id": "fa04bb81a5d9471b83336217bb856401",
+  "ocr": true,
+  "parent_piid": "191T7026D0001",
+  "pdfs": [
+   {
+    "chars": 8293,
+    "name": "JOFOC 191T7026D0001.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "191T7026F0268",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/fa04bb81a5d9471b83336217bb856401/view",
+  "source": "parent",
+  "status": "ok"
  },
  "191T7026F0303": {
+  "notice_id": "fa04bb81a5d9471b83336217bb856401",
+  "ocr": true,
+  "parent_piid": "191T7026D0001",
+  "pdfs": [
+   {
+    "chars": 8306,
+    "name": "JOFOC 191T7026D0001.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "191T7026F0303",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/fa04bb81a5d9471b83336217bb856401/view",
+  "source": "parent",
+  "status": "ok"
  },
  "191T7026P0226": {
   "piid": "191T7026P0226",
@@ -3092,12 +3488,12 @@
  },
  "19MY3026D0003": {
   "notice_id": "6b975417d0f44a0c959a5c08d25dc18b",
-  "ocr": false,
+  "ocr": true,
   "pdfs": [
    {
-    "chars": 15,
+    "chars": 5473,
     "name": "JOFOC Hotels KL.pdf",
-    "via": "text"
+    "via": "ocr"
    }
   ],
   "piid": "19MY3026D0003",
@@ -3111,19 +3507,52 @@
   "status": "none"
  },
  "19MY3026F0010": {
+  "notice_id": "631a0fa442f6491087ab89520a48f216",
+  "ocr": false,
+  "parent_piid": "19MY3026D0001",
+  "pdfs": [
+   {
+    "chars": 3011,
+    "name": "JOFOC Vehicles KL (2).pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19MY3026F0010",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/631a0fa442f6491087ab89520a48f216/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0011": {
+  "notice_id": "631a0fa442f6491087ab89520a48f216",
+  "ocr": false,
+  "parent_piid": "19MY3026D0001",
+  "pdfs": [
+   {
+    "chars": 3011,
+    "name": "JOFOC Vehicles KL (2).pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19MY3026F0011",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/631a0fa442f6491087ab89520a48f216/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0012": {
+  "notice_id": "631a0fa442f6491087ab89520a48f216",
+  "ocr": false,
+  "parent_piid": "19MY3026D0001",
+  "pdfs": [
+   {
+    "chars": 3011,
+    "name": "JOFOC Vehicles KL (2).pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19MY3026F0012",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/631a0fa442f6491087ab89520a48f216/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0013": {
   "piid": "19MY3026F0013",
@@ -3141,34 +3570,100 @@
   "status": "none"
  },
  "19MY3026F0019": {
+  "notice_id": "6b975417d0f44a0c959a5c08d25dc18b",
+  "ocr": true,
+  "parent_piid": "19MY3026D0003",
+  "pdfs": [
+   {
+    "chars": 5404,
+    "name": "JOFOC Hotels KL.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "19MY3026F0019",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/6b975417d0f44a0c959a5c08d25dc18b/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0022": {
+  "notice_id": "6b975417d0f44a0c959a5c08d25dc18b",
+  "ocr": true,
+  "parent_piid": "19MY3026D0003",
+  "pdfs": [
+   {
+    "chars": 5410,
+    "name": "JOFOC Hotels KL.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "19MY3026F0022",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/6b975417d0f44a0c959a5c08d25dc18b/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0023": {
+  "notice_id": "6b975417d0f44a0c959a5c08d25dc18b",
+  "ocr": true,
+  "parent_piid": "19MY3026D0003",
+  "pdfs": [
+   {
+    "chars": 5431,
+    "name": "JOFOC Hotels KL.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "19MY3026F0023",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/6b975417d0f44a0c959a5c08d25dc18b/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0024": {
+  "notice_id": "631a0fa442f6491087ab89520a48f216",
+  "ocr": false,
+  "parent_piid": "19MY3026D0001",
+  "pdfs": [
+   {
+    "chars": 3011,
+    "name": "JOFOC Vehicles KL (2).pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19MY3026F0024",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/631a0fa442f6491087ab89520a48f216/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0025": {
+  "notice_id": "6b975417d0f44a0c959a5c08d25dc18b",
+  "ocr": true,
+  "parent_piid": "19MY3026D0003",
+  "pdfs": [
+   {
+    "chars": 5409,
+    "name": "JOFOC Hotels KL.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "19MY3026F0025",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/6b975417d0f44a0c959a5c08d25dc18b/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0026": {
+  "notice_id": "6b975417d0f44a0c959a5c08d25dc18b",
+  "ocr": true,
+  "parent_piid": "19MY3026D0003",
+  "pdfs": [
+   {
+    "chars": 5482,
+    "name": "JOFOC Hotels KL.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "19MY3026F0026",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/6b975417d0f44a0c959a5c08d25dc18b/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0028": {
   "piid": "19MY3026F0028",
@@ -3176,9 +3671,20 @@
   "status": "none"
  },
  "19MY3026F0031": {
+  "notice_id": "6b975417d0f44a0c959a5c08d25dc18b",
+  "ocr": true,
+  "parent_piid": "19MY3026D0003",
+  "pdfs": [
+   {
+    "chars": 5410,
+    "name": "JOFOC Hotels KL.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "19MY3026F0031",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/6b975417d0f44a0c959a5c08d25dc18b/view",
+  "source": "parent",
+  "status": "ok"
  },
  "19MY3026F0032": {
   "piid": "19MY3026F0032",
@@ -3327,12 +3833,12 @@
  },
  "19PK3326P1520": {
   "notice_id": "5a50a2ff9e3c47278f3df3a84c6e3266",
-  "ocr": false,
+  "ocr": true,
   "pdfs": [
    {
-    "chars": 54,
+    "chars": 4800,
     "name": "JOFOC - July 4th Decorations - May 15 2026 - Signed.pdf",
-    "via": "text"
+    "via": "ocr"
    }
   ],
   "piid": "19PK3326P1520",
@@ -3926,9 +4432,20 @@
   "status": "none"
  },
  "36C10G26N0018": {
+  "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
+  "ocr": false,
+  "parent_piid": "36C10G26D0007",
+  "pdfs": [
+   {
+    "chars": 10857,
+    "name": "P03 JA - CO Signed  1-21-26.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C10G26N0018",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/c8892e108a0241d99b1c5c882fe573e5/view",
+  "source": "parent",
+  "status": "ok"
  },
  "36C24126P0032": {
   "piid": "36C24126P0032",
@@ -4654,9 +5171,20 @@
   "status": "none"
  },
  "36C24626N0573": {
+  "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
+  "ocr": false,
+  "parent_piid": "36C10G26D0007",
+  "pdfs": [
+   {
+    "chars": 10857,
+    "name": "P03 JA - CO Signed  1-21-26.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24626N0573",
-  "sol": "36C24626Q0447",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/c8892e108a0241d99b1c5c882fe573e5/view",
+  "source": "parent",
+  "status": "ok"
  },
  "36C24626N0718": {
   "piid": "36C24626N0718",
@@ -4764,14 +5292,36 @@
   "status": "none"
  },
  "36C24726N0104": {
+  "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
+  "ocr": false,
+  "parent_piid": "36C10G26D0007",
+  "pdfs": [
+   {
+    "chars": 10857,
+    "name": "P03 JA - CO Signed  1-21-26.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24726N0104",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/c8892e108a0241d99b1c5c882fe573e5/view",
+  "source": "parent",
+  "status": "ok"
  },
  "36C24726N0174": {
+  "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
+  "ocr": false,
+  "parent_piid": "36C10G26D0007",
+  "pdfs": [
+   {
+    "chars": 10857,
+    "name": "P03 JA - CO Signed  1-21-26.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24726N0174",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/c8892e108a0241d99b1c5c882fe573e5/view",
+  "source": "parent",
+  "status": "ok"
  },
  "36C24726P0083": {
   "piid": "36C24726P0083",
@@ -4834,19 +5384,52 @@
   "status": "none"
  },
  "36C24826N0431": {
+  "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
+  "ocr": false,
+  "parent_piid": "36C10G26D0007",
+  "pdfs": [
+   {
+    "chars": 10857,
+    "name": "P03 JA - CO Signed  1-21-26.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24826N0431",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/c8892e108a0241d99b1c5c882fe573e5/view",
+  "source": "parent",
+  "status": "ok"
  },
  "36C24826N0490": {
+  "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
+  "ocr": false,
+  "parent_piid": "36C10G26D0007",
+  "pdfs": [
+   {
+    "chars": 10857,
+    "name": "P03 JA - CO Signed  1-21-26.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24826N0490",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/c8892e108a0241d99b1c5c882fe573e5/view",
+  "source": "parent",
+  "status": "ok"
  },
  "36C24826N0604": {
+  "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
+  "ocr": false,
+  "parent_piid": "36C10G26D0007",
+  "pdfs": [
+   {
+    "chars": 10857,
+    "name": "P03 JA - CO Signed  1-21-26.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24826N0604",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/c8892e108a0241d99b1c5c882fe573e5/view",
+  "source": "parent",
+  "status": "ok"
  },
  "36C24826P0011": {
   "piid": "36C24826P0011",
@@ -5234,9 +5817,20 @@
   "status": "none"
  },
  "36C24926N0397": {
+  "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
+  "ocr": false,
+  "parent_piid": "36C10G26D0007",
+  "pdfs": [
+   {
+    "chars": 10857,
+    "name": "P03 JA - CO Signed  1-21-26.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24926N0397",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/c8892e108a0241d99b1c5c882fe573e5/view",
+  "source": "parent",
+  "status": "ok"
  },
  "36C24926P0022": {
   "piid": "36C24926P0022",
@@ -5389,14 +5983,24 @@
   "status": "none"
  },
  "36C25026N0038": {
+  "notice_id": "cc0c79960261492891a85d9f06cdb5b5",
+  "parent_piid": "36C25025D0063",
+  "pdfs": [],
   "piid": "36C25026N0038",
+  "sam_url": "https://sam.gov/opp/cc0c79960261492891a85d9f06cdb5b5/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "empty"
  },
  "36C25026N0289": {
+  "notice_id": "2e405e927ec540afa5003de4f9f0dcfc",
+  "parent_piid": "36C25025D0077",
+  "pdfs": [],
   "piid": "36C25026N0289",
+  "sam_url": "https://sam.gov/opp/2e405e927ec540afa5003de4f9f0dcfc/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "empty"
  },
  "36C25026N0527": {
   "piid": "36C25026N0527",
@@ -7504,14 +8108,36 @@
   "status": "ok"
  },
  "47PD5426F0119": {
+  "notice_id": "26d9d934999348b68912cc37cfe797d2",
+  "ocr": true,
+  "parent_piid": "47PL0226D0001",
+  "pdfs": [
+   {
+    "chars": 13135,
+    "name": "J and A Unusual and Compelling Urgency SIGNEDRedacted.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "47PD5426F0119",
-  "sol": "EQPMBD-26-0094",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/26d9d934999348b68912cc37cfe797d2/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PD5426F0165": {
+  "notice_id": "26d9d934999348b68912cc37cfe797d2",
+  "ocr": true,
+  "parent_piid": "47PL0226D0001",
+  "pdfs": [
+   {
+    "chars": 13135,
+    "name": "J and A Unusual and Compelling Urgency SIGNEDRedacted.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "47PD5426F0165",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/26d9d934999348b68912cc37cfe797d2/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PD5526C0004": {
   "piid": "47PD5526C0004",
@@ -7564,79 +8190,244 @@
   "status": "ok"
  },
  "47PH5426F0023": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0006",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0023",
-  "sol": "EQPRBD-26-0007",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0034": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0034",
-  "sol": "EQPRBD-26-0011",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0035": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0035",
-  "sol": "EQPRBD-26-0010",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0042": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0008",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0042",
-  "sol": "EQPRBA-26-0040",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0061": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0006",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0061",
-  "sol": "EQPRBD-26-0020",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0075": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0007",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0075",
-  "sol": "EQPRBA-26-0067",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0088": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0088",
-  "sol": "EQPRBA-26-0082",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0090": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0006",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0090",
-  "sol": "EQPRBD-26-0024",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0092": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0006",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0092",
-  "sol": "EQPRBA-26-0089",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0094": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0094",
-  "sol": "EQPRBA-26-0058",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0096": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0096",
-  "sol": "EQPRBA-26-0086",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0098": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0007",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0098",
-  "sol": "EQPRBD-26-0027",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0100": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0100",
-  "sol": "EQPRBA-26-0099",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0107": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0107",
-  "sol": "EQPRBA-26-0101",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PH5426F0140": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "47PH5426F0140",
-  "sol": "EQPRBA-26-0119",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "source": "parent",
+  "status": "ok"
  },
  "47PL0226D0001": {
   "notice_id": "26d9d934999348b68912cc37cfe797d2",
@@ -9708,9 +10499,20 @@
   "status": "none"
  },
  "W912D026FA037": {
+  "notice_id": "7130329af0f743f09fc9a96545f23d56",
+  "ocr": false,
+  "parent_piid": "W912D025D0005",
+  "pdfs": [
+   {
+    "chars": 12294,
+    "name": "JA for Custodial Contract_Redacted.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "W912D026FA037",
-  "sol": "",
-  "status": "none"
+  "sam_url": "https://sam.gov/opp/7130329af0f743f09fc9a96545f23d56/view",
+  "source": "parent",
+  "status": "ok"
  },
  "W912DR26CA007": {
   "piid": "W912DR26CA007",

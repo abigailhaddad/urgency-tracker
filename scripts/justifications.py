@@ -46,6 +46,11 @@ MAX_TEXT_CHARS = 400_000
 # pages go to a vision LLM via LiteLLM. Default to a current OpenAI model; override with
 # OCR_MODEL. Cap pages so one huge scan can't run up an unbounded bill.
 OCR_MODEL_DEFAULT = "gpt-5-mini"
+# A real J&A is hundreds of characters. If pypdf yields less than OCR_RETRY_UNDER, the PDF
+# is effectively image-only (a thin text layer like a stray date) — try OCR. If the best
+# text is still under MIN_JA_CHARS, treat the record as 'empty' rather than badging junk.
+OCR_RETRY_UNDER = 120
+MIN_JA_CHARS = 80
 OCR_MAX_PAGES = 15
 OCR_RENDER_SCALE = 2.0  # ~144 dpi — enough for reliable transcription without huge images
 # Tango allows 100 requests / 60s (burst) and 7,500 / day. Stay comfortably under the
@@ -56,16 +61,17 @@ _JA_NAME_RE = re.compile(r"justif|\bj\W?&?\W?a\b|6[._-]?302|other.?than.?full", 
 _last_tango = [0.0]  # module-level clock for pacing (enrich runs single-threaded)
 
 
-def _tango_notices(c, **kwargs):
-    """Paced, rate-limit-aware wrapper around list_notices. Sleeps out any burst-limit
-    429 (Tango tells us how long) and paces calls so we don't hit it in the first place."""
+def _tango(fn, **kwargs):
+    """Paced, rate-limit-aware wrapper around a Tango list method. Sleeps out any burst-
+    limit 429 (Tango tells us how long) and paces calls so we don't hit it in the first
+    place. `fn` is the bound method, e.g. client.list_notices / client.list_idvs."""
     from tango.exceptions import TangoRateLimitError
     for attempt in range(6):
         wait = TANGO_MIN_INTERVAL - (time.monotonic() - _last_tango[0])
         if wait > 0:
             time.sleep(wait)
         try:
-            r = c.list_notices(**kwargs)
+            r = fn(**kwargs)
             _last_tango[0] = time.monotonic()
             return r
         except TangoRateLimitError as e:
@@ -79,6 +85,14 @@ def _tango_notices(c, **kwargs):
                 raise RuntimeError(f"Tango daily quota exhausted (reset in ~{wait}s)")
             time.sleep(wait)
     raise RuntimeError("Tango rate limit: exhausted retries")
+
+
+def _tango_notices(c, **kwargs):
+    return _tango(c.list_notices, **kwargs)
+
+
+def _tango_idvs(c, **kwargs):
+    return _tango(c.list_idvs, **kwargs)
 
 
 def _sam_get(url, accept, binary=False, tries=3):
@@ -249,8 +263,12 @@ def _extract_notice(nid, ocr=None):
     for a in _sam_attachments(nid_nodash):
         raw = _sam_get(f"{SAM}/resources/files/{a['resourceId']}/download", "application/octet-stream", binary=True)
         txt, via = _pdf_text(raw), "text"
-        if not txt and ocr is not None:
-            txt, via = ocr(raw), "ocr"
+        # Too little text usually means an image-only PDF with a stray text fragment — OCR it
+        # and keep whichever is longer.
+        if len(txt.strip()) < OCR_RETRY_UNDER and ocr is not None:
+            otxt = ocr(raw)
+            if len(otxt.strip()) > len(txt.strip()):
+                txt, via = otxt, "ocr"
         pdfs.append({"name": a["name"], "chars": len(txt), "via": via if txt else "none"})
         if txt:
             pieces.append(txt)
@@ -290,13 +308,65 @@ def fetch_justification(c, piid, sol, ocr=None):
     sam_url = f"https://sam.gov/opp/{nid_used}/view"
     text = ("\n\n" + "—" * 8 + "\n\n").join(pieces)  # em-dash rule between PDFs
     ocred = any(m.get("via") == "ocr" for m in pdfs)
-    if not text.strip():
-        # A J&A exists but yielded no extractable text even after OCR (or OCR was off).
+    if len(text.strip()) < MIN_JA_CHARS:
+        # A J&A exists but yielded no usable text even after OCR (image-only/restricted).
         # Record the pointer so the modal can still link out to SAM.gov.
         return {"piid": piid, "status": "empty", "sol": sol, "notice_id": nid_used,
                 "sam_url": sam_url, "pdfs": pdfs}
     return {"piid": piid, "status": "ok", "sol": sol, "notice_id": nid_used,
             "sam_url": sam_url, "pdfs": pdfs, "text": text, "ocr": ocred}
+
+
+def _idv_solicitation(c, parent_piid):
+    """Resolve a parent IDV's own solicitation number via Tango (its J&A notice is keyed
+    on that, not on the IDV PIID). Two paced calls; returns None if unresolvable."""
+    try:
+        r = _tango_idvs(c, piid=parent_piid, limit=1)
+        if not r.results:
+            return None
+        key = dict(r.results[0]).get("key")
+        if not key:
+            return None
+        raw = c._get(f"/api/idvs/{key}/", {})
+        return raw.get("solicitation_identifier")
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def fetch_parent_justification(c, parent_piid, ocr=None):
+    """A delivery order's own urgency rarely has a posted J&A — but the PARENT vehicle it
+    was placed against might. Look for a Justification notice on the parent IDV (matched by
+    the IDV's solicitation number OR its PIID) and pull it, tagged source='parent'. This
+    justifies the *vehicle*, not the specific order — the UI must label it as such."""
+    keys = [k for k in [str(parent_piid or "").strip()] if k and k.lower() != "none"]
+    if not keys:
+        return {"status": "none"}
+    sol = _idv_solicitation(c, parent_piid)
+    if sol and str(sol).strip().lower() != "none":
+        keys.append(str(sol).strip())
+    keys = list(dict.fromkeys(keys))
+    ja_notices = _justification_notices(c, keys)
+    if not ja_notices:
+        return {"status": "none"}
+    pieces, pdfs, nid_used = [], [], None
+    for n in ja_notices:
+        p, meta, nid_nodash = _extract_notice(n["notice_id"], ocr=ocr)
+        named = [i for i, m in enumerate(meta) if _JA_NAME_RE.search(m["name"])]
+        keep = named if named else list(range(len(meta)))
+        pdfs += [meta[i] for i in keep]
+        pieces += [p[i] for i in keep if i < len(p)]
+        nid_used = nid_used or nid_nodash
+    if nid_used is None:
+        return {"status": "none"}
+    sam_url = f"https://sam.gov/opp/{nid_used}/view"
+    text = ("\n\n" + "—" * 8 + "\n\n").join(pieces)
+    ok = len(text.strip()) >= MIN_JA_CHARS
+    rec = {"status": "ok" if ok else "empty", "source": "parent",
+           "parent_piid": parent_piid, "notice_id": nid_used, "sam_url": sam_url, "pdfs": pdfs}
+    if ok:
+        rec["text"] = text
+        rec["ocr"] = any(m.get("via") == "ocr" for m in pdfs)
+    return rec
 
 
 def _should_fetch(piid, award, state, today, ocr_enabled=False, recheck_none=True):
@@ -325,7 +395,8 @@ def _should_fetch(piid, award, state, today, ocr_enabled=False, recheck_none=Tru
 
 def enrich(awards, sol_by_piid, ja_dir, state_path, api_key,
            today=None, max_checks=1500, log=print,
-           ocr_api_key=None, ocr_model=OCR_MODEL_DEFAULT, recheck_none=True):
+           ocr_api_key=None, ocr_model=OCR_MODEL_DEFAULT, recheck_none=True,
+           parent_by_piid=None):
     """Populate `award['ja']` (bool) for every award, fetching any newly-needed J&As.
 
     Runs single-threaded and paced: Tango's 100-req/min burst cap makes concurrency
@@ -359,14 +430,26 @@ def enrich(awards, sol_by_piid, ja_dir, state_path, api_key,
     log(f"  justifications: {len(awards)} awards, {len(todo)} to (re)check this run "
         f"({len(awards) - len(todo)} cached/skipped).")
 
+    parent_by_piid = parent_by_piid or {}
+    parent_cache = {}   # parent_piid -> record (dedupe shared vehicles)
     c = TangoClient(api_key=api_key)
     hits = errs = 0
     for a in todo:
         piid, sol = a["piid"], sol_by_piid.get(a["piid"], "")
         try:
             rec = fetch_justification(c, piid, sol, ocr=ocr)
+            # No J&A of its own? For an order riding a vehicle, try the PARENT's J&A.
+            if rec["status"] == "none":
+                pp = str(parent_by_piid.get(piid, "") or "").strip()
+                if pp and pp.lower() != "none":
+                    if pp not in parent_cache:
+                        parent_cache[pp] = fetch_parent_justification(c, pp, ocr=ocr)
+                    prec = parent_cache[pp]
+                    if prec.get("status") in ("ok", "empty"):
+                        rec = dict(prec, sol=sol)   # source='parent' carried through
         except Exception as e:  # noqa: BLE001
             rec = {"piid": piid, "status": "error", "sol": sol, "error": str(e)[:200]}
+        rec["piid"] = piid
         # No run timestamps in the committed artifacts — keep them deterministic so an
         # unchanged week produces byte-identical files (no needless commit/redeploy).
         if rec["status"] in ("ok", "empty"):

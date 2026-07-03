@@ -8,11 +8,9 @@ It all runs off my HuggingFace mirror of USAspending — you query it with DuckD
 
 ## What I found
 
+> **A note on how this is counted.** In FPDS, a delivery order *inherits* the "urgency" competition code from the parent contract vehicle it's placed against. So filtering on that code alone also picks up orders that were actually **competed** among the vehicle's awardees ("fair opportunity given" in FPDS) — for FY2026, ~$21B of border-wall delivery orders that were competed at the order level. To keep this to awards genuinely made **without competition**, the site and `urgency_contracts.py` exclude those orders. That takes FY2026 from ~$27B (raw urgency code) down to about **$6B** — mostly definitive-contract sole sources, plus a couple of order-level "only one source" awards. (The trend chart below still reflects the raw urgency code and needs regenerating with this filter.)
+
 ![Federal contracting under the urgency exception](urgency_trend.png)
-
-There's a COVID-era spike (FY2021 about $41B), then a few quiet years (about $3–5B). And then FY2026, which isn't even a full year yet, is already at about $28B — and **88% of that ($24.9B) is border-wall construction at Customs and Border Protection.** A handful of contractors hold most of it:
-
-![Top FY2026 urgency contracts](urgency_top_fy2026.png)
 
 ## The granular data
 

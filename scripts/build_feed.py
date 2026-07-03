@@ -62,10 +62,17 @@ SELECT
   -- True if the award has a base/new-award action (modification 0) in FY26, i.e.
   -- it was actually *awarded* this year — not just modified or de-obligated.
   bool_or(modification_number IN ('0', 'P00000')) AS awarded_fy26,
+  max(parent_award_id_piid)                 AS parent_piid,
   max(contract_award_unique_key)            AS award_key
 FROM read_parquet('{src}')
 WHERE other_than_full_and_open_competition ILIKE '%URGENCY%'
 GROUP BY award_id_piid
+-- Exclude orders that were actually COMPETED at the order level ("fair opportunity
+-- given" among the vehicle's awardees). These carry the URGENCY code only because it's
+-- inherited from the parent IDIQ — they were not awarded without competition, so they
+-- don't belong in a no-competition tracker (this is the border-wall delivery orders).
+-- COALESCE so definitive contracts (fair_opportunity = NULL) are KEPT, not dropped.
+HAVING NOT COALESCE(bool_or(fair_opportunity_limited_sources ILIKE '%FAIR OPPORTUNITY GIVEN%'), FALSE)
 """
 
 _norm = lambda s: re.sub(r"[^A-Z0-9]", "", str(s or "").upper())
@@ -190,6 +197,9 @@ def build() -> int:
         try:
             import justifications  # noqa: E402  (local module in scripts/)
             sol_by_piid = {p: clean(s) for p, s in zip(df.piid, df.solicitation_id)}
+            # Parent vehicle PIID per award — for delivery orders with no J&A of their
+            # own, we fall back to the parent IDV's J&A (tagged source='parent').
+            parent_by_piid = {p: clean(pp) for p, pp in zip(df.piid, df.parent_piid)}
             # Optional: OCR scanned/image J&As with a vision LLM. Enabled only if an
             # OpenAI key is present; without it, scanned J&As stay 'empty' (link-only).
             ocr_key = os.environ.get("OPENAI_API_KEY")
@@ -199,7 +209,8 @@ def build() -> int:
                 ocr_model=os.environ.get("OCR_MODEL", justifications.OCR_MODEL_DEFAULT),
                 # Set JA_RECHECK_NONE=0 for a one-time full seed (skip re-querying
                 # awards already known to have no J&A). Default on for scheduled CI.
-                recheck_none=os.environ.get("JA_RECHECK_NONE", "1") != "0")
+                recheck_none=os.environ.get("JA_RECHECK_NONE", "1") != "0",
+                parent_by_piid=parent_by_piid)
         except Exception as e:  # noqa: BLE001
             print(f"  (justification enrichment skipped: {e})")
 
@@ -211,7 +222,7 @@ def build() -> int:
         f = JA_DIR / f"{a['piid']}.json"
         if a["ja"] and f.exists():
             r = json.loads(f.read_text())
-            corpus[a["piid"]] = {k: r[k] for k in ("text", "ocr", "sam_url", "pdfs") if k in r}
+            corpus[a["piid"]] = {k: r[k] for k in ("text", "ocr", "sam_url", "pdfs", "source", "parent_piid") if k in r}
     JA_JSON.write_text(json.dumps(corpus, indent=1))
 
     disputed = sum(1 for a in awards if a["protest"])

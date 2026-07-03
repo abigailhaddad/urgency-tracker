@@ -79,7 +79,9 @@
   .new{ display:inline-block; font-size:.6rem; font-weight:700; color:#fff; background:var(--new); border-radius:999px; padding:1px 6px; margin-left:6px; vertical-align:middle; letter-spacing:.04em; }
   .badge-protest{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#c1666b; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; }
   .badge-ja{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#3b7a57; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
+  .badge-ja-parent{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#b45309; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
   td.ja-type{ white-space:nowrap; color:var(--muted); font-size:.85rem; }
+  .ja-parent-note{ margin-bottom:8px; font-size:.82rem; color:#92400e; background:#fef3c7; border:1px solid #fcd34d; border-radius:8px; padding:8px 10px; }
   .dispute{ margin-top:14px; padding:11px 13px; background:#fbeeef; border:1px solid #e3b9bc; border-radius:10px; font-size:.86rem; }
   .dispute strong{ color:#a33a40; }
   .dispute a{ color:#a33a40; font-weight:600; }
@@ -115,12 +117,13 @@
 <div class="wrap">
   <header>
     <h1>Federal contracts awarded under&nbsp;"urgency"</h1>
-    <p class="sub">Contracts the government <strong>awarded in fiscal year 2026</strong> without full and open competition by citing "unusual and compelling urgency" (FAR&nbsp;6.302-2). Click any row for full detail; every award links to its official USAspending page.</p>
+    <p class="sub">Contracts the government <strong>awarded in fiscal year 2026</strong> without full and open competition by citing "unusual and compelling urgency" (FAR&nbsp;6.302-2). Orders that were actually <strong>competed</strong> off an existing contract vehicle are <strong>excluded</strong> — they only inherit the urgency code from their parent (see <em>"What is this &amp; how it's counted"</em> below). Click any row for detail; every award links to its USAspending page.</p>
     <p class="freshness" id="freshness"></p>
     <details class="about">
       <summary>What is this &amp; how it's counted</summary>
       <p>Agencies normally must compete contracts. One legal way to skip that is to claim "unusual and compelling urgency" — the standard being that the government would suffer serious injury, financial or otherwise, without it. On each award's USAspending page, the designation appears under <em>Additional Details → Competition Details</em> as "Other than Full and Open Competition: Urgency." That's the reason <em>code</em>, not the written justification.</p>
-      <p>These are all <strong>FAR&nbsp;6.302-2</strong> awards, and they come in a few flavors — shown in the <strong>Type</strong> column: <em>definitive contracts</em> (a new standalone contract), <em>delivery orders</em> (an order placed against an existing contract vehicle), and <em>purchase orders</em> (small simplified buys). A written Justification &amp; Approval (J&amp;A) gets posted to SAM.gov mainly for the standalone contracts; for a delivery order the justification usually lives at the <em>parent</em> vehicle, and purchase orders fall below the threshold — so most awards here have no posted J&amp;A, and the <span style="color:#3b7a57;font-weight:700">📄 Justification</span> badge marks the ones that do. <strong>Not included:</strong> orders off multi-award vehicles that cite urgency under <strong>FAR&nbsp;16.505</strong> ("fair opportunity"), which USAspending records in a different field.</p>
+      <p>These are all <strong>FAR&nbsp;6.302-2</strong> awards, and they come in a few flavors — shown in the <strong>Type</strong> column: <em>definitive contracts</em> (a new standalone contract), <em>delivery orders</em> (an order placed against an existing contract vehicle), and <em>purchase orders</em> (small simplified buys). A written Justification &amp; Approval (J&amp;A) gets posted to SAM.gov mainly for the standalone contracts; for a delivery order the justification usually lives at the <em>parent</em> vehicle, and purchase orders fall below the threshold — so most awards here have no posted J&amp;A, and the <span style="color:#3b7a57;font-weight:700">📄 Justification</span> badge marks the ones that do (an amber <span style="color:#b45309;font-weight:700">📄 Parent J&amp;A</span> means the justification we found is the parent vehicle's, not the order's).</p>
+      <p><strong>What's excluded, and why the total is lower than the raw FPDS figure:</strong> we drop orders that were actually <em>competed</em> among a contract vehicle's awardees — FPDS marks these "fair opportunity given." They carry the "urgency" code only because it's inherited from their parent contract, so they were <em>not</em> awarded without competition and don't belong in a no-competition tracker. That removes roughly <strong>$21B of border-wall delivery orders</strong> that were competed at the order level — which is why this shows ~$6B, not the ~$27B you'd get by filtering the urgency code alone. Also not included: orders that cite urgency under <strong>FAR&nbsp;16.505</strong> (a separate "fair opportunity exception" field).</p>
       <p id="method"></p>
     </details>
 
@@ -248,7 +251,9 @@ const FM_COLS = [
 
 function rowsHtml(rows){
   return rows.map(a => `<tr data-piid="${esc(a.piid)}">
-    <td>${esc(a.recipient)}${a.is_new?'<span class="new">new</span>':''}${a.protest?`<span class="badge-protest" title="${esc(protestSummary(a.protest))}">⚖ disputed</span>`:''}${a.ja?'<span class="badge-ja" title="The agency\'s written justification for skipping competition is on file — click the row to read it">📄 Justification</span>':''}</td>
+    <td>${esc(a.recipient)}${a.is_new?'<span class="new">new</span>':''}${a.protest?`<span class="badge-protest" title="${esc(protestSummary(a.protest))}">⚖ disputed</span>`:''}${a.ja ? ((JA[a.piid]||{}).source==='parent'
+    ? '<span class="badge-ja-parent" title="No J&amp;A for this order, but the PARENT contract vehicle has one on file — click to read it (it justifies the vehicle, not this specific order)">📄 Parent J&amp;A</span>'
+    : '<span class="badge-ja" title="The agency\'s written justification for skipping competition is on file — click the row to read it">📄 Justification</span>') : ''}</td>
     <td>${esc(a.sub_agency)}</td>
     <td data-order="${a.obligated}"><span class="amt-cell">${money(a.obligated)}</span></td>
     <td data-order="${a.date}">${fmtDate(a.date)}</td>
@@ -381,14 +386,17 @@ function renderJustificationInto(el, j, query){
   const link = j.sam_url
     ? `<div class="ja-src">Source: <a href="${esc(j.sam_url)}" target="_blank" rel="noopener">Justification &amp; Approval on SAM.gov →</a>${j.pdfs&&j.pdfs[0]?` · ${esc(j.pdfs[0].name)}`:''}</div>`
     : '';
+  const parentNote = j.source==='parent'
+    ? `<div class="ja-parent-note">⚠ This is the <strong>parent contract vehicle's</strong> J&amp;A — it justifies the vehicle, not this specific order.${j.parent_piid?` Parent: ${esc(j.parent_piid)}.`:''}</div>`
+    : '';
   if(j.text){
     el.classList.remove('ja-note');
     const ocrNote = j.ocr ? `<div class="ja-src">Transcribed from a scanned/image PDF by an LLM — verify against the source before quoting.</div>` : '';
-    el.innerHTML = `<div class="ja-text">${jaHtml(j.text, query)}</div>${ocrNote}${link}`;
+    el.innerHTML = `${parentNote}<div class="ja-text">${jaHtml(j.text, query)}</div>${ocrNote}${link}`;
     // The scroll-to-highlight happens on the modal's shown.bs.modal event (see
     // openDetail) — the nested scroll boxes only have layout once it's fully shown.
   } else {  // 'empty' — a J&A notice exists but the PDF had no extractable text
-    el.innerHTML = `<div class="ja-note">A Justification &amp; Approval was posted, but its text couldn't be extracted (likely a scanned document).</div>${link}`;
+    el.innerHTML = `${parentNote}<div class="ja-note">A Justification &amp; Approval was posted, but its text couldn't be pulled — it's either access-restricted on SAM.gov or a scanned image. Open it via the link below.</div>${link}`;
   }
 }
 function loadJustification(piid){
