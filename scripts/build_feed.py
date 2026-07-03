@@ -67,12 +67,17 @@ SELECT
 FROM read_parquet('{src}')
 WHERE other_than_full_and_open_competition ILIKE '%URGENCY%'
 GROUP BY award_id_piid
--- Exclude orders that were actually COMPETED at the order level ("fair opportunity
--- given" among the vehicle's awardees). These carry the URGENCY code only because it's
--- inherited from the parent IDIQ — they were not awarded without competition, so they
--- don't belong in a no-competition tracker (this is the border-wall delivery orders).
--- COALESCE so definitive contracts (fair_opportunity = NULL) are KEPT, not dropped.
-HAVING NOT COALESCE(bool_or(fair_opportunity_limited_sources ILIKE '%FAIR OPPORTUNITY GIVEN%'), FALSE)
+-- Keep an award only where its ORDER-LEVEL basis is actually urgency. For a standalone
+-- contract or a single-award-vehicle order, fair_opportunity is NULL and the Part-6
+-- URGENCY code IS the basis. For an order off a MULTIPLE-award vehicle, the order-level
+-- field (fair_opportunity_limited_sources) governs — so drop it unless that field is
+-- urgency too. This removes orders that merely INHERITED the URGENCY code from their
+-- parent vehicle but were actually competed ("fair opportunity given") or sole-sourced
+-- on a different basis ("only one source") — e.g. the big border-wall delivery orders.
+-- (COALESCE keeps definitive contracts, whose fair_opportunity is NULL.)
+HAVING NOT COALESCE(bool_or(
+    fair_opportunity_limited_sources IS NOT NULL
+    AND fair_opportunity_limited_sources NOT ILIKE '%URGEN%'), FALSE)
 """
 
 _norm = lambda s: re.sub(r"[^A-Z0-9]", "", str(s or "").upper())

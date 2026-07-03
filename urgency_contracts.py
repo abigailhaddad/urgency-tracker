@@ -43,11 +43,14 @@ SELECT
 FROM read_parquet('{src}')
 WHERE other_than_full_and_open_competition ILIKE '%URGENCY%'
 GROUP BY award_id_piid
--- Exclude orders that were actually COMPETED at the order level ("fair opportunity
--- given" among a vehicle's awardees). They inherit the URGENCY code from their parent
--- IDIQ but were not awarded without competition. (COALESCE so definitive contracts,
--- which have a NULL fair-opportunity field, are kept.)
-HAVING NOT COALESCE(bool_or(fair_opportunity_limited_sources ILIKE '%FAIR OPPORTUNITY GIVEN%'), FALSE)
+-- Keep an award only where its ORDER-LEVEL basis is actually urgency. Standalone
+-- contracts and single-award-vehicle orders have a NULL fair-opportunity field, so the
+-- Part-6 URGENCY code is the basis. Orders off a MULTIPLE-award vehicle are governed by
+-- fair_opportunity_limited_sources — drop them unless that field is urgency too, since
+-- their URGENCY code is inherited from the parent (competed, or "only one source", etc.).
+HAVING NOT COALESCE(bool_or(
+    fair_opportunity_limited_sources IS NOT NULL
+    AND fair_opportunity_limited_sources NOT ILIKE '%URGEN%'), FALSE)
 ORDER BY obligated DESC
 """
 
