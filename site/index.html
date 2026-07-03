@@ -79,6 +79,7 @@
   .new{ display:inline-block; font-size:.6rem; font-weight:700; color:#fff; background:var(--new); border-radius:999px; padding:1px 6px; margin-left:6px; vertical-align:middle; letter-spacing:.04em; }
   .badge-protest{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#c1666b; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; }
   .badge-ja{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#3b7a57; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
+  td.ja-type{ white-space:nowrap; color:var(--muted); font-size:.85rem; }
   .dispute{ margin-top:14px; padding:11px 13px; background:#fbeeef; border:1px solid #e3b9bc; border-radius:10px; font-size:.86rem; }
   .dispute strong{ color:#a33a40; }
   .dispute a{ color:#a33a40; font-weight:600; }
@@ -119,6 +120,7 @@
     <details class="about">
       <summary>What is this &amp; how it's counted</summary>
       <p>Agencies normally must compete contracts. One legal way to skip that is to claim "unusual and compelling urgency" — the standard being that the government would suffer serious injury, financial or otherwise, without it. On each award's USAspending page, the designation appears under <em>Additional Details → Competition Details</em> as "Other than Full and Open Competition: Urgency." That's the reason <em>code</em>, not the written justification.</p>
+      <p>These are all <strong>FAR&nbsp;6.302-2</strong> awards, and they come in a few flavors — shown in the <strong>Type</strong> column: <em>definitive contracts</em> (a new standalone contract), <em>delivery orders</em> (an order placed against an existing contract vehicle), and <em>purchase orders</em> (small simplified buys). A written Justification &amp; Approval (J&amp;A) gets posted to SAM.gov mainly for the standalone contracts; for a delivery order the justification usually lives at the <em>parent</em> vehicle, and purchase orders fall below the threshold — so most awards here have no posted J&amp;A, and the <span style="color:#3b7a57;font-weight:700">📄 Justification</span> badge marks the ones that do. <strong>Not included:</strong> orders off multi-award vehicles that cite urgency under <strong>FAR&nbsp;16.505</strong> ("fair opportunity"), which USAspending records in a different field.</p>
       <p id="method"></p>
     </details>
 
@@ -135,8 +137,8 @@
   <table id="mainTable" class="table table-sm table-hover" style="width:100%">
     <thead>
       <tr>
-        <th>Recipient</th><th>Agency</th><th>Obligated</th><th>Date</th><th>Description</th><th>Link</th>
-        <th>amt_m</th><th>agency_top</th><th>category</th><th>dispute</th>
+        <th>Recipient</th><th>Agency</th><th>Obligated</th><th>Date</th><th>Type</th><th>Description</th><th>Link</th>
+        <th>amt_m</th><th>agency_top</th><th>category</th><th>dispute</th><th>justification</th>
       </tr>
     </thead>
     <tbody id="mainBody"></tbody>
@@ -194,6 +196,7 @@ const CSV_COLS = [
   ['funding_agency', a => a.funding_agency],
   ['obligated', a => a.obligated],
   ['action_date', a => a.date],
+  ['award_type', a => a.award_type],
   ['category_psc', a => a.category],
   ['naics', a => a.naics],
   ['offers_received', a => a.offers],
@@ -221,24 +224,26 @@ function exportCSV(){
   link.click(); URL.revokeObjectURL(link.href);
 }
 
-// cols: 0 recipient 1 agency 2 obligated 3 date 4 desc 5 link | hidden: 6 amt_m 7 agency_top 8 category 9 dispute 10 justification text
+// cols: 0 recipient 1 agency 2 obligated 3 date 4 type 5 desc 6 link | hidden: 7 amt_m 8 agency_top 9 category 10 dispute 11 justification text
 const FILTER_COLS = [
   { index: 0, name: 'Recipient',  type: 'text' },
-  { index: 4, name: 'Description', type: 'text' },
-  { index: 10, name: 'Justification text', type: 'text' },
-  { index: 7, name: 'Agency',     type: 'multiselect' },
-  { index: 8, name: 'Category',   type: 'multiselect' },
-  { index: 9, name: 'Dispute',    type: 'multiselect' },
-  { index: 6, name: 'Amount ($M)',type: 'range' },
+  { index: 5, name: 'Description', type: 'text' },
+  { index: 11, name: 'Justification text', type: 'text' },
+  { index: 4, name: 'Award type', type: 'multiselect' },
+  { index: 8, name: 'Agency',     type: 'multiselect' },
+  { index: 9, name: 'Category',   type: 'multiselect' },
+  { index: 10, name: 'Dispute',   type: 'multiselect' },
+  { index: 7, name: 'Amount ($M)',type: 'range' },
 ];
 const FM_COLS = [
   { index: 0, name: 'Recipient',  type: 'text',        urlKey: 'recipient' },
-  { index: 4, name: 'Description', type: 'text',        urlKey: 'desc' },
-  { index: 10, name: 'Justification text', type: 'text', urlKey: 'justification' },
-  { index: 7, name: 'Agency',     type: 'multiselect', urlKey: 'agency' },
-  { index: 8, name: 'Category',   type: 'multiselect', urlKey: 'category' },
-  { index: 9, name: 'Dispute',    type: 'multiselect', urlKey: 'dispute' },
-  { index: 6, name: 'Amount ($M)',type: 'range',       urlKey: 'amt' },
+  { index: 5, name: 'Description', type: 'text',        urlKey: 'desc' },
+  { index: 11, name: 'Justification text', type: 'text', urlKey: 'justification' },
+  { index: 4, name: 'Award type', type: 'multiselect', urlKey: 'type' },
+  { index: 8, name: 'Agency',     type: 'multiselect', urlKey: 'agency' },
+  { index: 9, name: 'Category',   type: 'multiselect', urlKey: 'category' },
+  { index: 10, name: 'Dispute',   type: 'multiselect', urlKey: 'dispute' },
+  { index: 7, name: 'Amount ($M)',type: 'range',       urlKey: 'amt' },
 ];
 
 function rowsHtml(rows){
@@ -247,6 +252,7 @@ function rowsHtml(rows){
     <td>${esc(a.sub_agency)}</td>
     <td data-order="${a.obligated}"><span class="amt-cell">${money(a.obligated)}</span></td>
     <td data-order="${a.date}">${fmtDate(a.date)}</td>
+    <td class="ja-type">${esc(a.award_type||'')}</td>
     <td class="desc"><div>${esc(a.description||a.category)}</div></td>
     <td><a href="${a.url}" target="_blank" rel="noopener">USAspending&nbsp;&rarr;</a></td>
     <td>${(a.obligated/1e6).toFixed(3)}</td><td>${esc(a.agency)}</td><td>${esc(a.category||'')}</td>
@@ -321,6 +327,7 @@ function openDetail(a){
   rows += kv('Awarding agency', esc(a.sub_agency));
   if(a.funding_agency && a.funding_agency!==a.agency) rows += kv('Funding agency', esc(a.funding_agency));
   rows += kv('Date', fmtDate(a.date));
+  if(a.award_type) rows += kv('Award type', esc(a.award_type));
   if(a.offers!=null) rows += kv('Offers received', a.offers);
   if(a.solicitation) rows += kv('Solicitation', esc(a.solicitation));
   if(a.place) rows += kv('Place of perf.', esc(a.place));
@@ -366,7 +373,7 @@ function jaHtml(text, query){
   }).join('');
 }
 // The term currently typed into the "Justification text" filter (col 10), if any.
-function currentJaQuery(){ const f = fm && fm.activeFilters && fm.activeFilters['10']; return f ? f.value : ''; }
+function currentJaQuery(){ const f = fm && fm.activeFilters && fm.activeFilters['11']; return f ? f.value : ''; }
 
 function renderJustificationInto(el, j, query){
   if(!el) return;
@@ -438,9 +445,9 @@ Promise.all([
     order: [[3,'desc']], pageLength: 25, lengthMenu: [[25,50,100,-1],[25,50,100,'All']],   // newest first (date)
     responsive: { details: false }, dom: 'lrtip',
     columnDefs: [
-      { visible:false, targets:[6,7,8,9,10] }, { type:'num', targets:[2,6] },
-      { orderable:false, targets:[4,5,10] },
-      { responsivePriority:1, targets:0 }, { responsivePriority:2, targets:2 }, { responsivePriority:3, targets:5 },
+      { visible:false, targets:[7,8,9,10,11] }, { type:'num', targets:[2,7] },
+      { orderable:false, targets:[5,6,11] },
+      { responsivePriority:1, targets:0 }, { responsivePriority:2, targets:2 }, { responsivePriority:3, targets:6 },
     ],
   });
 

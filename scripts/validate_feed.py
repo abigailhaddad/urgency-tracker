@@ -22,8 +22,8 @@ JA_JSON = ROOT / "site" / "justifications.json"
 # goes missing, the front end silently breaks — so require it on every award.
 REQUIRED = [
     "piid", "recipient", "agency", "sub_agency", "funding_agency", "obligated",
-    "date", "description", "category", "naics", "offers", "solicitation", "place",
-    "pop_start", "pop_end", "protest", "url", "is_new", "ja",
+    "date", "description", "category", "award_type", "naics", "offers", "solicitation",
+    "place", "pop_start", "pop_end", "protest", "url", "is_new", "ja",
 ]
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 URL_RE = re.compile(r"^https://www\.usaspending\.gov/award/CONT_(AWD|IDV)_")

@@ -50,6 +50,7 @@ SELECT
   max(action_date)                                AS last_action,
   max(prime_award_base_transaction_description) AS description,
   max(product_or_service_code_description)  AS category,
+  max(award_type)                           AS award_type,
   max(naics_description)                    AS naics,
   max(number_of_offers_received)            AS offers,
   max(solicitation_procedures)              AS solicitation,
@@ -165,6 +166,7 @@ def build() -> int:
             "date": str(r.last_action)[:10],
             "description": (r.description or "").strip()[:1000],  # full-ish; table clamps, modal shows all
             "category": clean(r.category).title(),
+            "award_type": clean(r.award_type).title(),   # Delivery Order / Definitive Contract / Purchase Order
             "naics": clean(r.naics).title(),
             "offers": (None if clean(r.offers) == "" else int(float(r.offers))),
             "solicitation": clean(r.solicitation).title(),
