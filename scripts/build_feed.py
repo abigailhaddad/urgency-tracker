@@ -63,21 +63,23 @@ SELECT
   -- it was actually *awarded* this year — not just modified or de-obligated.
   bool_or(modification_number IN ('0', 'P00000')) AS awarded_fy26,
   max(parent_award_id_piid)                 AS parent_piid,
+  max(fair_opportunity_limited_sources)     AS fair_opportunity,
+  -- Two kinds of urgency award, distinguished by WHERE the urgency was invoked:
+  --   'award'   — urgency is the basis on this award itself: a standalone sole-source
+  --               contract, or an order whose own fair-opportunity basis is urgency
+  --               (fair_opportunity NULL or ILIKE urgency). Competition skipped here.
+  --   'vehicle' — the award only INHERITED the URGENCY code from a parent vehicle that
+  --               was set up citing urgency; at the ORDER level it was competed ("fair
+  --               opportunity given") or sole-sourced on another basis ("only one
+  --               source"). Almost all of this is the big border-wall delivery orders.
+  CASE WHEN COALESCE(bool_or(
+        fair_opportunity_limited_sources IS NOT NULL
+        AND fair_opportunity_limited_sources NOT ILIKE '%URGEN%'), FALSE)
+       THEN 'vehicle' ELSE 'award' END       AS urgency_type,
   max(contract_award_unique_key)            AS award_key
 FROM read_parquet('{src}')
 WHERE other_than_full_and_open_competition ILIKE '%URGENCY%'
 GROUP BY award_id_piid
--- Keep an award only where its ORDER-LEVEL basis is actually urgency. For a standalone
--- contract or a single-award-vehicle order, fair_opportunity is NULL and the Part-6
--- URGENCY code IS the basis. For an order off a MULTIPLE-award vehicle, the order-level
--- field (fair_opportunity_limited_sources) governs — so drop it unless that field is
--- urgency too. This removes orders that merely INHERITED the URGENCY code from their
--- parent vehicle but were actually competed ("fair opportunity given") or sole-sourced
--- on a different basis ("only one source") — e.g. the big border-wall delivery orders.
--- (COALESCE keeps definitive contracts, whose fair_opportunity is NULL.)
-HAVING NOT COALESCE(bool_or(
-    fair_opportunity_limited_sources IS NOT NULL
-    AND fair_opportunity_limited_sources NOT ILIKE '%URGEN%'), FALSE)
 """
 
 _norm = lambda s: re.sub(r"[^A-Z0-9]", "", str(s or "").upper())
@@ -179,6 +181,8 @@ def build() -> int:
             "description": (r.description or "").strip()[:1000],  # full-ish; table clamps, modal shows all
             "category": clean(r.category).title(),
             "award_type": clean(r.award_type).title(),   # Delivery Order / Definitive Contract / Purchase Order
+            "urgency_type": r.urgency_type,               # 'award' (on the award) or 'vehicle' (inherited from parent)
+            "fair_opportunity": clean(r.fair_opportunity).title(),  # order-level competition basis (FAR 16.505)
             "naics": clean(r.naics).title(),
             "offers": (None if clean(r.offers) == "" else int(float(r.offers))),
             "solicitation": clean(r.solicitation).title(),
@@ -231,12 +235,21 @@ def build() -> int:
     JA_JSON.write_text(json.dumps(corpus, indent=1))
 
     disputed = sum(1 for a in awards if a["protest"])
+    # Two headline buckets, reported SEPARATELY (never summed): urgency invoked on the
+    # award itself vs. inherited from a parent vehicle set up citing urgency.
+    on_award = df[df.urgency_type == "award"]
+    on_vehicle = df[df.urgency_type == "vehicle"]
     feed = {
         "fiscal_year": FY,
         "data_through": data_through,
         "summary": {
             "total_awards": int(len(df)),
             "total_obligated": round(float(df.obligated.sum())),
+            # Reported as two separate figures on the site, not added together.
+            "on_award_awards": int(len(on_award)),
+            "on_award_obligated": round(float(on_award.obligated.sum())),
+            "on_vehicle_awards": int(len(on_vehicle)),
+            "on_vehicle_obligated": round(float(on_vehicle.obligated.sum())),
             "fy26_obligation_flow": round(obligation_flow),
             "excluded_older_contracts": int(n_excluded),
             "new_since_last": int(df.is_new.sum()),
@@ -253,7 +266,8 @@ def build() -> int:
         "piids": sorted(cur_piids),
         "prev_piids": sorted(baseline),
     }, indent=1))
-    print(f"Wrote {OUT} — {len(df):,} awards, ${df.obligated.sum()/1e9:.1f}B, "
+    print(f"Wrote {OUT} — urgency on the award: {len(on_award):,} / ${on_award.obligated.sum()/1e9:.2f}B; "
+          f"on the vehicle: {len(on_vehicle):,} / ${on_vehicle.obligated.sum()/1e9:.2f}B; "
           f"{feed['summary']['new_since_last']} new, {disputed} with a GAO protest, "
           f"{with_ja} with a J&A on file (data through {data_through}).")
     return 0

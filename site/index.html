@@ -80,6 +80,7 @@
   .badge-protest{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#c1666b; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; }
   .badge-ja{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#3b7a57; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
   .badge-ja-parent{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#b45309; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
+  .badge-vehicle{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#5b6b8a; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
   td.ja-type{ white-space:nowrap; color:var(--muted); font-size:.85rem; }
   .ja-parent-note{ margin-bottom:8px; font-size:.82rem; color:#92400e; background:#fef3c7; border:1px solid #fcd34d; border-radius:8px; padding:8px 10px; }
   .dispute{ margin-top:14px; padding:11px 13px; background:#fbeeef; border:1px solid #e3b9bc; border-radius:10px; font-size:.86rem; }
@@ -117,13 +118,18 @@
 <div class="wrap">
   <header>
     <h1>Federal contracts awarded under&nbsp;"urgency"</h1>
-    <p class="sub">Contracts the government <strong>awarded in fiscal year 2026</strong> without full and open competition by citing "unusual and compelling urgency" (FAR&nbsp;6.302-2). Orders placed off an existing contract vehicle whose <strong>real basis isn't urgency</strong> — competed, or sole-sourced on other grounds — are <strong>excluded</strong>; they only inherit the urgency code from their parent (see <em>"What is this &amp; how it's counted"</em> below). Click any row for detail; every award links to its USAspending page.</p>
+    <p class="sub">Contracts the government <strong>awarded in fiscal year 2026</strong> without full and open competition citing "unusual and compelling urgency" (FAR&nbsp;6.302-2). They come in <strong>two kinds, counted separately</strong>: urgency invoked <strong>on the award itself</strong> (mostly standalone sole-source contracts), and orders that inherited the urgency code from a parent <strong>contract vehicle</strong> set up citing urgency (almost all border-wall construction — competed or sole-sourced at the order level). The two totals are never added together (see <em>"What is this &amp; how it's counted"</em> below). Click any row for detail; every award links to its USAspending page.</p>
     <p class="freshness" id="freshness"></p>
     <details class="about">
       <summary>What is this &amp; how it's counted</summary>
       <p>Agencies normally must compete contracts. One legal way to skip that is to claim "unusual and compelling urgency" — the standard being that the government would suffer serious injury, financial or otherwise, without it. On each award's USAspending page, the designation appears under <em>Additional Details → Competition Details</em> as "Other than Full and Open Competition: Urgency." That's the reason <em>code</em>, not the written justification.</p>
       <p>These are all <strong>FAR&nbsp;6.302-2</strong> awards, and they come in a few flavors — shown in the <strong>Type</strong> column: <em>definitive contracts</em> (a new standalone contract), <em>delivery orders</em> (an order placed against an existing contract vehicle), and <em>purchase orders</em> (small simplified buys). A written Justification &amp; Approval (J&amp;A) gets posted to SAM.gov mainly for the standalone contracts; for a delivery order the justification usually lives at the <em>parent</em> vehicle, and purchase orders fall below the threshold — so most awards here have no posted J&amp;A, and the <span style="color:#3b7a57;font-weight:700">📄 Justification</span> badge marks the ones that do (an amber <span style="color:#b45309;font-weight:700">📄 Parent J&amp;A</span> means the justification we found is the parent vehicle's, not the order's).</p>
-      <p><strong>What's excluded, and why the total is lower than the raw FPDS figure:</strong> for an order placed <em>off an existing contract vehicle</em>, the real competition basis is the order-level "fair opportunity" field (FAR&nbsp;16.505) — not the urgency code, which an order simply <em>inherits</em> from its parent contract. Many of the biggest border-wall delivery orders were, at the order level, either <em>competed</em> among the vehicle's contractors ("fair opportunity given") or sole-sourced on a different basis ("only one source") — so they weren't awarded without competition <em>citing urgency</em>. We keep an award only when its order-level basis is actually urgency (or it's a standalone contract, where the urgency code <em>is</em> the basis). That takes this from ~$27B — what you'd get by filtering the urgency code alone — down to about <strong>$3.8B</strong>.</p>
+      <p><strong>Two kinds of urgency award — counted separately, never summed.</strong> The wrinkle is that a task or delivery order <em>inherits</em> its competition code from the parent contract vehicle it's placed against, so the same "URGENCY" code can mean two different things:</p>
+      <ul style="margin:0 0 8px 0; padding-left:20px">
+        <li><strong>Urgency on the award</strong> (~$3.8B): urgency is the basis on this award itself — a standalone sole-source contract, or an order whose own "fair opportunity" basis (FAR&nbsp;16.505) is urgency. Competition was skipped <em>here</em>, for urgency.</li>
+        <li><strong>Urgency on the vehicle</strong> (~$23B, almost all border-wall construction): the award only inherited the urgency code from a parent vehicle that was set up citing urgency. At the <em>order</em> level it was either <em>competed</em> among the vehicle's contractors ("fair opportunity given") or sole-sourced on another basis ("only one source"). The urgency justification lives one level up, at the vehicle — not on this order.</li>
+      </ul>
+      <p>Filtering on the urgency code alone lumps both together (~$27B); splitting them keeps the "competition was actually skipped here" number ($3.8B) honest while still showing the much larger flow of contracting that runs through urgency-justified vehicles. Use the <strong>Urgency basis</strong> filter to see either kind on its own.</p>
       <p id="method"></p>
     </details>
 
@@ -141,7 +147,7 @@
     <thead>
       <tr>
         <th>Recipient</th><th>Agency</th><th>Obligated</th><th>Date</th><th>Type</th><th>Description</th><th>Link</th>
-        <th>amt_m</th><th>agency_top</th><th>category</th><th>dispute</th><th>justification</th>
+        <th>amt_m</th><th>agency_top</th><th>category</th><th>dispute</th><th>justification</th><th>urgency_basis</th>
       </tr>
     </thead>
     <tbody id="mainBody"></tbody>
@@ -199,6 +205,8 @@ const CSV_COLS = [
   ['funding_agency', a => a.funding_agency],
   ['obligated', a => a.obligated],
   ['action_date', a => a.date],
+  ['urgency_basis', a => a.urgency_type==='vehicle' ? 'on the vehicle (inherited)' : 'on the award'],
+  ['order_level_competition', a => a.fair_opportunity],
   ['award_type', a => a.award_type],
   ['category_psc', a => a.category],
   ['naics', a => a.naics],
@@ -227,11 +235,12 @@ function exportCSV(){
   link.click(); URL.revokeObjectURL(link.href);
 }
 
-// cols: 0 recipient 1 agency 2 obligated 3 date 4 type 5 desc 6 link | hidden: 7 amt_m 8 agency_top 9 category 10 dispute 11 justification text
+// cols: 0 recipient 1 agency 2 obligated 3 date 4 type 5 desc 6 link | hidden: 7 amt_m 8 agency_top 9 category 10 dispute 11 justification text 12 urgency basis
 const FILTER_COLS = [
   { index: 0, name: 'Recipient',  type: 'text' },
   { index: 5, name: 'Description', type: 'text' },
   { index: 11, name: 'Justification text', type: 'text' },
+  { index: 12, name: 'Urgency basis', type: 'multiselect' },
   { index: 4, name: 'Award type', type: 'multiselect' },
   { index: 8, name: 'Agency',     type: 'multiselect' },
   { index: 9, name: 'Category',   type: 'multiselect' },
@@ -242,6 +251,7 @@ const FM_COLS = [
   { index: 0, name: 'Recipient',  type: 'text',        urlKey: 'recipient' },
   { index: 5, name: 'Description', type: 'text',        urlKey: 'desc' },
   { index: 11, name: 'Justification text', type: 'text', urlKey: 'justification' },
+  { index: 12, name: 'Urgency basis', type: 'multiselect', urlKey: 'urgency' },
   { index: 4, name: 'Award type', type: 'multiselect', urlKey: 'type' },
   { index: 8, name: 'Agency',     type: 'multiselect', urlKey: 'agency' },
   { index: 9, name: 'Category',   type: 'multiselect', urlKey: 'category' },
@@ -253,7 +263,7 @@ function rowsHtml(rows){
   return rows.map(a => `<tr data-piid="${esc(a.piid)}">
     <td>${esc(a.recipient)}${a.is_new?'<span class="new">new</span>':''}${a.protest?`<span class="badge-protest" title="${esc(protestSummary(a.protest))}">⚖ disputed</span>`:''}${a.ja ? ((JA[a.piid]||{}).source==='parent'
     ? '<span class="badge-ja-parent" title="No J&amp;A for this order, but the PARENT contract vehicle has one on file — click to read it (it justifies the vehicle, not this specific order)">📄 Parent J&amp;A</span>'
-    : '<span class="badge-ja" title="The agency\'s written justification for skipping competition is on file — click the row to read it">📄 Justification</span>') : ''}</td>
+    : '<span class="badge-ja" title="The agency\'s written justification for skipping competition is on file — click the row to read it">📄 Justification</span>') : ''}${a.urgency_type==='vehicle'?'<span class="badge-vehicle" title="Urgency was cited on the parent contract vehicle, not on this order. At the order level it was competed (\'fair opportunity given\') or sole-sourced on another basis (\'only one source\') — counted separately from urgency-on-the-award.">vehicle-level</span>':''}</td>
     <td>${esc(a.sub_agency)}</td>
     <td data-order="${a.obligated}"><span class="amt-cell">${money(a.obligated)}</span></td>
     <td data-order="${a.date}">${fmtDate(a.date)}</td>
@@ -263,6 +273,7 @@ function rowsHtml(rows){
     <td>${(a.obligated/1e6).toFixed(3)}</td><td>${esc(a.agency)}</td><td>${esc(a.category||'')}</td>
     <td>${a.protest?esc(a.protest.outcome):''}</td>
     <td>${a.ja && JA[a.piid] && JA[a.piid].text ? esc(JA[a.piid].text) : ''}</td>
+    <td>${a.urgency_type==='vehicle'?'Urgency on the vehicle':'Urgency on the award'}</td>
   </tr>`).join('');
 }
 
@@ -340,11 +351,17 @@ function openDetail(a){
   if(a.naics) rows += kv('Industry (NAICS)', esc(a.naics));
   if(a.category) rows += kv('Category (PSC)', esc(a.category));
   rows += kv('Award ID', esc(a.piid));
-  rows += kv('Competition', 'Other than full &amp; open: Urgency (FAR 6.302-2)');
+  if(a.urgency_type==='vehicle'){
+    rows += kv('Urgency basis', 'On the <strong>parent vehicle</strong> — this order inherited the code');
+    rows += kv('This order', esc(a.fair_opportunity || 'competed / other basis at the order level') + ' (FAR&nbsp;16.505)');
+  } else {
+    rows += kv('Urgency basis', 'On this award — Other than full &amp; open: Urgency (FAR&nbsp;6.302-2)');
+  }
   document.getElementById('modalTitle').textContent = a.recipient;
   document.getElementById('modalBody').innerHTML =
     `<dl class="modal-kv">${rows}</dl>
      ${a.protest?`<div class="dispute"><strong>⚖ Bid protest — GAO ${esc(a.protest.case)}</strong><br>${esc(a.protest.outcome)}${a.protest.protester?`, protest by ${esc(a.protest.protester)}`:''}${a.protest.filed_date?` · filed ${fmtDate(a.protest.filed_date)}`:''}${a.protest.decision_date?` · decided ${fmtDate(a.protest.decision_date)}`:''}<br><span style="font-size:.75rem;opacity:.75">GAO docket data via makegov</span></div>`:''}
+     ${a.urgency_type==='vehicle'?`<div class="ja-parent-note">This order carries the urgency code, but urgency was cited on the <strong>parent contract vehicle</strong> it's placed against — not on this order. At the order level it was <strong>${esc(a.fair_opportunity||'competed or sole-sourced on another basis')}</strong> (FAR&nbsp;16.505). Counted under "urgency on the vehicle," separately from urgency-on-the-award.</div>`:''}
      <div class="modal-desc"><strong>Description</strong>${esc(a.description||'—')}</div>
      ${a.ja?`<div class="modal-ja"><strong>Justification for the urgency (J&amp;A)</strong><div class="ja-body ja-note">Loading the written justification…</div></div>`:''}
      <a class="btn-acc" href="${a.url}" target="_blank" rel="noopener">View on USAspending →</a>`;
@@ -421,15 +438,19 @@ function currentAwards(){
 }
 function renderStats(){
   const aw = currentAwards();
-  const obl = aw.reduce((t,a)=>t+(a.obligated||0), 0);
   const disp = aw.filter(a=>a.protest).length;
   const nw = aw.filter(a=>a.is_new).length;
-  const all = aw.length === DATA.length;
+  // Two separate buckets, never summed: urgency invoked on the award vs. on the vehicle.
+  const byType = t => aw.filter(a => (a.urgency_type||'award') === t);
+  const card = (rows, label) => rows.length
+    ? `<div class="stat"><div class="n">${money(rows.reduce((t,a)=>t+(a.obligated||0),0))}</div>
+         <div class="l">${label} · ${rows.length.toLocaleString()} award${rows.length===1?'':'s'}</div></div>`
+    : '';
   document.getElementById('stats').innerHTML =
-    `<div class="stat"><div class="n">${aw.length.toLocaleString()}</div><div class="l">${all?'awarded in FY'+FY:'awards shown'}</div></div>
-     <div class="stat"><div class="n">${money(obl)}</div><div class="l">obligated to them</div></div>
-     ${disp>0?`<div class="stat"><div class="n">${disp}</div><div class="l">disputed (GAO)</div></div>`:''}
-     ${nw>0?`<div class="stat"><div class="n">${nw}</div><div class="l">new this update</div></div>`:''}`;
+    card(byType('award'), 'Urgency on the award')
+    + card(byType('vehicle'), 'Urgency on the vehicle')
+    + (disp>0?`<div class="stat"><div class="n">${disp}</div><div class="l">disputed (GAO)</div></div>`:'')
+    + (nw>0?`<div class="stat"><div class="n">${nw}</div><div class="l">new this update</div></div>`:'');
 }
 
 Promise.all([
@@ -443,7 +464,7 @@ Promise.all([
   const s = d.summary;
   document.getElementById('freshness').textContent = `↻ Updates monthly from USAspending — current through ${fmtDate(d.data_through)}`;
   document.getElementById('method').textContent =
-    `Each contract here has a new-award action in FY${d.fiscal_year}, so it was awarded this year — even if $0 has been obligated to it so far. FY${d.fiscal_year} modifications and de-obligations of contracts awarded in earlier years (${s.excluded_older_contracts.toLocaleString()} of them) aren't listed. Counting all FY${d.fiscal_year} urgency obligations — including money added to older contracts — comes to ${money(s.fy26_obligation_flow)}, versus the ${money(s.total_obligated)} obligated to contracts newly awarded this year.`;
+    `Each contract here has a new-award action in FY${d.fiscal_year}, so it was awarded this year — even if $0 has been obligated to it so far. FY${d.fiscal_year} modifications and de-obligations of contracts awarded in earlier years (${s.excluded_older_contracts.toLocaleString()} of them) aren't listed. The two headline figures — ${money(s.on_award_obligated)} across ${s.on_award_awards.toLocaleString()} awards where urgency is cited on the award, and ${money(s.on_vehicle_obligated)} across ${s.on_vehicle_awards} orders off urgency-justified vehicles — are reported separately and never summed.`;
   document.getElementById('through').textContent = ` Data through ${fmtDate(d.data_through)}.`;
 
   document.getElementById('mainBody').innerHTML = rowsHtml(DATA);
@@ -453,7 +474,7 @@ Promise.all([
     order: [[3,'desc']], pageLength: 25, lengthMenu: [[25,50,100,-1],[25,50,100,'All']],   // newest first (date)
     responsive: { details: false }, dom: 'lrtip',
     columnDefs: [
-      { visible:false, targets:[7,8,9,10,11] }, { type:'num', targets:[2,7] },
+      { visible:false, targets:[7,8,9,10,11,12] }, { type:'num', targets:[2,7] },
       { orderable:false, targets:[5,6,11] },
       { responsivePriority:1, targets:0 }, { responsivePriority:2, targets:2 }, { responsivePriority:3, targets:6 },
     ],

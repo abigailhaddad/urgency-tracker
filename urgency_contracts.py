@@ -37,20 +37,23 @@ SELECT
   any_value(product_or_service_code)              AS psc,
   any_value(product_or_service_code_description)  AS psc_description,
   any_value(other_than_full_and_open_competition) AS urgency_reason,
+  any_value(fair_opportunity_limited_sources)     AS order_level_competition,
+  -- Two kinds, by WHERE urgency was invoked. 'on the award' = urgency is the basis on
+  -- this award itself (standalone contract, or order whose own fair-opportunity basis is
+  -- urgency). 'on the vehicle (inherited)' = the award only inherited the URGENCY code
+  -- from a parent vehicle set up citing urgency; at the ORDER level it was competed
+  -- ("fair opportunity given") or sole-sourced on another basis ("only one source").
+  -- These are reported SEPARATELY, never summed — same split as the live site.
+  CASE WHEN COALESCE(bool_or(
+        fair_opportunity_limited_sources IS NOT NULL
+        AND fair_opportunity_limited_sources NOT ILIKE '%URGEN%'), FALSE)
+       THEN 'on the vehicle (inherited)' ELSE 'on the award' END AS urgency_basis,
   any_value(transaction_description)              AS description,
   -- USAspending's own canonical award key (handles awards vs IDVs correctly)
   any_value(contract_award_unique_key)            AS award_key
 FROM read_parquet('{src}')
 WHERE other_than_full_and_open_competition ILIKE '%URGENCY%'
 GROUP BY award_id_piid
--- Keep an award only where its ORDER-LEVEL basis is actually urgency. Standalone
--- contracts and single-award-vehicle orders have a NULL fair-opportunity field, so the
--- Part-6 URGENCY code is the basis. Orders off a MULTIPLE-award vehicle are governed by
--- fair_opportunity_limited_sources — drop them unless that field is urgency too, since
--- their URGENCY code is inherited from the parent (competed, or "only one source", etc.).
-HAVING NOT COALESCE(bool_or(
-    fair_opportunity_limited_sources IS NOT NULL
-    AND fair_opportunity_limited_sources NOT ILIKE '%URGEN%'), FALSE)
 ORDER BY obligated DESC
 """
 
@@ -72,7 +75,11 @@ def main() -> int:
     df = df[["piid", "usaspending_url"] + [c for c in df.columns if c not in ("piid", "usaspending_url")]]
     df.to_csv(out, index=False)
 
-    print(f"FY{args.year}: {len(df):,} urgency awards, ${df.obligated.sum() / 1e9:,.2f}B obligated -> {out}")
+    on_award = df[df.urgency_basis == "on the award"]
+    on_vehicle = df[df.urgency_basis != "on the award"]
+    print(f"FY{args.year}: {len(df):,} urgency awards -> {out}  (two kinds, counted separately)")
+    print(f"  urgency on the award:   {len(on_award):,} awards, ${on_award.obligated.sum() / 1e9:,.2f}B")
+    print(f"  urgency on the vehicle: {len(on_vehicle):,} awards, ${on_vehicle.obligated.sum() / 1e9:,.2f}B  (inherited from parent vehicle; competed/other at the order level)")
     print("\nTop 10 by dollars:")
     for r in df.head(10).itertuples():
         print(f"  ${r.obligated / 1e6:>10,.1f}M  {str(r.recipient)[:34]:34} {str(r.awarding_sub_agency)[:28]}")

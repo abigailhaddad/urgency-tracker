@@ -22,7 +22,8 @@ JA_JSON = ROOT / "site" / "justifications.json"
 # goes missing, the front end silently breaks — so require it on every award.
 REQUIRED = [
     "piid", "recipient", "agency", "sub_agency", "funding_agency", "obligated",
-    "date", "description", "category", "award_type", "naics", "offers", "solicitation",
+    "date", "description", "category", "award_type", "urgency_type", "fair_opportunity",
+    "naics", "offers", "solicitation",
     "place", "pop_start", "pop_end", "protest", "url", "is_new", "ja",
 ]
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -47,6 +48,7 @@ def main() -> int:
         check(k in d, f"top-level key missing: {k}")
     s = d.get("summary", {})
     for k in ("total_awards", "total_obligated", "fy26_obligation_flow",
+              "on_award_awards", "on_award_obligated", "on_vehicle_awards", "on_vehicle_obligated",
               "excluded_older_contracts", "new_since_last", "disputed", "with_justification"):
         check(k in s, f"summary key missing: {k}")
 
@@ -58,11 +60,18 @@ def main() -> int:
     check(bool(DATE_RE.match(str(d.get("data_through")))), f"bad data_through: {d.get('data_through')}")
 
     disputed = new = with_ja = 0
+    on_award_n = on_award_d = on_vehicle_n = on_vehicle_d = 0
     for i, a in enumerate(awards):
         miss = [k for k in REQUIRED if k not in a]
         if miss:
             check(False, f"award {i} ({a.get('piid')}) missing fields: {miss}")
             continue
+        check(a["urgency_type"] in ("award", "vehicle"),
+              f"award {a['piid']}: bad urgency_type {a['urgency_type']!r}")
+        if a["urgency_type"] == "vehicle":
+            on_vehicle_n += 1; on_vehicle_d += a["obligated"]
+        else:
+            on_award_n += 1; on_award_d += a["obligated"]
         if a["ja"]:
             with_ja += 1
             f = JA_DIR / f"{a['piid']}.json"
@@ -80,6 +89,17 @@ def main() -> int:
         if a["is_new"]:
             new += 1
 
+    check(s.get("on_award_awards") == on_award_n,
+          f"summary.on_award_awards ({s.get('on_award_awards')}) != counted ({on_award_n})")
+    check(s.get("on_vehicle_awards") == on_vehicle_n,
+          f"summary.on_vehicle_awards ({s.get('on_vehicle_awards')}) != counted ({on_vehicle_n})")
+    check(on_award_n + on_vehicle_n == len(awards), "urgency_type split doesn't cover all awards")
+    # The summary rounds the sum of 2-decimal obligations; the per-award JSON stores
+    # each already rounded to whole dollars — so allow sub-dollar-per-award drift.
+    check(abs(s.get("on_award_obligated", -1) - on_award_d) <= on_award_n + 1,
+          f"summary.on_award_obligated ({s.get('on_award_obligated')}) != counted ({round(on_award_d)})")
+    check(abs(s.get("on_vehicle_obligated", -1) - on_vehicle_d) <= on_vehicle_n + 1,
+          f"summary.on_vehicle_obligated ({s.get('on_vehicle_obligated')}) != counted ({round(on_vehicle_d)})")
     check(s.get("disputed") == disputed, f"summary.disputed ({s.get('disputed')}) != counted ({disputed})")
     check(s.get("new_since_last") == new, f"summary.new_since_last ({s.get('new_since_last')}) != counted ({new})")
     check(s.get("with_justification") == with_ja,
@@ -102,7 +122,8 @@ def main() -> int:
         for e in errors[:40]:
             print("  -", e)
         return 1
-    print(f"feed OK: {len(awards):,} awards, ${s['total_obligated']/1e9:.1f}B, "
+    print(f"feed OK: on the award {on_award_n:,}/${on_award_d/1e9:.2f}B, "
+          f"on the vehicle {on_vehicle_n}/${on_vehicle_d/1e9:.2f}B, "
           f"{disputed} disputed, {new} new, data through {d['data_through']}.")
     return 0
 

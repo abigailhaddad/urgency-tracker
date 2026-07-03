@@ -49,8 +49,8 @@ import numpy as np
 x = np.arange(len(fys)); w = 0.4
 fig, ax = plt.subplots(figsize=(11.5, 6.2))
 fig.subplots_adjust(top=0.78, bottom=0.10, left=0.08, right=0.96)
-ax.bar(x - w/2, raw, w, color=RAW, label="Urgency code alone (order inherits the code)")
-ax.bar(x + w/2, corr, w, color=CORR, label="Order-level urgency only (this tracker)")
+ax.bar(x - w/2, raw, w, color=RAW, label="All urgency-coded awards (raw FPDS filter)")
+ax.bar(x + w/2, corr, w, color=CORR, label="Urgency on the award only (this tracker)")
 for i in range(len(fys)):
     if raw[i] - corr[i] > max(raw) * 0.03:       # only label where they visibly differ
         ax.text(x[i] - w/2, raw[i] + max(raw)*0.01, f"${raw[i]:,.0f}B", ha="center", va="bottom", fontsize=7.5, color="#888")
@@ -61,12 +61,12 @@ ax.set_ylim(0, max(raw) * 1.15)
 ax.spines[["top", "right"]].set_visible(False)
 ax.grid(axis="y", color="#ededed", lw=0.8); ax.set_axisbelow(True)
 ax.legend(loc="upper left", frameon=False, fontsize=9.5)
-fig.text(0.08, 0.955, "Contracting awarded without competition citing urgency — two ways of counting it",
+fig.text(0.08, 0.955, "Contracting awarded citing urgency — two kinds, counted separately",
          fontsize=14, fontweight="bold", color=CORR, ha="left", va="top")
 fig.text(0.08, 0.905,
-         "Contracts newly awarded each year. The two counts agree every year but FY2026: the gap is orders that\n"
-         "inherit the urgency code from a parent vehicle but were competed / sole-sourced on other grounds —\n"
-         "almost all of it border wall.  *FY2026 partial.",
+         "Contracts newly awarded each year. The two bars agree every year but FY2026, where the gap is\n"
+         "“urgency on the vehicle” — orders that inherited the code from a parent vehicle set up citing urgency,\n"
+         "then competed / sole-sourced at the order level; almost all border wall.  *FY2026 partial.",
          fontsize=9.5, color="#555", ha="left", va="top", linespacing=1.4)
 fig.text(0.08, 0.015,
          "Source: USAspending bulk award archive (public domain), mirrored at "
