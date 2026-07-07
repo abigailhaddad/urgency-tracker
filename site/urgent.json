@@ -12,7 +12,7 @@
   "excluded_older_contracts": 958,
   "new_since_last": 0,
   "disputed": 2,
-  "with_justification": 157
+  "with_justification": 182
  },
  "awards": [
   {
@@ -7993,7 +7993,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B11426F00000049_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "W50S9326PA002",
@@ -10201,7 +10201,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B11426F00000050_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C24726P0340",
@@ -11233,7 +11233,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41726F00000008_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "47PD5226P0001",
@@ -13849,7 +13849,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B30326F00000003_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "19CH5026F2439",
@@ -15625,7 +15625,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000157_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "75D30126P21010",
@@ -16609,7 +16609,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B11426F00000032_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "15B61626P00000099",
@@ -16729,7 +16729,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000114_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "70Z08426FSEAT0006",
@@ -17425,7 +17425,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000049_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "19CH5026P2725",
@@ -18289,7 +18289,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000117_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "15B41426F00000151",
@@ -18313,7 +18313,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000151_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "15B41426F00000239",
@@ -18337,7 +18337,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000239_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C25526P0124",
@@ -18649,7 +18649,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000104_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "47PD5326F0202",
@@ -24145,7 +24145,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41526F00000065_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "15B50726F00000016",
@@ -29209,7 +29209,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B40926F00000095_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "15B40926F00000132",
@@ -31609,7 +31609,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000087_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "15UALL26F00000182",
@@ -33793,7 +33793,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B40926F00000063_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "127EAW26P0001",
@@ -33913,7 +33913,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41426F00000062_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "19AS2026F0010",
@@ -35641,7 +35641,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B41526F00000028_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C25626P0123",
@@ -37297,7 +37297,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B11426F00000012_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C78626P50009",
@@ -37969,7 +37969,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B10726F00000031_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C24226P0384",
@@ -39337,7 +39337,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B10726F00000045_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C25926P0255",
@@ -39769,7 +39769,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B10726F00000037_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "70Z08426FHONO0014",
@@ -39961,7 +39961,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B10726F00000026_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "47PD5226F0109",
@@ -40393,7 +40393,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B10726F00000043_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C26226C0053",
@@ -40465,7 +40465,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_15B10726F00000028_1540_36C10X23D0003_3600",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C78626P50038",
