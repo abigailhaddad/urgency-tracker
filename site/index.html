@@ -82,6 +82,7 @@
   .badge-ja-parent{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#b45309; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
   .badge-vehicle{ display:inline-block; font-size:.62rem; font-weight:700; color:#fff; background:#5b6b8a; border-radius:999px; padding:1px 7px; margin-left:6px; vertical-align:middle; cursor:default; }
   td.ja-type{ white-space:nowrap; color:var(--muted); font-size:.85rem; }
+  td.basis{ white-space:nowrap; color:var(--muted); font-size:.85rem; }
   .ja-parent-note{ margin-bottom:8px; font-size:.82rem; color:#92400e; background:#fef3c7; border:1px solid #fcd34d; border-radius:8px; padding:8px 10px; }
   .dispute{ margin-top:14px; padding:11px 13px; background:#fbeeef; border:1px solid #e3b9bc; border-radius:10px; font-size:.86rem; }
   .dispute strong{ color:#a33a40; }
@@ -147,7 +148,7 @@
     <thead>
       <tr>
         <th>Recipient</th><th>Agency</th><th>Obligated</th><th>Date</th><th>Type</th><th>Description</th><th>Link</th>
-        <th>amt_m</th><th>agency_top</th><th>category</th><th>dispute</th><th>justification</th><th>urgency_basis</th>
+        <th>amt_m</th><th>agency_top</th><th>category</th><th>dispute</th><th>justification</th><th>Basis</th>
       </tr>
     </thead>
     <tbody id="mainBody"></tbody>
@@ -273,7 +274,7 @@ function rowsHtml(rows){
     <td>${(a.obligated/1e6).toFixed(3)}</td><td>${esc(a.agency)}</td><td>${esc(a.category||'')}</td>
     <td>${a.protest?esc(a.protest.outcome):''}</td>
     <td>${a.ja && JA[a.piid] && JA[a.piid].text ? esc(JA[a.piid].text) : ''}</td>
-    <td>${a.urgency_type==='vehicle'?'Urgency on the vehicle':'Urgency on the award'}</td>
+    <td class="basis">${a.urgency_type==='vehicle'?'On the vehicle':'On the award'}</td>
   </tr>`).join('');
 }
 
@@ -474,7 +475,7 @@ Promise.all([
     order: [[3,'desc']], pageLength: 25, lengthMenu: [[25,50,100,-1],[25,50,100,'All']],   // newest first (date)
     responsive: { details: false }, dom: 'lrtip',
     columnDefs: [
-      { visible:false, targets:[7,8,9,10,11,12] }, { type:'num', targets:[2,7] },
+      { visible:false, targets:[7,8,9,10,11] }, { type:'num', targets:[2,7] },
       { orderable:false, targets:[5,6,11] },
       { responsivePriority:1, targets:0 }, { responsivePriority:2, targets:2 }, { responsivePriority:3, targets:6 },
     ],
