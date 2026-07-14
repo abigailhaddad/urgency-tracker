@@ -3809,9 +3809,10 @@
   "status": "none"
  },
  "19HU2026D0015": {
+  "error": "API request failed with status 502",
   "piid": "19HU2026D0015",
   "sol": "",
-  "status": "none"
+  "status": "error"
  },
  "19HU2026D0017": {
   "piid": "19HU2026D0017",
