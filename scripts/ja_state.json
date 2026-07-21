@@ -3809,10 +3809,9 @@
   "status": "none"
  },
  "19HU2026D0015": {
-  "error": "API request failed with status 502",
   "piid": "19HU2026D0015",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "19HU2026D0017": {
   "piid": "19HU2026D0017",
@@ -11136,9 +11135,10 @@
   "status": "none"
  },
  "70Z08426FSEAT0008": {
+  "error": "API request failed with status 502",
   "piid": "70Z08426FSEAT0008",
   "sol": "",
-  "status": "none"
+  "status": "error"
  },
  "70Z08426FSEAT0009": {
   "piid": "70Z08426FSEAT0009",
