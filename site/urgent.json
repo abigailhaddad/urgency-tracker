@@ -12,7 +12,7 @@
   "excluded_older_contracts": 1006,
   "new_since_last": 298,
   "disputed": 3,
-  "with_justification": 200
+  "with_justification": 201
  },
  "awards": [
   {
@@ -1867,7 +1867,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_36C25626N0604_3600_36C25626D0056_3600",
    "is_new": true,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "70CDCR26P00000010",

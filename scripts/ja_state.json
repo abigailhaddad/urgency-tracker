@@ -4859,10 +4859,9 @@
   "status": "none"
  },
  "19SZ3526P0455": {
-  "error": "API request failed with status 502",
   "piid": "19SZ3526P0455",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "19SZ3526P0457": {
   "piid": "19SZ3526P0457",
@@ -7849,9 +7848,21 @@
   "status": "ok"
  },
  "36C25626N0604": {
+  "notice_id": "f890af79d0ff44c3a1845be0dd34b465",
+  "ocr": false,
+  "parent_piid": "36C25626D0056",
+  "pdfs": [
+   {
+    "chars": 9148,
+    "name": "JA VISN TeleRad HCA.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C25626N0604",
+  "sam_url": "https://sam.gov/opp/f890af79d0ff44c3a1845be0dd34b465/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "ok"
  },
  "36C25626P0044": {
   "piid": "36C25626P0044",
