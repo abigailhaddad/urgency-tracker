@@ -3,5 +3,29 @@
   "outputDirectory": "site",
   "buildCommand": null,
   "framework": null,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "urgency-tracker.vercel.app"
+        }
+      ],
+      "destination": "https://urgency-tracker.abigailhaddad.com/",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "urgency-tracker.vercel.app"
+        }
+      ],
+      "destination": "https://urgency-tracker.abigailhaddad.com/:path*",
+      "permanent": false
+    }
+  ]
 }
