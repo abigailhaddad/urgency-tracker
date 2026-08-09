@@ -63,18 +63,14 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Deploy to Vercel
-        if: steps.commit.outputs.changed == 'true'
+      # Deploys unconditionally, unlike the Vercel step it replaces, which only
+      # ran when the feed changed. site/ also holds the page itself, so a run
+      # after an edit to the HTML with no data change used to publish nothing.
+      - name: Deploy to Cloudflare Pages
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: |
-          if [ -n "$VERCEL_TOKEN" ]; then
-            npx --yes vercel deploy --prod --yes --token "$VERCEL_TOKEN"
-          else
-            echo "VERCEL_TOKEN not set — feed committed, but skipping deploy."
-          fi
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 pages deploy site --project-name=urgency-tracker --branch=main --commit-dirty=true
 
       - name: Alert if the data has stopped updating
         run: |
