@@ -14,6 +14,16 @@
   "sol": "",
   "status": "none"
  },
+ "1202RZ26K6180": {
+  "piid": "1202RZ26K6180",
+  "sol": "",
+  "status": "none"
+ },
+ "1204H126K6008": {
+  "piid": "1204H126K6008",
+  "sol": "",
+  "status": "none"
+ },
  "1232SA26C0001": {
   "piid": "1232SA26C0001",
   "sol": "",
@@ -39,6 +49,11 @@
   "sol": "1232SA26Q0863",
   "status": "none"
  },
+ "1232SA26P0472": {
+  "piid": "1232SA26P0472",
+  "sol": "1232SA26Q1183",
+  "status": "none"
+ },
  "1240BD26P0027": {
   "piid": "1240BD26P0027",
   "sol": "",
@@ -61,6 +76,11 @@
  },
  "1240LT26P0002": {
   "piid": "1240LT26P0002",
+  "sol": "",
+  "status": "none"
+ },
+ "12441926C0012": {
+  "piid": "12441926C0012",
   "sol": "",
   "status": "none"
  },
@@ -94,6 +114,11 @@
   "sol": "",
   "status": "none"
  },
+ "12639526P0201": {
+  "piid": "12639526P0201",
+  "sol": "",
+  "status": "none"
+ },
  "127EAS26C0004": {
   "piid": "127EAS26C0004",
   "sol": "127EAS26R0001",
@@ -119,15 +144,60 @@
   "sol": "",
   "status": "none"
  },
+ "12837126K6005": {
+  "piid": "12837126K6005",
+  "sol": "",
+  "status": "none"
+ },
+ "1284M826K6015": {
+  "piid": "1284M826K6015",
+  "sol": "",
+  "status": "none"
+ },
+ "1284M826K6016": {
+  "piid": "1284M826K6016",
+  "sol": "",
+  "status": "none"
+ },
+ "1284M826K6027": {
+  "piid": "1284M826K6027",
+  "sol": "",
+  "status": "none"
+ },
+ "1284M826K6029": {
+  "piid": "1284M826K6029",
+  "sol": "",
+  "status": "none"
+ },
  "1305M226P0104": {
   "piid": "1305M226P0104",
   "sol": "1305M226Q0111",
+  "status": "none"
+ },
+ "1333MF26P0081": {
+  "piid": "1333MF26P0081",
+  "sol": "FD-2026-501",
   "status": "none"
  },
  "13ADEP26C0003": {
   "piid": "13ADEP26C0003",
   "sol": "",
   "status": "none"
+ },
+ "140A0126C0008": {
+  "notice_id": "e12a982e09d44604b7ac52c704acd5ca",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 809,
+    "name": "E53_MISC_JOFOC_FAR_6_103_JA26-00238_Redacted_1.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "140A0126C0008",
+  "sam_url": "https://sam.gov/opp/e12a982e09d44604b7ac52c704acd5ca/view",
+  "sol": "140A0126C0008",
+  "status": "ok"
  },
  "140A0126P0026": {
   "piid": "140A0126P0026",
@@ -182,6 +252,21 @@
  "140A2326P0186": {
   "piid": "140A2326P0186",
   "sol": "140A2326P0186",
+  "status": "none"
+ },
+ "140A2326P0260": {
+  "piid": "140A2326P0260",
+  "sol": "DOIAFBO260097",
+  "status": "none"
+ },
+ "140D0426C0127": {
+  "piid": "140D0426C0127",
+  "sol": "",
+  "status": "none"
+ },
+ "140D0426C8139": {
+  "piid": "140D0426C8139",
+  "sol": "20342325Q00035",
   "status": "none"
  },
  "140D0426P0196": {
@@ -245,6 +330,16 @@
  "140FS226P0209": {
   "piid": "140FS226P0209",
   "sol": "140FS226P0209",
+  "status": "none"
+ },
+ "140FS226P0212": {
+  "piid": "140FS226P0212",
+  "sol": "140FS226P0212",
+  "status": "none"
+ },
+ "140FS226P0222": {
+  "piid": "140FS226P0222",
+  "sol": "140FS226P0222",
   "status": "none"
  },
  "140FS326P0001": {
@@ -350,6 +445,16 @@
  "140FS326P0162": {
   "piid": "140FS326P0162",
   "sol": "140FS326P0162",
+  "status": "none"
+ },
+ "140FS326P0193": {
+  "piid": "140FS326P0193",
+  "sol": "140FS326P0193",
+  "status": "none"
+ },
+ "140FS326P0201": {
+  "piid": "140FS326P0201",
+  "sol": "140FS326P0201",
   "status": "none"
  },
  "140G0126D0003": {
@@ -464,6 +569,11 @@
   "sol": "",
   "status": "none"
  },
+ "140P4326P0041": {
+  "piid": "140P4326P0041",
+  "sol": "",
+  "status": "none"
+ },
  "140P5126P0031": {
   "piid": "140P5126P0031",
   "sol": "",
@@ -477,6 +587,11 @@
  "140P5326P0002": {
   "piid": "140P5326P0002",
   "sol": "",
+  "status": "none"
+ },
+ "140P5426P0028": {
+  "piid": "140P5426P0028",
+  "sol": "140P5426Q0025",
   "status": "none"
  },
  "140P6026P0001": {
@@ -527,6 +642,11 @@
   "sol": "",
   "status": "ok"
  },
+ "140P6426P0047": {
+  "piid": "140P6426P0047",
+  "sol": "140P6426P0047",
+  "status": "none"
+ },
  "140P8126P0007": {
   "notice_id": "cfdea92b8ce643d0b1d612607d5e70c1",
   "ocr": false,
@@ -576,6 +696,11 @@
   "sam_url": "https://sam.gov/opp/1005181a419240399c31f3e8cd94f813/view",
   "sol": "",
   "status": "ok"
+ },
+ "140P8626P0019": {
+  "piid": "140P8626P0019",
+  "sol": "",
+  "status": "none"
  },
  "140PS126C0006": {
   "piid": "140PS126C0006",
@@ -879,6 +1004,36 @@
   "sol": "",
   "status": "ok"
  },
+ "15B10726P00000132": {
+  "notice_id": "cb495e7535344d8a8de6f56d531a019b",
+  "ocr": true,
+  "pdfs": [
+   {
+    "chars": 3869,
+    "name": "ACH JOFOC July.pdf",
+    "via": "ocr"
+   }
+  ],
+  "piid": "15B10726P00000132",
+  "sam_url": "https://sam.gov/opp/cb495e7535344d8a8de6f56d531a019b/view",
+  "sol": "",
+  "status": "ok"
+ },
+ "15B10726P00000138": {
+  "notice_id": "82f017da7cb44e8d97d851759e7b3265",
+  "ocr": true,
+  "pdfs": [
+   {
+    "chars": 3884,
+    "name": "JOFOC ACH August.pdf",
+    "via": "ocr"
+   }
+  ],
+  "piid": "15B10726P00000138",
+  "sam_url": "https://sam.gov/opp/82f017da7cb44e8d97d851759e7b3265/view",
+  "sol": "",
+  "status": "ok"
+ },
  "15B11326P00000042": {
   "notice_id": "3c88539bbfa743f5a2943f4c39dee612",
   "pdfs": [],
@@ -901,6 +1056,38 @@
   "piid": "15B11326P00000051",
   "sam_url": "https://sam.gov/opp/aa3c6f125a4640928e3a7caf789e6561/view",
   "sol": "15B11326PR000132",
+  "status": "empty"
+ },
+ "15B11326P00000062": {
+  "notice_id": "b7458cc6a0df46909e7b11e02ec7ac79",
+  "pdfs": [],
+  "piid": "15B11326P00000062",
+  "sam_url": "https://sam.gov/opp/b7458cc6a0df46909e7b11e02ec7ac79/view",
+  "sol": "",
+  "status": "empty"
+ },
+ "15B11326P00000063": {
+  "notice_id": "86a410fede9941ebb1480658378cbb28",
+  "pdfs": [],
+  "piid": "15B11326P00000063",
+  "sam_url": "https://sam.gov/opp/86a410fede9941ebb1480658378cbb28/view",
+  "sol": "",
+  "status": "empty"
+ },
+ "15B11326P00000064": {
+  "notice_id": "d06499affb3b42648a85616dd6599b8d",
+  "pdfs": [],
+  "piid": "15B11326P00000064",
+  "sam_url": "https://sam.gov/opp/d06499affb3b42648a85616dd6599b8d/view",
+  "sol": "",
+  "status": "empty"
+ },
+ "15B11326P00000065": {
+  "notice_id": "e6ddd5a679304b0d9a03f2aed00b4823",
+  "pdfs": [],
+  "piid": "15B11326P00000065",
+  "sam_url": "https://sam.gov/opp/e6ddd5a679304b0d9a03f2aed00b4823/view",
+  "sol": "",
   "status": "empty"
  },
  "15B11426F00000012": {
@@ -976,6 +1163,11 @@
   "sol": "",
   "status": "none"
  },
+ "15B11926P00000108": {
+  "piid": "15B11926P00000108",
+  "sol": "",
+  "status": "none"
+ },
  "15B12126P00000038": {
   "piid": "15B12126P00000038",
   "sol": "",
@@ -988,6 +1180,11 @@
  },
  "15B12126P00000062": {
   "piid": "15B12126P00000062",
+  "sol": "",
+  "status": "none"
+ },
+ "15B12126P00000173": {
+  "piid": "15B12126P00000173",
   "sol": "",
   "status": "none"
  },
@@ -1025,6 +1222,23 @@
   "piid": "15B20926P00000055",
   "sol": "",
   "status": "none"
+ },
+ "15B21126F00000038": {
+  "notice_id": "f5185f19aa92446d99c54f430e2b93c1",
+  "ocr": false,
+  "parent_piid": "36C10X23D0003",
+  "pdfs": [
+   {
+    "chars": 13623,
+    "name": "08546511 _MSPV_GenZ_Transition2_SSJ_20220926_v1_ForSignature(LES) cdp (004) ab 10112022_Redacted.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "15B21126F00000038",
+  "sam_url": "https://sam.gov/opp/f5185f19aa92446d99c54f430e2b93c1/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
  },
  "15B21126P00000021": {
   "piid": "15B21126P00000021",
@@ -1137,6 +1351,21 @@
   "sol": "",
   "status": "none"
  },
+ "15B30226P00000316": {
+  "piid": "15B30226P00000316",
+  "sol": "",
+  "status": "none"
+ },
+ "15B30226P00000328": {
+  "piid": "15B30226P00000328",
+  "sol": "",
+  "status": "none"
+ },
+ "15B30226P00000329": {
+  "piid": "15B30226P00000329",
+  "sol": "",
+  "status": "none"
+ },
  "15B30326F00000003": {
   "notice_id": "f5185f19aa92446d99c54f430e2b93c1",
   "ocr": false,
@@ -1181,6 +1410,11 @@
  },
  "15B30926P00000083": {
   "piid": "15B30926P00000083",
+  "sol": "",
+  "status": "none"
+ },
+ "15B30926P00000097": {
+  "piid": "15B30926P00000097",
   "sol": "",
   "status": "none"
  },
@@ -1271,6 +1505,31 @@
  },
  "15B31326P00000057": {
   "piid": "15B31326P00000057",
+  "sol": "",
+  "status": "none"
+ },
+ "15B31326P00000069": {
+  "piid": "15B31326P00000069",
+  "sol": "",
+  "status": "none"
+ },
+ "15B31326P00000070": {
+  "piid": "15B31326P00000070",
+  "sol": "",
+  "status": "none"
+ },
+ "15B31326P00000071": {
+  "piid": "15B31326P00000071",
+  "sol": "",
+  "status": "none"
+ },
+ "15B31326P00000072": {
+  "piid": "15B31326P00000072",
+  "sol": "",
+  "status": "none"
+ },
+ "15B31426P00000150": {
+  "piid": "15B31426P00000150",
   "sol": "",
   "status": "none"
  },
@@ -1587,8 +1846,47 @@
   "source": "parent",
   "status": "ok"
  },
+ "15B41426F00000269": {
+  "notice_id": "f5185f19aa92446d99c54f430e2b93c1",
+  "ocr": false,
+  "parent_piid": "36C10X23D0003",
+  "pdfs": [
+   {
+    "chars": 13623,
+    "name": "08546511 _MSPV_GenZ_Transition2_SSJ_20220926_v1_ForSignature(LES) cdp (004) ab 10112022_Redacted.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "15B41426F00000269",
+  "sam_url": "https://sam.gov/opp/f5185f19aa92446d99c54f430e2b93c1/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
+ "15B41426F00000280": {
+  "notice_id": "f5185f19aa92446d99c54f430e2b93c1",
+  "ocr": false,
+  "parent_piid": "36C10X23D0003",
+  "pdfs": [
+   {
+    "chars": 13623,
+    "name": "08546511 _MSPV_GenZ_Transition2_SSJ_20220926_v1_ForSignature(LES) cdp (004) ab 10112022_Redacted.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "15B41426F00000280",
+  "sam_url": "https://sam.gov/opp/f5185f19aa92446d99c54f430e2b93c1/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
  "15B41426P00000185": {
   "piid": "15B41426P00000185",
+  "sol": "",
+  "status": "none"
+ },
+ "15B41426P00000237": {
+  "piid": "15B41426P00000237",
   "sol": "",
   "status": "none"
  },
@@ -1708,6 +2006,11 @@
   "sol": "",
   "status": "none"
  },
+ "15B50126P00000095": {
+  "piid": "15B50126P00000095",
+  "sol": "",
+  "status": "none"
+ },
  "15B50226P00000055": {
   "piid": "15B50226P00000055",
   "sol": "",
@@ -1730,6 +2033,16 @@
  },
  "15B50226P00000204": {
   "piid": "15B50226P00000204",
+  "sol": "",
+  "status": "none"
+ },
+ "15B50226P00000240": {
+  "piid": "15B50226P00000240",
+  "sol": "",
+  "status": "none"
+ },
+ "15B50326P00000089": {
+  "piid": "15B50326P00000089",
   "sol": "",
   "status": "none"
  },
@@ -1776,6 +2089,11 @@
  },
  "15B50926F00000029": {
   "piid": "15B50926F00000029",
+  "sol": "",
+  "status": "none"
+ },
+ "15B51126P00000003": {
+  "piid": "15B51126P00000003",
   "sol": "",
   "status": "none"
  },
@@ -1869,6 +2187,41 @@
  },
  "15B51626P00000099": {
   "piid": "15B51626P00000099",
+  "sol": "",
+  "status": "none"
+ },
+ "15B51626P00000101": {
+  "piid": "15B51626P00000101",
+  "sol": "",
+  "status": "none"
+ },
+ "15B51626P00000102": {
+  "piid": "15B51626P00000102",
+  "sol": "",
+  "status": "none"
+ },
+ "15B51626P00000105": {
+  "piid": "15B51626P00000105",
+  "sol": "",
+  "status": "none"
+ },
+ "15B51626P00000109": {
+  "piid": "15B51626P00000109",
+  "sol": "",
+  "status": "none"
+ },
+ "15B51626P00000114": {
+  "piid": "15B51626P00000114",
+  "sol": "",
+  "status": "none"
+ },
+ "15B51626P00000134": {
+  "piid": "15B51626P00000134",
+  "sol": "",
+  "status": "none"
+ },
+ "15B51626P00000137": {
+  "piid": "15B51626P00000137",
   "sol": "",
   "status": "none"
  },
@@ -2197,6 +2550,11 @@
   "sol": "",
   "status": "none"
  },
+ "15BBNF26C11400001": {
+  "piid": "15BBNF26C11400001",
+  "sol": "",
+  "status": "none"
+ },
  "15BBNF26P00000011": {
   "piid": "15BBNF26P00000011",
   "sol": "",
@@ -2272,6 +2630,16 @@
   "sol": "15BCTS20Q00000041",
   "status": "none"
  },
+ "15BCTS26D00000029": {
+  "piid": "15BCTS26D00000029",
+  "sol": "",
+  "status": "none"
+ },
+ "15BCTS26D00000030": {
+  "piid": "15BCTS26D00000030",
+  "sol": "",
+  "status": "none"
+ },
  "15BCTS26F00000263": {
   "piid": "15BCTS26F00000263",
   "sol": "",
@@ -2280,6 +2648,16 @@
  "15BCTS26F00000323": {
   "piid": "15BCTS26F00000323",
   "sol": "",
+  "status": "none"
+ },
+ "15BCTS26F00000337": {
+  "piid": "15BCTS26F00000337",
+  "sol": "15BCTS21Q00000005",
+  "status": "none"
+ },
+ "15BCTS26F00000372": {
+  "piid": "15BCTS26F00000372",
+  "sol": "15BCTS21Q00000010",
   "status": "none"
  },
  "15BFTD26P00000018": {
@@ -2352,6 +2730,21 @@
   "sol": "",
   "status": "none"
  },
+ "15BRRC26D00000018": {
+  "piid": "15BRRC26D00000018",
+  "sol": "",
+  "status": "none"
+ },
+ "15BRRC26D00000019": {
+  "piid": "15BRRC26D00000019",
+  "sol": "15BRRC25R00000019",
+  "status": "none"
+ },
+ "15BRRC26D00000070": {
+  "piid": "15BRRC26D00000070",
+  "sol": "",
+  "status": "none"
+ },
  "15BRRC26F00000101": {
   "piid": "15BRRC26F00000101",
   "sol": "",
@@ -2364,6 +2757,11 @@
  },
  "15BRRC26F00000239": {
   "piid": "15BRRC26F00000239",
+  "sol": "",
+  "status": "none"
+ },
+ "15BRRC26F00000284": {
+  "piid": "15BRRC26F00000284",
   "sol": "",
   "status": "none"
  },
@@ -2444,6 +2842,11 @@
  },
  "15M10426PA4700035": {
   "piid": "15M10426PA4700035",
+  "sol": "",
+  "status": "none"
+ },
+ "15M10426PA4700048": {
+  "piid": "15M10426PA4700048",
   "sol": "",
   "status": "none"
  },
@@ -2909,6 +3312,16 @@
   "sol": "",
   "status": "none"
  },
+ "15UF0R26P00000563": {
+  "piid": "15UF0R26P00000563",
+  "sol": "",
+  "status": "none"
+ },
+ "15UF0R26P00000585": {
+  "piid": "15UF0R26P00000585",
+  "sol": "",
+  "status": "none"
+ },
  "15UL0M26P00000062": {
   "piid": "15UL0M26P00000062",
   "sol": "",
@@ -2979,6 +3392,21 @@
   "sol": "",
   "status": "none"
  },
+ "15UM1L26P00000408": {
+  "piid": "15UM1L26P00000408",
+  "sol": "",
+  "status": "none"
+ },
+ "15UM1L26P00000514": {
+  "piid": "15UM1L26P00000514",
+  "sol": "",
+  "status": "none"
+ },
+ "15UMAN26P00000271": {
+  "piid": "15UMAN26P00000271",
+  "sol": "",
+  "status": "none"
+ },
  "15USAF26P00000082": {
   "piid": "15USAF26P00000082",
   "sol": "",
@@ -2986,6 +3414,11 @@
  },
  "15UW1L26P00000121": {
   "piid": "15UW1L26P00000121",
+  "sol": "",
+  "status": "none"
+ },
+ "1605C426P00026": {
+  "piid": "1605C426P00026",
   "sol": "",
   "status": "none"
  },
@@ -3021,6 +3454,11 @@
  },
  "191C7026P0191": {
   "piid": "191C7026P0191",
+  "sol": "",
+  "status": "none"
+ },
+ "191N6526P1153": {
+  "piid": "191N6526P1153",
   "sol": "",
   "status": "none"
  },
@@ -3192,6 +3630,11 @@
   "sol": "",
   "status": "none"
  },
+ "191Z1026C0004": {
+  "piid": "191Z1026C0004",
+  "sol": "",
+  "status": "none"
+ },
  "19AQMM26C0203": {
   "piid": "19AQMM26C0203",
   "sol": "",
@@ -3231,13 +3674,48 @@
   "status": "none"
  },
  "19AQMM26C0582": {
+  "notice_id": "9b878e3ada744ba7b9e35bd6461d0af7",
+  "ocr": true,
+  "pdfs": [
+   {
+    "chars": 9162,
+    "name": "J and A FSOT Development - HumRRO Redacted.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "19AQMM26C0582",
+  "sam_url": "https://sam.gov/opp/9b878e3ada744ba7b9e35bd6461d0af7/view",
   "sol": "19AQMM26R0240",
-  "status": "none"
+  "status": "ok"
  },
  "19AQMM26C0623": {
+  "notice_id": "a726ba40982a4ad9ad80d131e3b7e528",
+  "ocr": true,
+  "pdfs": [
+   {
+    "chars": 7694,
+    "name": "J and A Foreign Service Officer Admin  Redacted.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "19AQMM26C0623",
+  "sam_url": "https://sam.gov/opp/a726ba40982a4ad9ad80d131e3b7e528/view",
   "sol": "19AQMM26R0249",
+  "status": "ok"
+ },
+ "19AQMM26C0624": {
+  "piid": "19AQMM26C0624",
+  "sol": "19AQMM26R0121",
+  "status": "none"
+ },
+ "19AQMM26C0677": {
+  "piid": "19AQMM26C0677",
+  "sol": "19AQMM26R0197",
+  "status": "none"
+ },
+ "19AQMM26C0726": {
+  "piid": "19AQMM26C0726",
+  "sol": "",
   "status": "none"
  },
  "19AQMM26P0209": {
@@ -3315,6 +3793,11 @@
   "sol": "",
   "status": "none"
  },
+ "19AS2026P0619": {
+  "piid": "19AS2026P0619",
+  "sol": "",
+  "status": "none"
+ },
  "19BB2126P0216": {
   "piid": "19BB2126P0216",
   "sol": "",
@@ -3338,6 +3821,11 @@
  "19BE2026P0396": {
   "piid": "19BE2026P0396",
   "sol": "19BE2026Q0396",
+  "status": "none"
+ },
+ "19BF5026P0381": {
+  "piid": "19BF5026P0381",
+  "sol": "",
   "status": "none"
  },
  "19BL4026P0054": {
@@ -3367,6 +3855,11 @@
  },
  "19CA7026P0020": {
   "piid": "19CA7026P0020",
+  "sol": "",
+  "status": "none"
+ },
+ "19CG5026P0670": {
+  "piid": "19CG5026P0670",
   "sol": "",
   "status": "none"
  },
@@ -3500,8 +3993,23 @@
   "sol": "",
   "status": "none"
  },
+ "19E13026D0005": {
+  "piid": "19E13026D0005",
+  "sol": "",
+  "status": "none"
+ },
+ "19E13026F0342": {
+  "piid": "19E13026F0342",
+  "sol": "",
+  "status": "none"
+ },
  "19E13026P0024": {
   "piid": "19E13026P0024",
+  "sol": "",
+  "status": "none"
+ },
+ "19E13026P0345": {
+  "piid": "19E13026P0345",
   "sol": "",
   "status": "none"
  },
@@ -3708,6 +4216,26 @@
   "sol": "",
   "status": "none"
  },
+ "19FR6326P1495": {
+  "piid": "19FR6326P1495",
+  "sol": "",
+  "status": "none"
+ },
+ "19FR6326P1525": {
+  "piid": "19FR6326P1525",
+  "sol": "",
+  "status": "none"
+ },
+ "19FR6326P1539": {
+  "piid": "19FR6326P1539",
+  "sol": "",
+  "status": "none"
+ },
+ "19FR6326P1540": {
+  "piid": "19FR6326P1540",
+  "sol": "",
+  "status": "none"
+ },
  "19GB5026P0070": {
   "piid": "19GB5026P0070",
   "sol": "",
@@ -3878,6 +4406,11 @@
   "sol": "",
   "status": "none"
  },
+ "19JA2526P0180": {
+  "piid": "19JA2526P0180",
+  "sol": "",
+  "status": "none"
+ },
  "19JA8026C0001": {
   "piid": "19JA8026C0001",
   "sol": "19JA8026Q0038",
@@ -4033,8 +4566,18 @@
   "sol": "",
   "status": "none"
  },
+ "19JA8026P1401": {
+  "piid": "19JA8026P1401",
+  "sol": "",
+  "status": "none"
+ },
  "19JM3726P0066": {
   "piid": "19JM3726P0066",
+  "sol": "",
+  "status": "none"
+ },
+ "19KE5026P1392": {
+  "piid": "19KE5026P1392",
   "sol": "",
   "status": "none"
  },
@@ -4493,6 +5036,11 @@
   "sol": "",
   "status": "none"
  },
+ "19N15026P0158": {
+  "piid": "19N15026P0158",
+  "sol": "",
+  "status": "none"
+ },
  "19NP4026P0671": {
   "piid": "19NP4026P0671",
   "sol": "",
@@ -4603,6 +5151,11 @@
   "sol": "",
   "status": "none"
  },
+ "19RP3826P1327": {
+  "piid": "19RP3826P1327",
+  "sol": "",
+  "status": "none"
+ },
  "19SA7026P0056": {
   "piid": "19SA7026P0056",
   "sol": "",
@@ -4705,6 +5258,11 @@
  },
  "19SA7026P0711": {
   "piid": "19SA7026P0711",
+  "sol": "",
+  "status": "none"
+ },
+ "19SA7026P0854": {
+  "piid": "19SA7026P0854",
   "sol": "",
   "status": "none"
  },
@@ -4933,8 +5491,58 @@
   "sol": "",
   "status": "none"
  },
+ "19TU1526D3000": {
+  "piid": "19TU1526D3000",
+  "sol": "",
+  "status": "none"
+ },
  "19TU1526D3002": {
   "piid": "19TU1526D3002",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3134": {
+  "piid": "19TU1526F3134",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3136": {
+  "piid": "19TU1526F3136",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3137": {
+  "piid": "19TU1526F3137",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3138": {
+  "piid": "19TU1526F3138",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3139": {
+  "piid": "19TU1526F3139",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3144": {
+  "piid": "19TU1526F3144",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3146": {
+  "piid": "19TU1526F3146",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3166": {
+  "piid": "19TU1526F3166",
+  "sol": "",
+  "status": "none"
+ },
+ "19TU1526F3171": {
+  "piid": "19TU1526F3171",
   "sol": "",
   "status": "none"
  },
@@ -5013,6 +5621,11 @@
   "sol": "",
   "status": "none"
  },
+ "19UK5626P0714": {
+  "piid": "19UK5626P0714",
+  "sol": "",
+  "status": "none"
+ },
  "19UK5626P0716": {
   "piid": "19UK5626P0716",
   "sol": "",
@@ -5033,6 +5646,21 @@
   "sol": "",
   "status": "none"
  },
+ "19VE3026P0237": {
+  "piid": "19VE3026P0237",
+  "sol": "",
+  "status": "none"
+ },
+ "19VE3026P0243": {
+  "piid": "19VE3026P0243",
+  "sol": "",
+  "status": "none"
+ },
+ "19WA8026P0756": {
+  "piid": "19WA8026P0756",
+  "sol": "",
+  "status": "none"
+ },
  "19ZA6026P0043": {
   "piid": "19ZA6026P0043",
   "sol": "",
@@ -5050,6 +5678,11 @@
  },
  "2031ZA26P00051": {
   "piid": "2031ZA26P00051",
+  "sol": "",
+  "status": "none"
+ },
+ "2031ZA26P00091": {
+  "piid": "2031ZA26P00091",
   "sol": "",
   "status": "none"
  },
@@ -5118,6 +5751,21 @@
   "sol": "28321326Q00000192",
   "status": "none"
  },
+ "28321326C00060013": {
+  "piid": "28321326C00060013",
+  "sol": "28321326R00000017",
+  "status": "none"
+ },
+ "28321326C00060014": {
+  "piid": "28321326C00060014",
+  "sol": "28321326Q00000177",
+  "status": "none"
+ },
+ "28321326C00060015": {
+  "piid": "28321326C00060015",
+  "sol": "28321326Q00000178",
+  "status": "none"
+ },
  "31310026C0002": {
   "piid": "31310026C0002",
   "sol": "",
@@ -5141,6 +5789,11 @@
  "33301126PFP0048": {
   "piid": "33301126PFP0048",
   "sol": "202.842.6794",
+  "status": "none"
+ },
+ "33301126PFP0084": {
+  "piid": "33301126PFP0084",
+  "sol": "",
   "status": "none"
  },
  "33330226CF0010154": {
@@ -5309,6 +5962,11 @@
   "source": "parent",
   "status": "ok"
  },
+ "36C24126C0024": {
+  "piid": "36C24126C0024",
+  "sol": "",
+  "status": "none"
+ },
  "36C24126P0032": {
   "piid": "36C24126P0032",
   "sol": "",
@@ -5356,6 +6014,11 @@
  },
  "36C24126P0495": {
   "piid": "36C24126P0495",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24126P0615": {
+  "piid": "36C24126P0615",
   "sol": "",
   "status": "none"
  },
@@ -5602,6 +6265,31 @@
  "36C24226P0769": {
   "piid": "36C24226P0769",
   "sol": "",
+  "status": "none"
+ },
+ "36C24226P0780": {
+  "piid": "36C24226P0780",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24226P0796": {
+  "piid": "36C24226P0796",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24226P0805": {
+  "piid": "36C24226P0805",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24226P0809": {
+  "piid": "36C24226P0809",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24226P0853": {
+  "piid": "36C24226P0853",
+  "sol": "36C242-26-AP-4672",
   "status": "none"
  },
  "36C24426C0026": {
@@ -5914,6 +6602,34 @@
   "sol": "N/A",
   "status": "none"
  },
+ "36C24426P0390": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
+  "piid": "36C24426P0390",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
+  "sol": "NA",
+  "status": "empty"
+ },
+ "36C24426P0395": {
+  "piid": "36C24426P0395",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24426P0399": {
+  "piid": "36C24426P0399",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24426P0406": {
+  "piid": "36C24426P0406",
+  "sol": "36C244-26-AP-3873",
+  "status": "none"
+ },
+ "36C24426P0445": {
+  "piid": "36C24426P0445",
+  "sol": "595-P60046",
+  "status": "none"
+ },
  "36C24526C0031": {
   "piid": "36C24526C0031",
   "sol": "",
@@ -5936,6 +6652,11 @@
  },
  "36C24526C0061": {
   "piid": "36C24526C0061",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24526C0066": {
+  "piid": "36C24526C0066",
   "sol": "",
   "status": "none"
  },
@@ -6132,6 +6853,26 @@
   "sol": "",
   "status": "none"
  },
+ "36C24526P0445": {
+  "piid": "36C24526P0445",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24526P0476": {
+  "piid": "36C24526P0476",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24526P0506": {
+  "piid": "36C24526P0506",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24526P0542": {
+  "piid": "36C24526P0542",
+  "sol": "",
+  "status": "none"
+ },
  "36C24626N0573": {
   "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
   "ocr": false,
@@ -6285,6 +7026,16 @@
   "sol": "",
   "status": "none"
  },
+ "36C24726C0060": {
+  "piid": "36C24726C0060",
+  "sol": "36C24726R0115",
+  "status": "none"
+ },
+ "36C24726C0067": {
+  "piid": "36C24726C0067",
+  "sol": "",
+  "status": "none"
+ },
  "36C24726N0012": {
   "piid": "36C24726N0012",
   "sol": "",
@@ -6384,6 +7135,11 @@
  },
  "36C24726P0664": {
   "piid": "36C24726P0664",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24726P0693": {
+  "piid": "36C24726P0693",
   "sol": "",
   "status": "none"
  },
@@ -6782,6 +7538,16 @@
   "sol": "",
   "status": "none"
  },
+ "36C24826P0812": {
+  "piid": "36C24826P0812",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P0815": {
+  "piid": "36C24826P0815",
+  "sol": "",
+  "status": "none"
+ },
  "36C24826P0816": {
   "piid": "36C24826P0816",
   "sol": "",
@@ -6827,6 +7593,11 @@
   "sol": "",
   "status": "none"
  },
+ "36C24826P0911": {
+  "piid": "36C24826P0911",
+  "sol": "",
+  "status": "none"
+ },
  "36C24826P0918": {
   "piid": "36C24826P0918",
   "sol": "",
@@ -6855,6 +7626,76 @@
  "36C24826P0986": {
   "piid": "36C24826P0986",
   "sol": "",
+  "status": "none"
+ },
+ "36C24826P0989": {
+  "piid": "36C24826P0989",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P0996": {
+  "piid": "36C24826P0996",
+  "sol": "36C24826Q0904",
+  "status": "none"
+ },
+ "36C24826P1008": {
+  "piid": "36C24826P1008",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1019": {
+  "piid": "36C24826P1019",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1026": {
+  "piid": "36C24826P1026",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1034": {
+  "piid": "36C24826P1034",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1054": {
+  "piid": "36C24826P1054",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1055": {
+  "piid": "36C24826P1055",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1082": {
+  "piid": "36C24826P1082",
+  "sol": "36C24826Q0991",
+  "status": "none"
+ },
+ "36C24826P1087": {
+  "piid": "36C24826P1087",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1093": {
+  "piid": "36C24826P1093",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1095": {
+  "piid": "36C24826P1095",
+  "sol": "36C24826Q1010",
+  "status": "none"
+ },
+ "36C24826P1108": {
+  "piid": "36C24826P1108",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24826P1140": {
+  "piid": "36C24826P1140",
+  "sol": "36C24826Q1050",
   "status": "none"
  },
  "36C24926C0010": {
@@ -7010,6 +7851,16 @@
  },
  "36C24926P0407": {
   "piid": "36C24926P0407",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24926P0459": {
+  "piid": "36C24926P0459",
+  "sol": "",
+  "status": "none"
+ },
+ "36C24926P0478": {
+  "piid": "36C24926P0478",
   "sol": "",
   "status": "none"
  },
@@ -7379,6 +8230,31 @@
   "sol": "",
   "status": "none"
  },
+ "36C25026P0840": {
+  "piid": "36C25026P0840",
+  "sol": "36C25026Q0669",
+  "status": "none"
+ },
+ "36C25026P0883": {
+  "piid": "36C25026P0883",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25026P0897": {
+  "piid": "36C25026P0897",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25026P0899": {
+  "piid": "36C25026P0899",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25026P0908": {
+  "piid": "36C25026P0908",
+  "sol": "",
+  "status": "none"
+ },
  "36C25226D0010": {
   "piid": "36C25226D0010",
   "sol": "",
@@ -7582,6 +8458,16 @@
   "sol": "",
   "status": "none"
  },
+ "36C25226P0460": {
+  "piid": "36C25226P0460",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25226P0467": {
+  "piid": "36C25226P0467",
+  "sol": "",
+  "status": "none"
+ },
  "36C25526D0028": {
   "piid": "36C25526D0028",
   "sol": "",
@@ -7592,6 +8478,11 @@
   "sol": "36C25526Q0367",
   "status": "none"
  },
+ "36C25526D0064": {
+  "piid": "36C25526D0064",
+  "sol": "",
+  "status": "none"
+ },
  "36C25526N0110": {
   "piid": "36C25526N0110",
   "sol": "",
@@ -7599,6 +8490,11 @@
  },
  "36C25526N0294": {
   "piid": "36C25526N0294",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25526N0372": {
+  "piid": "36C25526N0372",
   "sol": "",
   "status": "none"
  },
@@ -7807,6 +8703,31 @@
   "sol": "",
   "status": "none"
  },
+ "36C25526P0255": {
+  "piid": "36C25526P0255",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25526P0270": {
+  "piid": "36C25526P0270",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25526P0272": {
+  "piid": "36C25526P0272",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25526P0278": {
+  "piid": "36C25526P0278",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25526P0283": {
+  "piid": "36C25526P0283",
+  "sol": "",
+  "status": "none"
+ },
  "36C25626C0027": {
   "piid": "36C25626C0027",
   "sol": "",
@@ -7830,6 +8751,11 @@
  "36C25626C0035": {
   "piid": "36C25626C0035",
   "sol": "36C25626C0035",
+  "status": "none"
+ },
+ "36C25626C0051": {
+  "piid": "36C25626C0051",
+  "sol": "",
   "status": "none"
  },
  "36C25626D0056": {
@@ -7974,6 +8900,11 @@
   "sol": "N/A",
   "status": "none"
  },
+ "36C25626P0741": {
+  "piid": "36C25626P0741",
+  "sol": "",
+  "status": "none"
+ },
  "36C25626P0756": {
   "piid": "36C25626P0756",
   "sol": "36C25626Q0866",
@@ -7987,9 +8918,29 @@
   "sol": "NA",
   "status": "empty"
  },
+ "36C25626P0844": {
+  "piid": "36C25626P0844",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25626P0849": {
+  "piid": "36C25626P0849",
+  "sol": "36C25626Q0995",
+  "status": "none"
+ },
  "36C25626P0854": {
   "piid": "36C25626P0854",
   "sol": "36C25626AP3777",
+  "status": "none"
+ },
+ "36C25626P0900": {
+  "piid": "36C25626P0900",
+  "sol": "36C25626Q1059",
+  "status": "none"
+ },
+ "36C25626P0916": {
+  "piid": "36C25626P0916",
+  "sol": "N/A",
   "status": "none"
  },
  "36C25726C0018": {
@@ -8077,9 +9028,19 @@
   "sol": "",
   "status": "none"
  },
+ "36C25726P0576": {
+  "piid": "36C25726P0576",
+  "sol": "36C25726Q0675",
+  "status": "none"
+ },
  "36C25726P0588": {
   "piid": "36C25726P0588",
   "sol": "36C25726Q0694",
+  "status": "none"
+ },
+ "36C25726P0673": {
+  "piid": "36C25726P0673",
+  "sol": "",
   "status": "none"
  },
  "36C25926C0008": {
@@ -8097,8 +9058,23 @@
   "sol": "",
   "status": "none"
  },
+ "36C25926C0051": {
+  "piid": "36C25926C0051",
+  "sol": "",
+  "status": "none"
+ },
  "36C25926C0057": {
   "piid": "36C25926C0057",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25926C0062": {
+  "piid": "36C25926C0062",
+  "sol": "36C259-26-AP-3463",
+  "status": "none"
+ },
+ "36C25926C0068": {
+  "piid": "36C25926C0068",
   "sol": "",
   "status": "none"
  },
@@ -8137,9 +9113,24 @@
   "sol": "",
   "status": "none"
  },
+ "36C25926P0497": {
+  "piid": "36C25926P0497",
+  "sol": "",
+  "status": "none"
+ },
+ "36C25926P0498": {
+  "piid": "36C25926P0498",
+  "sol": "",
+  "status": "none"
+ },
  "36C25926P0537": {
   "piid": "36C25926P0537",
   "sol": "36C259-26-AP-3313",
+  "status": "none"
+ },
+ "36C25926P0592": {
+  "piid": "36C25926P0592",
+  "sol": "",
   "status": "none"
  },
  "36C26026C0023": {
@@ -8182,6 +9173,11 @@
   "sol": "",
   "status": "none"
  },
+ "36C26026P0667": {
+  "piid": "36C26026P0667",
+  "sol": "",
+  "status": "none"
+ },
  "36C26126C0046": {
   "piid": "36C26126C0046",
   "sol": "36C261-26-AP-4080",
@@ -8189,6 +9185,11 @@
  },
  "36C26126C0054": {
   "piid": "36C26126C0054",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26126C0060": {
+  "piid": "36C26126C0060",
   "sol": "",
   "status": "none"
  },
@@ -8302,6 +9303,11 @@
   "sol": "36C261-26-AP-3461",
   "status": "none"
  },
+ "36C26126P0737": {
+  "piid": "36C26126P0737",
+  "sol": "",
+  "status": "none"
+ },
  "36C26126P0812": {
   "piid": "36C26126P0812",
   "sol": "",
@@ -8310,6 +9316,26 @@
  "36C26126P0873": {
   "piid": "36C26126P0873",
   "sol": "",
+  "status": "none"
+ },
+ "36C26126P0878": {
+  "piid": "36C26126P0878",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26126P0924": {
+  "piid": "36C26126P0924",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26126P0980": {
+  "piid": "36C26126P0980",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26126P0983": {
+  "piid": "36C26126P0983",
+  "sol": "N/A",
   "status": "none"
  },
  "36C26226C0035": {
@@ -8462,6 +9488,16 @@
   "sol": "",
   "status": "none"
  },
+ "36C26226C0240": {
+  "piid": "36C26226C0240",
+  "sol": "N/A",
+  "status": "none"
+ },
+ "36C26226C0242": {
+  "piid": "36C26226C0242",
+  "sol": "",
+  "status": "none"
+ },
  "36C26226D0057": {
   "piid": "36C26226D0057",
   "sol": "",
@@ -8474,6 +9510,21 @@
  },
  "36C26226D0096": {
   "piid": "36C26226D0096",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226K0135": {
+  "piid": "36C26226K0135",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226K0136": {
+  "piid": "36C26226K0136",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226K0137": {
+  "piid": "36C26226K0137",
   "sol": "",
   "status": "none"
  },
@@ -8494,6 +9545,11 @@
  },
  "36C26226N0629": {
   "piid": "36C26226N0629",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226N0793": {
+  "piid": "36C26226N0793",
   "sol": "",
   "status": "none"
  },
@@ -8840,6 +9896,71 @@
   "sol": "",
   "status": "none"
  },
+ "36C26226P1171": {
+  "piid": "36C26226P1171",
+  "sol": "605-26-3-077-0502",
+  "status": "none"
+ },
+ "36C26226P1196": {
+  "piid": "36C26226P1196",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1216": {
+  "piid": "36C26226P1216",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1217": {
+  "piid": "36C26226P1217",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1223": {
+  "piid": "36C26226P1223",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1234": {
+  "piid": "36C26226P1234",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1239": {
+  "piid": "36C26226P1239",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1241": {
+  "piid": "36C26226P1241",
+  "sol": "N/A",
+  "status": "none"
+ },
+ "36C26226P1261": {
+  "piid": "36C26226P1261",
+  "sol": "N/A",
+  "status": "none"
+ },
+ "36C26226P1281": {
+  "piid": "36C26226P1281",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1306": {
+  "piid": "36C26226P1306",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1343": {
+  "piid": "36C26226P1343",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26226P1351": {
+  "piid": "36C26226P1351",
+  "sol": "",
+  "status": "none"
+ },
  "36C26326C0019": {
   "piid": "36C26326C0019",
   "sol": "36C26326R0011",
@@ -9133,6 +10254,11 @@
   "sol": "",
   "status": "none"
  },
+ "36C26326P0531": {
+  "piid": "36C26326P0531",
+  "sol": "36C26326Q0836",
+  "status": "none"
+ },
  "36C26326P0532": {
   "piid": "36C26326P0532",
   "sol": "",
@@ -9141,6 +10267,21 @@
  "36C26326P0535": {
   "piid": "36C26326P0535",
   "sol": "N/A",
+  "status": "none"
+ },
+ "36C26326P0573": {
+  "piid": "36C26326P0573",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26326P0610": {
+  "piid": "36C26326P0610",
+  "sol": "",
+  "status": "none"
+ },
+ "36C26326P0612": {
+  "piid": "36C26326P0612",
+  "sol": "36C26326Q0662",
   "status": "none"
  },
  "36C77026D0003": {
@@ -9181,6 +10322,11 @@
  "36C78626P0018": {
   "piid": "36C78626P0018",
   "sol": "",
+  "status": "none"
+ },
+ "36C78626P0055": {
+  "piid": "36C78626P0055",
+  "sol": "36C78626R0061",
   "status": "none"
  },
  "36C78626P50009": {
@@ -9245,6 +10391,11 @@
  },
  "36C78626P50268": {
   "piid": "36C78626P50268",
+  "sol": "",
+  "status": "none"
+ },
+ "36C78626P50304": {
+  "piid": "36C78626P50304",
   "sol": "",
   "status": "none"
  },
@@ -9468,6 +10619,11 @@
   "sol": "EQPMBC-26-0215",
   "status": "none"
  },
+ "47PD5226F0305": {
+  "piid": "47PD5226F0305",
+  "sol": "EQPMBC-26-0218",
+  "status": "none"
+ },
  "47PD5226F0311": {
   "piid": "47PD5226F0311",
   "sol": "EQPMBC-26-0248",
@@ -9478,9 +10634,44 @@
   "sol": "EQPMBC-26-0259",
   "status": "none"
  },
+ "47PD5226F0319": {
+  "piid": "47PD5226F0319",
+  "sol": "EQPMBC-26-0257-AM0001",
+  "status": "none"
+ },
+ "47PD5226F0327": {
+  "piid": "47PD5226F0327",
+  "sol": "EQPMBC-26-0236",
+  "status": "none"
+ },
+ "47PD5226F0331": {
+  "piid": "47PD5226F0331",
+  "sol": "EQPMBC-26-0235",
+  "status": "none"
+ },
+ "47PD5226F0360": {
+  "piid": "47PD5226F0360",
+  "sol": "EQPMBC-26-0273",
+  "status": "none"
+ },
+ "47PD5226F0367": {
+  "piid": "47PD5226F0367",
+  "sol": "EQPMBC-26-0281",
+  "status": "none"
+ },
+ "47PD5226F0379": {
+  "piid": "47PD5226F0379",
+  "sol": "EQPMBC-26-0309",
+  "status": "none"
+ },
  "47PD5226P0001": {
   "piid": "47PD5226P0001",
   "sol": "EQPMBC-26-0046",
+  "status": "none"
+ },
+ "47PD5226P0008": {
+  "piid": "47PD5226P0008",
+  "sol": "EQPXAFE-26-0066",
   "status": "none"
  },
  "47PD5326F0030": {
@@ -9526,6 +10717,31 @@
  "47PD5326F0246": {
   "piid": "47PD5326F0246",
   "sol": "EQPMBB-26-0286",
+  "status": "none"
+ },
+ "47PD5326F0298": {
+  "piid": "47PD5326F0298",
+  "sol": "EQPMBB-26-0268",
+  "status": "none"
+ },
+ "47PD5326F0301": {
+  "piid": "47PD5326F0301",
+  "sol": "47PD5326Q9972",
+  "status": "none"
+ },
+ "47PD5326F0310": {
+  "piid": "47PD5326F0310",
+  "sol": "EQPMBB-26-0315",
+  "status": "none"
+ },
+ "47PD5326F0312": {
+  "piid": "47PD5326F0312",
+  "sol": "47PD5326Q9980",
+  "status": "none"
+ },
+ "47PD5326F0321": {
+  "piid": "47PD5326F0321",
+  "sol": "47PD5326Q9978",
   "status": "none"
  },
  "47PD5426C0005": {
@@ -9590,6 +10806,57 @@
   "source": "parent",
   "status": "ok"
  },
+ "47PD5426F0210": {
+  "notice_id": "26d9d934999348b68912cc37cfe797d2",
+  "ocr": true,
+  "parent_piid": "47PL0226D0001",
+  "pdfs": [
+   {
+    "chars": 13153,
+    "name": "J and A Unusual and Compelling Urgency SIGNEDRedacted.pdf",
+    "via": "ocr"
+   }
+  ],
+  "piid": "47PD5426F0210",
+  "sam_url": "https://sam.gov/opp/26d9d934999348b68912cc37cfe797d2/view",
+  "sol": "EQPMBD-26-0238",
+  "source": "parent",
+  "status": "ok"
+ },
+ "47PD5426F0229": {
+  "notice_id": "26d9d934999348b68912cc37cfe797d2",
+  "ocr": true,
+  "parent_piid": "47PL0226D0001",
+  "pdfs": [
+   {
+    "chars": 13153,
+    "name": "J and A Unusual and Compelling Urgency SIGNEDRedacted.pdf",
+    "via": "ocr"
+   }
+  ],
+  "piid": "47PD5426F0229",
+  "sam_url": "https://sam.gov/opp/26d9d934999348b68912cc37cfe797d2/view",
+  "sol": "EQPMBD-26-0222",
+  "source": "parent",
+  "status": "ok"
+ },
+ "47PD5426F0231": {
+  "notice_id": "26d9d934999348b68912cc37cfe797d2",
+  "ocr": true,
+  "parent_piid": "47PL0226D0001",
+  "pdfs": [
+   {
+    "chars": 13153,
+    "name": "J and A Unusual and Compelling Urgency SIGNEDRedacted.pdf",
+    "via": "ocr"
+   }
+  ],
+  "piid": "47PD5426F0231",
+  "sam_url": "https://sam.gov/opp/26d9d934999348b68912cc37cfe797d2/view",
+  "sol": "EQPMBD-26-0220",
+  "source": "parent",
+  "status": "ok"
+ },
  "47PD5526C0004": {
   "piid": "47PD5526C0004",
   "sol": "EQPMBE-26-0003",
@@ -9610,6 +10877,11 @@
   "sol": "47PE5326Q0008",
   "status": "none"
  },
+ "47PE5326F0252": {
+  "piid": "47PE5326F0252",
+  "sol": "EQPMBB-26-0308",
+  "status": "none"
+ },
  "47PF5126D0013": {
   "piid": "47PF5126D0013",
   "sol": "47PF5126R0016",
@@ -9618,6 +10890,11 @@
  "47PF5126D0014": {
   "piid": "47PF5126D0014",
   "sol": "47PF5126R0013",
+  "status": "none"
+ },
+ "47PF5126D0015": {
+  "piid": "47PF5126D0015",
+  "sol": "47PF5126R0018",
   "status": "none"
  },
  "47PG5126C0001": {
@@ -9946,6 +11223,91 @@
   "source": "parent",
   "status": "ok"
  },
+ "47PH5426F0216": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0006",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "47PH5426F0216",
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
+ "47PH5426F0217": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0006",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "47PH5426F0217",
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
+ "47PH5426F0218": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0006",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "47PH5426F0218",
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
+ "47PH5426F0220": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "47PH5426F0220",
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
+ "47PH5426F0222": {
+  "notice_id": "98a5e6f10406481eb36cf86f47586d8c",
+  "ocr": false,
+  "parent_piid": "47PA1026D0005",
+  "pdfs": [
+   {
+    "chars": 12077,
+    "name": "JUSTIFICATION AND APPROVAL_GLS Interim Contract Action_2025 10 31.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "47PH5426F0222",
+  "sam_url": "https://sam.gov/opp/98a5e6f10406481eb36cf86f47586d8c/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
  "47PH5426P0006": {
   "piid": "47PH5426P0006",
   "sol": "EQPXABA-26-0037",
@@ -9976,6 +11338,16 @@
   "sol": "",
   "status": "none"
  },
+ "49100426F0083": {
+  "piid": "49100426F0083",
+  "sol": "",
+  "status": "none"
+ },
+ "59310526P00005": {
+  "piid": "59310526P00005",
+  "sol": "59310526R00005",
+  "status": "none"
+ },
  "68HE0726P0029": {
   "piid": "68HE0726P0029",
   "sol": "",
@@ -9991,6 +11363,11 @@
   "sol": "",
   "status": "none"
  },
+ "68HERW26P0228": {
+  "piid": "68HERW26P0228",
+  "sol": "",
+  "status": "none"
+ },
  "6923G526C0004": {
   "piid": "6923G526C0004",
   "sol": "EMERGENCYWATERLINEREPAIR",
@@ -9998,6 +11375,11 @@
  },
  "6923G526P0021": {
   "piid": "6923G526P0021",
+  "sol": "",
+  "status": "none"
+ },
+ "692M1526P00083": {
+  "piid": "692M1526P00083",
   "sol": "",
   "status": "none"
  },
@@ -10061,6 +11443,11 @@
   "sol": "",
   "status": "none"
  },
+ "6973GH26C00152": {
+  "piid": "6973GH26C00152",
+  "sol": "",
+  "status": "none"
+ },
  "6973GH26P00744": {
   "piid": "6973GH26P00744",
   "sol": "",
@@ -10079,6 +11466,11 @@
  "70B01C26C00000006": {
   "piid": "70B01C26C00000006",
   "sol": "70B01C26R00000008",
+  "status": "none"
+ },
+ "70B01C26C00000018": {
+  "piid": "70B01C26C00000018",
+  "sol": "",
   "status": "none"
  },
  "70B01C26D00000003": {
@@ -10286,6 +11678,16 @@
   "sol": "70B01C26R00000061",
   "status": "none"
  },
+ "70B02C26C00000052": {
+  "piid": "70B02C26C00000052",
+  "sol": "",
+  "status": "none"
+ },
+ "70B02C26C00000053": {
+  "piid": "70B02C26C00000053",
+  "sol": "",
+  "status": "none"
+ },
  "70B03C26P00000038": {
   "piid": "70B03C26P00000038",
   "sol": "",
@@ -10316,6 +11718,11 @@
   "sol": "",
   "status": "none"
  },
+ "70CDCR26FR0000105": {
+  "piid": "70CDCR26FR0000105",
+  "sol": "",
+  "status": "none"
+ },
  "70CDCR26P00000010": {
   "piid": "70CDCR26P00000010",
   "sol": "",
@@ -10323,6 +11730,11 @@
  },
  "70CDCR26P00000013": {
   "piid": "70CDCR26P00000013",
+  "sol": "",
+  "status": "none"
+ },
+ "70CMSD26C00000006": {
+  "piid": "70CMSD26C00000006",
   "sol": "",
   "status": "none"
  },
@@ -10601,6 +12013,11 @@
   "sol": "",
   "status": "none"
  },
+ "70Z08426F80000001": {
+  "piid": "70Z08426F80000001",
+  "sol": "",
+  "status": "none"
+ },
  "70Z08426FALAM0001": {
   "piid": "70Z08426FALAM0001",
   "sol": "",
@@ -10666,6 +12083,11 @@
   "sol": "",
   "status": "none"
  },
+ "70Z08426FATCM0038": {
+  "piid": "70Z08426FATCM0038",
+  "sol": "",
+  "status": "none"
+ },
  "70Z08426FBOST0001": {
   "piid": "70Z08426FBOST0001",
   "sol": "",
@@ -10681,6 +12103,11 @@
   "sol": "",
   "status": "none"
  },
+ "70Z08426FBOST0004": {
+  "piid": "70Z08426FBOST0004",
+  "sol": "",
+  "status": "none"
+ },
  "70Z08426FCHAR0001": {
   "piid": "70Z08426FCHAR0001",
   "sol": "",
@@ -10693,6 +12120,11 @@
  },
  "70Z08426FCHAR0004": {
   "piid": "70Z08426FCHAR0004",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FCHAR0006": {
+  "piid": "70Z08426FCHAR0006",
   "sol": "",
   "status": "none"
  },
@@ -10763,6 +12195,11 @@
  },
  "70Z08426FGALV0012": {
   "piid": "70Z08426FGALV0012",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FGALV0013": {
+  "piid": "70Z08426FGALV0013",
   "sol": "",
   "status": "none"
  },
@@ -10986,6 +12423,41 @@
   "sol": "",
   "status": "none"
  },
+ "70Z08426FMIAM0019": {
+  "piid": "70Z08426FMIAM0019",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FMIAM0020": {
+  "piid": "70Z08426FMIAM0020",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FMIAM0021": {
+  "piid": "70Z08426FMIAM0021",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FMIAM0022": {
+  "piid": "70Z08426FMIAM0022",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FMIAM0023": {
+  "piid": "70Z08426FMIAM0023",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FMIAM0024": {
+  "piid": "70Z08426FMIAM0024",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FMIAM0025": {
+  "piid": "70Z08426FMIAM0025",
+  "sol": "",
+  "status": "none"
+ },
  "70Z08426FNEWO0001": {
   "piid": "70Z08426FNEWO0001",
   "sol": "",
@@ -11091,6 +12563,11 @@
   "sol": "",
   "status": "none"
  },
+ "70Z08426FNEWO0026": {
+  "piid": "70Z08426FNEWO0026",
+  "sol": "",
+  "status": "none"
+ },
  "70Z08426FPORT0001": {
   "piid": "70Z08426FPORT0001",
   "sol": "",
@@ -11123,6 +12600,26 @@
  },
  "70Z08426FPORT0012": {
   "piid": "70Z08426FPORT0012",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FPORT0013": {
+  "piid": "70Z08426FPORT0013",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FPORT0015": {
+  "piid": "70Z08426FPORT0015",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FPORT0016": {
+  "piid": "70Z08426FPORT0016",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426FSANJ0003": {
+  "piid": "70Z08426FSANJ0003",
   "sol": "",
   "status": "none"
  },
@@ -11171,6 +12668,16 @@
   "sol": "",
   "status": "none"
  },
+ "70Z08426FSEAT0014": {
+  "piid": "70Z08426FSEAT0014",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426PDL940028": {
+  "piid": "70Z08426PDL940028",
+  "sol": "34269PR250000070",
+  "status": "none"
+ },
  "70Z08426PDL960006": {
   "piid": "70Z08426PDL960006",
   "sol": "Z4780426SING0003",
@@ -11188,6 +12695,16 @@
  },
  "70Z08426PMIAM0003": {
   "piid": "70Z08426PMIAM0003",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426PMIAM0004": {
+  "piid": "70Z08426PMIAM0004",
+  "sol": "",
+  "status": "none"
+ },
+ "70Z08426PMIAM0005": {
+  "piid": "70Z08426PMIAM0005",
   "sol": "",
   "status": "none"
  },
@@ -11231,6 +12748,11 @@
   "sol": "70Z0G126RSNY00005",
   "status": "none"
  },
+ "70Z0G826PBNCR0012": {
+  "piid": "70Z0G826PBNCR0012",
+  "sol": "",
+  "status": "none"
+ },
  "7571MN26P00017": {
   "piid": "7571MN26P00017",
   "sol": "",
@@ -11249,6 +12771,11 @@
  "75D30126C20891": {
   "piid": "75D30126C20891",
   "sol": "75D301-25-R-73369",
+  "status": "none"
+ },
+ "75D30126C21193": {
+  "piid": "75D30126C21193",
+  "sol": "75D301-26-R-73466",
   "status": "none"
  },
  "75D30126P21010": {
@@ -11309,6 +12836,11 @@
  "75H70626P00142": {
   "piid": "75H70626P00142",
   "sol": "75H70626Q00183",
+  "status": "none"
+ },
+ "75H70626P00143": {
+  "piid": "75H70626P00143",
+  "sol": "75H70626Q00181",
   "status": "none"
  },
  "75H70726P00015": {
@@ -11426,6 +12958,21 @@
   "sol": "",
   "status": "none"
  },
+ "75H71026P00400": {
+  "piid": "75H71026P00400",
+  "sol": "",
+  "status": "none"
+ },
+ "75H71026P00443": {
+  "piid": "75H71026P00443",
+  "sol": "",
+  "status": "none"
+ },
+ "75H71026P00445": {
+  "piid": "75H71026P00445",
+  "sol": "75H71026Q00215",
+  "status": "none"
+ },
  "75H71126C00011": {
   "piid": "75H71126C00011",
   "sol": "",
@@ -11466,9 +13013,24 @@
   "sol": "",
   "status": "none"
  },
+ "75N98026D00055": {
+  "piid": "75N98026D00055",
+  "sol": "",
+  "status": "none"
+ },
+ "75N98026F00001": {
+  "piid": "75N98026F00001",
+  "sol": "",
+  "status": "none"
+ },
  "75R60226P00007": {
   "piid": "75R60226P00007",
   "sol": "75R60226Q00079",
+  "status": "none"
+ },
+ "80MSFC26P0006": {
+  "piid": "80MSFC26P0006",
+  "sol": "80MSFC26Q0005",
   "status": "none"
  },
  "86615626C00003": {
@@ -11496,6 +13058,11 @@
   "sol": "",
   "status": "none"
  },
+ "91990026P0013": {
+  "piid": "91990026P0013",
+  "sol": "",
+  "status": "none"
+ },
  "95C67826P0021": {
   "piid": "95C67826P0021",
   "sol": "",
@@ -11516,8 +13083,43 @@
   "sol": "",
   "status": "ok"
  },
+ "FA251826CP002": {
+  "notice_id": "03e92eadcc7a4518afa4fbe6c0aea460",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 4923,
+    "name": "OOES_JandA_Redacted.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "FA251826CP002",
+  "sam_url": "https://sam.gov/opp/03e92eadcc7a4518afa4fbe6c0aea460/view",
+  "sol": "",
+  "status": "ok"
+ },
+ "FA251826CP003": {
+  "notice_id": "d473d9a6bbe645fbb3f9f8af3a7b939c",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 1864,
+    "name": "SOMSS_JandA_Redacted.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "FA251826CP003",
+  "sam_url": "https://sam.gov/opp/d473d9a6bbe645fbb3f9f8af3a7b939c/view",
+  "sol": "",
+  "status": "ok"
+ },
  "FA282326P0004": {
   "piid": "FA282326P0004",
+  "sol": "",
+  "status": "none"
+ },
+ "FA286026P0013": {
+  "piid": "FA286026P0013",
   "sol": "",
   "status": "none"
  },
@@ -11528,6 +13130,11 @@
  },
  "FA301626P0042": {
   "piid": "FA301626P0042",
+  "sol": "",
+  "status": "none"
+ },
+ "FA301626P0065": {
+  "piid": "FA301626P0065",
   "sol": "",
   "status": "none"
  },
@@ -11561,6 +13168,11 @@
   "sol": "",
   "status": "none"
  },
+ "FA480326C0007": {
+  "piid": "FA480326C0007",
+  "sol": "",
+  "status": "none"
+ },
  "FA480326D0001": {
   "notice_id": "c7ab2ce188b34eb9b0f77b591be82c25",
   "ocr": false,
@@ -11581,8 +13193,122 @@
   "sol": "FA480326R0013",
   "status": "ok"
  },
+ "FA480326D0006": {
+  "piid": "FA480326D0006",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326F0012": {
+  "notice_id": "c7ab2ce188b34eb9b0f77b591be82c25",
+  "ocr": false,
+  "parent_piid": "FA480326D0001",
+  "pdfs": [
+   {
+    "chars": 680,
+    "name": "Class JA Battle Lab Sole Source_CAA Signed_w approved changes.pdf",
+    "via": "text"
+   },
+   {
+    "chars": 680,
+    "name": "Class JA Battle Lab Sole Source_CAA Signed_w approved changes.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "FA480326F0012",
+  "sam_url": "https://sam.gov/opp/c7ab2ce188b34eb9b0f77b591be82c25/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
+ "FA480326F0016": {
+  "notice_id": "c7ab2ce188b34eb9b0f77b591be82c25",
+  "ocr": false,
+  "parent_piid": "FA480326D0001",
+  "pdfs": [
+   {
+    "chars": 680,
+    "name": "Class JA Battle Lab Sole Source_CAA Signed_w approved changes.pdf",
+    "via": "text"
+   },
+   {
+    "chars": 680,
+    "name": "Class JA Battle Lab Sole Source_CAA Signed_w approved changes.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "FA480326F0016",
+  "sam_url": "https://sam.gov/opp/c7ab2ce188b34eb9b0f77b591be82c25/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
+ },
+ "FA480326F0017": {
+  "piid": "FA480326F0017",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326F0018": {
+  "piid": "FA480326F0018",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326P0016": {
+  "piid": "FA480326P0016",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326P0018": {
+  "notice_id": "cb1d005e07754b1381de532c1490e6f6",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 680,
+    "name": "Class JA Battle Lab Sole Source_CAA Signed.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "FA480326P0018",
+  "sam_url": "https://sam.gov/opp/cb1d005e07754b1381de532c1490e6f6/view",
+  "sol": "",
+  "status": "ok"
+ },
+ "FA480326P0021": {
+  "piid": "FA480326P0021",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326P0023": {
+  "piid": "FA480326P0023",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326P0024": {
+  "piid": "FA480326P0024",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326P0029": {
+  "piid": "FA480326P0029",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326P0030": {
+  "piid": "FA480326P0030",
+  "sol": "",
+  "status": "none"
+ },
+ "FA480326P0031": {
+  "piid": "FA480326P0031",
+  "sol": "",
+  "status": "none"
+ },
  "FA485526P0004": {
   "piid": "FA485526P0004",
+  "sol": "",
+  "status": "none"
+ },
+ "FA486126C0013": {
+  "piid": "FA486126C0013",
   "sol": "",
   "status": "none"
  },
@@ -11598,6 +13324,11 @@
  },
  "FA486126P0007": {
   "piid": "FA486126P0007",
+  "sol": "",
+  "status": "none"
+ },
+ "FA487726P0034": {
+  "piid": "FA487726P0034",
   "sol": "",
   "status": "none"
  },
@@ -11621,6 +13352,16 @@
   "sol": "FA542226QA103",
   "status": "none"
  },
+ "FA558726P0014": {
+  "piid": "FA558726P0014",
+  "sol": "",
+  "status": "none"
+ },
+ "FA570626C0002": {
+  "piid": "FA570626C0002",
+  "sol": "",
+  "status": "none"
+ },
  "FA701426C0008": {
   "piid": "FA701426C0008",
   "sol": "FA701426Q0007",
@@ -11633,6 +13374,11 @@
  },
  "FA706026P0011": {
   "piid": "FA706026P0011",
+  "sol": "",
+  "status": "none"
+ },
+ "FA820226C0001": {
+  "piid": "FA820226C0001",
   "sol": "",
   "status": "none"
  },
@@ -11703,6 +13449,26 @@
   "sol": "",
   "status": "none"
  },
+ "H9242126PE042": {
+  "notice_id": "945965e69edb48949d1fac88ecea17ad",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 226,
+    "name": "JA SOFAMT Bridge Action - KO Signed.pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "H9242126PE042",
+  "sam_url": "https://sam.gov/opp/945965e69edb48949d1fac88ecea17ad/view",
+  "sol": "",
+  "status": "ok"
+ },
+ "HQ003426CE019": {
+  "piid": "HQ003426CE019",
+  "sol": "",
+  "status": "none"
+ },
  "HS002126CE006": {
   "notice_id": "1db3f3a66b70487f852683e78da543f9",
   "ocr": false,
@@ -11720,6 +13486,11 @@
  },
  "HT001426PE078": {
   "piid": "HT001426PE078",
+  "sol": "",
+  "status": "none"
+ },
+ "HT001526PE004": {
+  "piid": "HT001526PE004",
   "sol": "",
   "status": "none"
  },
@@ -11758,6 +13529,11 @@
   "sol": "",
   "status": "none"
  },
+ "HTC71126FE180": {
+  "piid": "HTC71126FE180",
+  "sol": "",
+  "status": "none"
+ },
  "HTC71126FE182": {
   "piid": "HTC71126FE182",
   "sol": "",
@@ -11793,9 +13569,37 @@
   "sol": "",
   "status": "none"
  },
+ "M0026426P0020": {
+  "piid": "M0026426P0020",
+  "sol": "",
+  "status": "none"
+ },
+ "M0031826PG003": {
+  "notice_id": "59526f148df44feb9e059155c01572d7",
+  "pdfs": [],
+  "piid": "M0031826PG003",
+  "sam_url": "https://sam.gov/opp/59526f148df44feb9e059155c01572d7/view",
+  "sol": "M0031826QG008",
+  "status": "empty"
+ },
+ "M0031826PG004": {
+  "piid": "M0031826PG004",
+  "sol": "M0031826QG010",
+  "status": "none"
+ },
+ "M6785426C0048": {
+  "piid": "M6785426C0048",
+  "sol": "",
+  "status": "none"
+ },
  "N0001926C0127": {
   "piid": "N0001926C0127",
   "sol": "",
+  "status": "none"
+ },
+ "N0002426C2306": {
+  "piid": "N0002426C2306",
+  "sol": "N0002426R2306",
   "status": "none"
  },
  "N0010426CDA03": {
@@ -11898,9 +13702,34 @@
   "sol": "",
   "status": "none"
  },
+ "N0018926PL063": {
+  "piid": "N0018926PL063",
+  "sol": "",
+  "status": "none"
+ },
+ "N0018926PL071": {
+  "piid": "N0018926PL071",
+  "sol": "",
+  "status": "none"
+ },
+ "N0018926PL083": {
+  "piid": "N0018926PL083",
+  "sol": "",
+  "status": "none"
+ },
+ "N0018926PW064": {
+  "piid": "N0018926PW064",
+  "sol": "",
+  "status": "none"
+ },
  "N0024426CS003": {
   "piid": "N0024426CS003",
   "sol": "N0024426RS001",
+  "status": "none"
+ },
+ "N0024426P0015": {
+  "piid": "N0024426P0015",
+  "sol": "",
   "status": "none"
  },
  "N0024426PS004": {
@@ -11983,6 +13812,16 @@
   "sol": "",
   "status": "none"
  },
+ "N0622A26FA322": {
+  "piid": "N0622A26FA322",
+  "sol": "",
+  "status": "none"
+ },
+ "N0622A26FA355": {
+  "piid": "N0622A26FA355",
+  "sol": "",
+  "status": "none"
+ },
  "N3220526C1214": {
   "notice_id": "1a73433674fa485da43c2d33ba7c3b4d",
   "ocr": false,
@@ -11995,6 +13834,21 @@
   ],
   "piid": "N3220526C1214",
   "sam_url": "https://sam.gov/opp/1a73433674fa485da43c2d33ba7c3b4d/view",
+  "sol": "",
+  "status": "ok"
+ },
+ "N3220526C1237": {
+  "notice_id": "63b24768be484dbf986b11b94c743041",
+  "ocr": true,
+  "pdfs": [
+   {
+    "chars": 5880,
+    "name": "ESD redacted FINAL.pdf",
+    "via": "ocr"
+   }
+  ],
+  "piid": "N3220526C1237",
+  "sam_url": "https://sam.gov/opp/63b24768be484dbf986b11b94c743041/view",
   "sol": "",
   "status": "ok"
  },
@@ -12032,6 +13886,48 @@
   "piid": "N4008526C0006",
   "sol": "",
   "status": "none"
+ },
+ "N4008526C0010": {
+  "piid": "N4008526C0010",
+  "sol": "N4008526R0149",
+  "status": "none"
+ },
+ "N4008526D0037": {
+  "notice_id": "8f9a1ddfaa724ddbb48d0dd25c54a90f",
+  "ocr": true,
+  "pdfs": [
+   {
+    "chars": 7655,
+    "name": "25D2529_Grounds JA ML-26-21_Redacted.pdf",
+    "via": "ocr"
+   }
+  ],
+  "piid": "N4008526D0037",
+  "sam_url": "https://sam.gov/opp/8f9a1ddfaa724ddbb48d0dd25c54a90f/view",
+  "sol": "N4008526R0064",
+  "status": "ok"
+ },
+ "N4008526D0042": {
+  "piid": "N4008526D0042",
+  "sol": "N4008526R0061",
+  "status": "none"
+ },
+ "N4008526F0767": {
+  "notice_id": "8f9a1ddfaa724ddbb48d0dd25c54a90f",
+  "ocr": true,
+  "parent_piid": "N4008526D0037",
+  "pdfs": [
+   {
+    "chars": 7641,
+    "name": "25D2529_Grounds JA ML-26-21_Redacted.pdf",
+    "via": "ocr"
+   }
+  ],
+  "piid": "N4008526F0767",
+  "sam_url": "https://sam.gov/opp/8f9a1ddfaa724ddbb48d0dd25c54a90f/view",
+  "sol": "",
+  "source": "parent",
+  "status": "ok"
  },
  "N4008526P0004": {
   "piid": "N4008526P0004",
@@ -12103,6 +13999,16 @@
   "sol": "",
   "status": "none"
  },
+ "N4446626P0046": {
+  "piid": "N4446626P0046",
+  "sol": "",
+  "status": "none"
+ },
+ "N4446626P0050": {
+  "piid": "N4446626P0050",
+  "sol": "",
+  "status": "none"
+ },
  "N4523A26P0002": {
   "piid": "N4523A26P0002",
   "sol": "",
@@ -12166,6 +14072,26 @@
   "sol": "",
   "status": "none"
  },
+ "N6883626P0031": {
+  "notice_id": "fb961bf1bc9b4f7b93e45abe90869d5e",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 36330,
+    "name": "Justification (26P0031).pdf",
+    "via": "text"
+   }
+  ],
+  "piid": "N6883626P0031",
+  "sam_url": "https://sam.gov/opp/fb961bf1bc9b4f7b93e45abe90869d5e/view",
+  "sol": "",
+  "status": "ok"
+ },
+ "N6883626P0044": {
+  "piid": "N6883626P0044",
+  "sol": "",
+  "status": "none"
+ },
  "N6883626PS002": {
   "piid": "N6883626PS002",
   "sol": "",
@@ -12178,6 +14104,11 @@
  },
  "N6945026P0001": {
   "piid": "N6945026P0001",
+  "sol": "",
+  "status": "none"
+ },
+ "N6945026P0003": {
+  "piid": "N6945026P0003",
   "sol": "",
   "status": "none"
  },
@@ -12306,6 +14237,11 @@
   "sol": "",
   "status": "none"
  },
+ "W519TC26F0051": {
+  "piid": "W519TC26F0051",
+  "sol": "",
+  "status": "none"
+ },
  "W519TC26PA100": {
   "piid": "W519TC26PA100",
   "sol": "",
@@ -12313,6 +14249,11 @@
  },
  "W51AA126PA022": {
   "piid": "W51AA126PA022",
+  "sol": "",
+  "status": "none"
+ },
+ "W51AA126PA029": {
+  "piid": "W51AA126PA029",
   "sol": "",
   "status": "none"
  },
@@ -12346,8 +14287,23 @@
   "sol": "",
   "status": "none"
  },
+ "W81K0026PA031": {
+  "piid": "W81K0026PA031",
+  "sol": "",
+  "status": "none"
+ },
+ "W81K0426PA026": {
+  "piid": "W81K0426PA026",
+  "sol": "",
+  "status": "none"
+ },
  "W90VN926PA010": {
   "piid": "W90VN926PA010",
+  "sol": "",
+  "status": "none"
+ },
+ "W911PT26PA049": {
+  "piid": "W911PT26PA049",
   "sol": "",
   "status": "none"
  },
@@ -12403,6 +14359,11 @@
  },
  "W9123626PA002": {
   "piid": "W9123626PA002",
+  "sol": "",
+  "status": "none"
+ },
+ "W9123626PA003": {
+  "piid": "W9123626PA003",
   "sol": "",
   "status": "none"
  },
@@ -12497,6 +14458,11 @@
   "source": "parent",
   "status": "ok"
  },
+ "W912D226CA003": {
+  "piid": "W912D226CA003",
+  "sol": "",
+  "status": "none"
+ },
  "W912DR26CA007": {
   "piid": "W912DR26CA007",
   "sol": "",
@@ -12512,8 +14478,18 @@
   "sol": "W912EQ26QA007",
   "status": "none"
  },
+ "W912J726PA008": {
+  "piid": "W912J726PA008",
+  "sol": "",
+  "status": "none"
+ },
  "W912LN26PA008": {
   "piid": "W912LN26PA008",
+  "sol": "",
+  "status": "none"
+ },
+ "W912P626PA011": {
+  "piid": "W912P626PA011",
   "sol": "",
   "status": "none"
  },
