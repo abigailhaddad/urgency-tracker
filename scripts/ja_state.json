@@ -9304,9 +9304,24 @@
   "status": "none"
  },
  "36C26126P0737": {
+  "notice_id": "a88c2c50da6f453c8b71c616dc7a9e9b",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 2216,
+    "name": "Single Source Justification MPT to SAT -Emergency Livermore Boiler.pdf",
+    "via": "text"
+   },
+   {
+    "chars": 2216,
+    "name": "Single Source Justification MPT to SAT -Emergency Livermore Boiler.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C26126P0737",
+  "sam_url": "https://sam.gov/opp/a88c2c50da6f453c8b71c616dc7a9e9b/view",
   "sol": "",
-  "status": "none"
+  "status": "ok"
  },
  "36C26126P0812": {
   "piid": "36C26126P0812",
