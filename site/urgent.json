@@ -12,7 +12,7 @@
   "excluded_older_contracts": 1069,
   "new_since_last": 332,
   "disputed": 4,
-  "with_justification": 234
+  "with_justification": 241
  },
  "awards": [
   {
@@ -4591,7 +4591,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_19SZ3526F0266_1900_19SZ3526D0003_1900",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "19GE5026C0009",
@@ -10525,7 +10525,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_19SZ3526F0264_1900_19SZ3526D0003_1900",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "W81K0026PA031",
@@ -15949,7 +15949,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_19SZ3526F0262_1900_19SZ3526D0003_1900",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C24626P0678",
@@ -16237,7 +16237,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_19SZ3526F0265_1900_19SZ3526D0003_1900",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C24226P0113",
@@ -18997,7 +18997,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_19SZ3526F0267_1900_19SZ3526D0003_1900",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "FA442726P0022",
@@ -22957,7 +22957,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_19SZ3526F0263_1900_19SZ3526D0003_1900",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "70Z08426FKETC0008",
@@ -55861,7 +55861,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_IDV_19SZ3526D0003_1900",
    "is_new": false,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "19TU1526D3000",

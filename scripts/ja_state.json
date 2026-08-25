@@ -5307,39 +5307,121 @@
   "status": "none"
  },
  "19SZ3526D0003": {
+  "notice_id": "f7beb6fae22b4f6693317f8f78c84f6c",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 9319,
+    "name": "Sole Source Justification Over SAT vPotus vehicles- ACA Signed.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19SZ3526D0003",
+  "sam_url": "https://sam.gov/opp/f7beb6fae22b4f6693317f8f78c84f6c/view",
   "sol": "",
-  "status": "none"
+  "status": "ok"
  },
  "19SZ3526F0262": {
+  "notice_id": "f7beb6fae22b4f6693317f8f78c84f6c",
+  "ocr": false,
+  "parent_piid": "19SZ3526D0003",
+  "pdfs": [
+   {
+    "chars": 9319,
+    "name": "Sole Source Justification Over SAT vPotus vehicles- ACA Signed.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19SZ3526F0262",
+  "sam_url": "https://sam.gov/opp/f7beb6fae22b4f6693317f8f78c84f6c/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "ok"
  },
  "19SZ3526F0263": {
+  "notice_id": "f7beb6fae22b4f6693317f8f78c84f6c",
+  "ocr": false,
+  "parent_piid": "19SZ3526D0003",
+  "pdfs": [
+   {
+    "chars": 9319,
+    "name": "Sole Source Justification Over SAT vPotus vehicles- ACA Signed.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19SZ3526F0263",
+  "sam_url": "https://sam.gov/opp/f7beb6fae22b4f6693317f8f78c84f6c/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "ok"
  },
  "19SZ3526F0264": {
+  "notice_id": "f7beb6fae22b4f6693317f8f78c84f6c",
+  "ocr": false,
+  "parent_piid": "19SZ3526D0003",
+  "pdfs": [
+   {
+    "chars": 9319,
+    "name": "Sole Source Justification Over SAT vPotus vehicles- ACA Signed.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19SZ3526F0264",
+  "sam_url": "https://sam.gov/opp/f7beb6fae22b4f6693317f8f78c84f6c/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "ok"
  },
  "19SZ3526F0265": {
+  "notice_id": "f7beb6fae22b4f6693317f8f78c84f6c",
+  "ocr": false,
+  "parent_piid": "19SZ3526D0003",
+  "pdfs": [
+   {
+    "chars": 9319,
+    "name": "Sole Source Justification Over SAT vPotus vehicles- ACA Signed.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19SZ3526F0265",
+  "sam_url": "https://sam.gov/opp/f7beb6fae22b4f6693317f8f78c84f6c/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "ok"
  },
  "19SZ3526F0266": {
+  "notice_id": "f7beb6fae22b4f6693317f8f78c84f6c",
+  "ocr": false,
+  "parent_piid": "19SZ3526D0003",
+  "pdfs": [
+   {
+    "chars": 9319,
+    "name": "Sole Source Justification Over SAT vPotus vehicles- ACA Signed.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19SZ3526F0266",
+  "sam_url": "https://sam.gov/opp/f7beb6fae22b4f6693317f8f78c84f6c/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "ok"
  },
  "19SZ3526F0267": {
+  "notice_id": "f7beb6fae22b4f6693317f8f78c84f6c",
+  "ocr": false,
+  "parent_piid": "19SZ3526D0003",
+  "pdfs": [
+   {
+    "chars": 9319,
+    "name": "Sole Source Justification Over SAT vPotus vehicles- ACA Signed.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "19SZ3526F0267",
+  "sam_url": "https://sam.gov/opp/f7beb6fae22b4f6693317f8f78c84f6c/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "ok"
  },
  "19SZ3526P0047": {
   "piid": "19SZ3526P0047",
