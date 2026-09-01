@@ -11821,9 +11821,19 @@
   "status": "none"
  },
  "70CDCR26P00000010": {
+  "notice_id": "e445d576f31947639cb0a942fa4cdf10",
+  "ocr": true,
+  "pdfs": [
+   {
+    "chars": 29906,
+    "name": "JA_OSAM Extension_Final for posting_Redacted.pdf",
+    "via": "ocr"
+   }
+  ],
   "piid": "70CDCR26P00000010",
+  "sam_url": "https://sam.gov/opp/e445d576f31947639cb0a942fa4cdf10/view",
   "sol": "",
-  "status": "none"
+  "status": "ok"
  },
  "70CDCR26P00000013": {
   "piid": "70CDCR26P00000013",
@@ -13216,9 +13226,19 @@
   "status": "none"
  },
  "FA286026P0013": {
+  "notice_id": "a907885b79724cce9b2da3d9c94bba89",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 5905,
+    "name": "FA286026P0013 Other than full and open justification.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "FA286026P0013",
+  "sam_url": "https://sam.gov/opp/a907885b79724cce9b2da3d9c94bba89/view",
   "sol": "",
-  "status": "none"
+  "status": "ok"
  },
  "FA301626P0041": {
   "piid": "FA301626P0041",
