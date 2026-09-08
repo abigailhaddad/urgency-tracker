@@ -6390,9 +6390,12 @@
   "status": "none"
  },
  "36C24426D0053": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C24426D0053",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C24426D0073": {
   "piid": "36C24426D0073",
@@ -6400,9 +6403,14 @@
   "status": "none"
  },
  "36C24426N0581": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "parent_piid": "36C24426D0053",
+  "pdfs": [],
   "piid": "36C24426N0581",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "empty"
  },
  "36C24426N0738": {
   "piid": "36C24426N0738",
@@ -6680,9 +6688,12 @@
   "status": "none"
  },
  "36C24426P0381": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C24426P0381",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C24426P0390": {
   "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
@@ -6768,9 +6779,14 @@
   "status": "none"
  },
  "36C24526N0056": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "parent_piid": "36C24526D0008",
+  "pdfs": [],
   "piid": "36C24526N0056",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "empty"
  },
  "36C24526N0057": {
   "piid": "36C24526N0057",
@@ -7004,9 +7020,12 @@
   "status": "none"
  },
  "36C24626P0339": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C24626P0339",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C24626P0367": {
   "piid": "36C24626P0367",
@@ -7806,9 +7825,12 @@
   "status": "none"
  },
  "36C24926C0042": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C24926C0042",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C24926N0397": {
   "notice_id": "c8892e108a0241d99b1c5c882fe573e5",
@@ -7862,9 +7884,12 @@
   "status": "none"
  },
  "36C24926P0185": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C24926P0185",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C24926P0215": {
   "piid": "36C24926P0215",
@@ -8978,9 +9003,12 @@
   "status": "none"
  },
  "36C25626P0698": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C25626P0698",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C25626P0741": {
   "piid": "36C25626P0741",
@@ -9021,9 +9049,12 @@
   "status": "none"
  },
  "36C25626P0916": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C25626P0916",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C25726C0018": {
   "piid": "36C25726C0018",
@@ -9031,9 +9062,12 @@
   "status": "none"
  },
  "36C25726C0078": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C25726C0078",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C25726C0079": {
   "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
@@ -9096,9 +9130,12 @@
   "status": "none"
  },
  "36C25726P0304": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C25726P0304",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C25726P0346": {
   "piid": "36C25726P0346",
@@ -9431,9 +9468,12 @@
   "status": "none"
  },
  "36C26126P0983": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26126P0983",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26226C0035": {
   "piid": "36C26226C0035",
@@ -9531,9 +9571,12 @@
   "status": "none"
  },
  "36C26226C0152": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26226C0152",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26226C0154": {
   "piid": "36C26226C0154",
@@ -9586,9 +9629,12 @@
   "status": "none"
  },
  "36C26226C0240": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26226C0240",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26226C0242": {
   "piid": "36C26226C0242",
@@ -9849,9 +9895,12 @@
   "status": "none"
  },
  "36C26226P0437": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26226P0437",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26226P0438": {
   "piid": "36C26226P0438",
@@ -9859,9 +9908,12 @@
   "status": "none"
  },
  "36C26226P0444": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26226P0444",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26226P0482": {
   "piid": "36C26226P0482",
@@ -9904,9 +9956,12 @@
   "status": "none"
  },
  "36C26226P0662": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26226P0662",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26226P0700": {
   "piid": "36C26226P0700",
@@ -10029,14 +10084,20 @@
   "status": "none"
  },
  "36C26226P1241": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26226P1241",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26226P1261": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26226P1261",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26226P1281": {
   "piid": "36C26226P1281",
@@ -10327,9 +10388,12 @@
   "status": "none"
  },
  "36C26326P0489": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26326P0489",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26326P0498": {
   "piid": "36C26326P0498",
@@ -10342,9 +10406,12 @@
   "status": "none"
  },
  "36C26326P0523": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26326P0523",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26326P0525": {
   "piid": "36C26326P0525",
@@ -10362,9 +10429,12 @@
   "status": "none"
  },
  "36C26326P0535": {
+  "notice_id": "61588ecde06e0f634ee2c27ce8d6ae45",
+  "pdfs": [],
   "piid": "36C26326P0535",
+  "sam_url": "https://sam.gov/opp/61588ecde06e0f634ee2c27ce8d6ae45/view",
   "sol": "N/A",
-  "status": "none"
+  "status": "empty"
  },
  "36C26326P0573": {
   "piid": "36C26326P0573",
@@ -12541,9 +12611,10 @@
   "status": "none"
  },
  "70Z08426FMIAM0021": {
+  "error": "API request failed with status 502",
   "piid": "70Z08426FMIAM0021",
   "sol": "",
-  "status": "none"
+  "status": "error"
  },
  "70Z08426FMIAM0022": {
   "piid": "70Z08426FMIAM0022",
