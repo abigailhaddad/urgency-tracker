@@ -12,7 +12,7 @@
   "excluded_older_contracts": 1138,
   "new_since_last": 355,
   "disputed": 5,
-  "with_justification": 319
+  "with_justification": 321
  },
  "awards": [
   {
@@ -860,7 +860,7 @@
     "case": "B-424748",
     "outcome": "Pending",
     "protester": "Acacia Center for Justice",
-    "filed_date": "2026-09-08",
+    "filed_date": "2026-09-14",
     "decision_date": ""
    },
    "url": "https://www.usaspending.gov/award/CONT_AWD_7571MN26C00029_7571_-NONE-_-NONE-",
@@ -6486,10 +6486,10 @@
    "pop_end": "2026-09-30",
    "protest": {
     "case": "B-424407",
-    "outcome": "Dismissed",
+    "outcome": "Pending",
     "protester": "ASG Solutions Corporation- dba American Systems Group",
     "filed_date": "2026-04-10",
-    "decision_date": "2026-07-13"
+    "decision_date": ""
    },
    "url": "https://www.usaspending.gov/award/CONT_AWD_N0018926PL052_9700_-NONE-_-NONE-",
    "is_new": false,
@@ -7093,7 +7093,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_36C24226N0742_3600_36C24226D0091_3600",
    "is_new": true,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "28321326C00060010",
@@ -63613,7 +63613,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_IDV_36C24226D0091_3600",
    "is_new": true,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C24226P0081",

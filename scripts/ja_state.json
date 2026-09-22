@@ -4439,9 +4439,10 @@
   "status": "none"
  },
  "19E13026F0342": {
+  "error": "API request failed with status 502",
   "piid": "19E13026F0342",
   "sol": "",
-  "status": "none"
+  "status": "error"
  },
  "19E13026P0024": {
   "piid": "19E13026P0024",
@@ -6720,9 +6721,19 @@
   "status": "none"
  },
  "36C24226D0091": {
+  "notice_id": "ab54d48fa07647a4ba6e11f723181a63",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 9526,
+    "name": "P03 JA OVER SAT  BRIDGE TELERADIOLOGY NJ FULLY EXECUTED.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24226D0091",
+  "sam_url": "https://sam.gov/opp/ab54d48fa07647a4ba6e11f723181a63/view",
   "sol": "36C24226Q0668",
-  "status": "none"
+  "status": "ok"
  },
  "36C24226N0239": {
   "piid": "36C24226N0239",
@@ -6735,9 +6746,21 @@
   "status": "none"
  },
  "36C24226N0742": {
+  "notice_id": "ab54d48fa07647a4ba6e11f723181a63",
+  "ocr": false,
+  "parent_piid": "36C24226D0091",
+  "pdfs": [
+   {
+    "chars": 9526,
+    "name": "P03 JA OVER SAT  BRIDGE TELERADIOLOGY NJ FULLY EXECUTED.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C24226N0742",
+  "sam_url": "https://sam.gov/opp/ab54d48fa07647a4ba6e11f723181a63/view",
   "sol": "",
-  "status": "none"
+  "source": "parent",
+  "status": "ok"
  },
  "36C24226P0046": {
   "piid": "36C24226P0046",
