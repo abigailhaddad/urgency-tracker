@@ -933,9 +933,19 @@
   "status": "none"
  },
  "15B0AT26P21200005": {
+  "notice_id": "24404fbf4eb54efa96848849675e173a",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 2100,
+    "name": "RFO-Restricted Competition Under SAT-RBK Emergency Flight.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "15B0AT26P21200005",
+  "sam_url": "https://sam.gov/opp/24404fbf4eb54efa96848849675e173a/view",
   "sol": "",
-  "status": "none"
+  "status": "ok"
  },
  "15B10326F00000008": {
   "piid": "15B10326F00000008",
@@ -4439,10 +4449,9 @@
   "status": "none"
  },
  "19E13026F0342": {
-  "error": "API request failed with status 502",
   "piid": "19E13026F0342",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "19E13026P0024": {
   "piid": "19E13026P0024",
@@ -12356,9 +12365,10 @@
   "status": "none"
  },
  "47PE5326P0002": {
+  "error": "API request failed with status 502",
   "piid": "47PE5326P0002",
   "sol": "47PE5326R0045",
-  "status": "none"
+  "status": "error"
  },
  "47PF5126D0013": {
   "piid": "47PF5126D0013",
@@ -13637,9 +13647,19 @@
   "status": "none"
  },
  "70CDCR26C00000021": {
+  "notice_id": "0fa5c70a848d479184126ee52ccc0cb8",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 26644,
+    "name": "JOFOC-GFA OSAMS Signed.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "70CDCR26C00000021",
+  "sam_url": "https://sam.gov/opp/0fa5c70a848d479184126ee52ccc0cb8/view",
   "sol": "70CDCR26R00000022",
-  "status": "none"
+  "status": "ok"
  },
  "70CDCR26FR0000105": {
   "piid": "70CDCR26FR0000105",
