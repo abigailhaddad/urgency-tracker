@@ -10240,9 +10240,19 @@
   "status": "none"
  },
  "36C25926C0068": {
+  "notice_id": "09294efdee9a40478c23d2c849913068",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 7464,
+    "name": "JOFOC SDVOSB 36C259-26-AP-3396 Emergency Chiller Replacement TEMP signed BC.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "36C25926C0068",
+  "sam_url": "https://sam.gov/opp/09294efdee9a40478c23d2c849913068/view",
   "sol": "",
-  "status": "none"
+  "status": "ok"
  },
  "36C25926C0069": {
   "piid": "36C25926C0069",
@@ -12365,10 +12375,9 @@
   "status": "none"
  },
  "47PE5326P0002": {
-  "error": "API request failed with status 502",
   "piid": "47PE5326P0002",
   "sol": "47PE5326R0045",
-  "status": "error"
+  "status": "none"
  },
  "47PF5126D0013": {
   "piid": "47PF5126D0013",
@@ -13222,9 +13231,10 @@
   "status": "ok"
  },
  "47PH5426P0006": {
+  "error": "API request failed with status 502",
   "piid": "47PH5426P0006",
   "sol": "EQPXABA-26-0037",
-  "status": "none"
+  "status": "error"
  },
  "47PL0226D0001": {
   "notice_id": "26d9d934999348b68912cc37cfe797d2",
