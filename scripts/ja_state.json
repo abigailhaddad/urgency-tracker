@@ -4519,9 +4519,10 @@
   "status": "none"
  },
  "19EC7526P0817": {
+  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "19EC7526P0817",
   "sol": "PR16196204",
-  "status": "none"
+  "status": "error"
  },
  "19EG3026P0070": {
   "piid": "19EG3026P0070",
@@ -13231,10 +13232,9 @@
   "status": "ok"
  },
  "47PH5426P0006": {
-  "error": "API request failed with status 502",
   "piid": "47PH5426P0006",
   "sol": "EQPXABA-26-0037",
-  "status": "error"
+  "status": "none"
  },
  "47PL0226D0001": {
   "notice_id": "26d9d934999348b68912cc37cfe797d2",
