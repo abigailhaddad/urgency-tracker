@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: "3.12"
       # pymupdf + litellm are only needed for the optional J&A OCR fallback; harmless if unused.
-      - run: pip install duckdb pandas tango-python pypdf pymupdf litellm
+      - run: pip install duckdb pandas tango-python pypdf pymupdf "litellm==1.106.2"
 
       - name: Rebuild the feed
         run: python scripts/build_feed.py
