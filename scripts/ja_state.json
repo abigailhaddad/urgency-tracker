@@ -17118,9 +17118,19 @@
   "status": "none"
  },
  "80KSC026P0010": {
+  "notice_id": "dcdc67e3be4f4fc9914f8b1c3c4a85e4",
+  "ocr": false,
+  "pdfs": [
+   {
+    "chars": 6653,
+    "name": "Trailer Lease JOFOC.pdf",
+    "via": "text"
+   }
+  ],
   "piid": "80KSC026P0010",
+  "sam_url": "https://sam.gov/opp/dcdc67e3be4f4fc9914f8b1c3c4a85e4/view",
   "sol": "",
-  "status": "none"
+  "status": "ok"
  },
  "80KSC026P0011": {
   "piid": "80KSC026P0011",

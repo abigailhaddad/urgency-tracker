@@ -8,11 +8,11 @@
   "on_award_obligated": 6087585412,
   "on_vehicle_awards": 30,
   "on_vehicle_obligated": 26077173457,
-  "fy26_obligation_flow": 34082868546,
+  "fy26_obligation_flow": 34082868547,
   "excluded_older_contracts": 1180,
   "new_since_last": 363,
   "disputed": 5,
-  "with_justification": 355
+  "with_justification": 356
  },
  "awards": [
   {
@@ -30517,7 +30517,7 @@
    "protest": null,
    "url": "https://www.usaspending.gov/award/CONT_AWD_80KSC026P0010_8000_-NONE-_-NONE-",
    "is_new": true,
-   "ja": false
+   "ja": true
   },
   {
    "piid": "36C24726N0104",
