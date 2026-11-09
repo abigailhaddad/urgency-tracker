@@ -270,8 +270,7 @@ def _extract_notice(nid, ocr=None):
             if len(otxt.strip()) > len(txt.strip()):
                 txt, via = otxt, "ocr"
         pdfs.append({"name": a["name"], "chars": len(txt), "via": via if txt else "none"})
-        if txt:
-            pieces.append(txt)
+        pieces.append(txt)  # keep "" for empty PDFs so pieces[i] lines up with pdfs[i]
     return pieces, pdfs, nid_nodash
 
 
@@ -302,7 +301,7 @@ def fetch_justification(c, piid, sol, ocr=None):
         named = [i for i, m in enumerate(meta) if _JA_NAME_RE.search(m["name"])]
         keep = named if named else list(range(len(meta)))
         pdfs += [meta[i] for i in keep]
-        pieces += [p[i] for i in keep if i < len(p)]
+        pieces += [p[i] for i in keep if p[i]]
         nid_used = nid_used or nid_nodash
 
     sam_url = f"https://sam.gov/opp/{nid_used}/view"
@@ -354,7 +353,7 @@ def fetch_parent_justification(c, parent_piid, ocr=None):
         named = [i for i, m in enumerate(meta) if _JA_NAME_RE.search(m["name"])]
         keep = named if named else list(range(len(meta)))
         pdfs += [meta[i] for i in keep]
-        pieces += [p[i] for i in keep if i < len(p)]
+        pieces += [p[i] for i in keep if p[i]]
         nid_used = nid_used or nid_nodash
     if nid_used is None:
         return {"status": "none"}
