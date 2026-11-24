@@ -1175,9 +1175,10 @@
   "status": "ok"
  },
  "140P6326P0041": {
+  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "140P6326P0041",
   "sol": "",
-  "status": "none"
+  "status": "error"
  },
  "140P6426C0001": {
   "notice_id": "cb7ca55c07fa4f9cb07de86614c86a14",
@@ -2366,9 +2367,10 @@
   "status": "none"
  },
  "15B31626P00000089": {
+  "error": "API request failed with status 502",
   "piid": "15B31626P00000089",
   "sol": "",
-  "status": "none"
+  "status": "error"
  },
  "15B31626P00000098": {
   "piid": "15B31626P00000098",
@@ -5186,10 +5188,9 @@
   "status": "none"
  },
  "19E13026F0424": {
-  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "19E13026F0424",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "19E13026F0441": {
   "piid": "19E13026F0441",
@@ -10999,10 +11000,9 @@
   "status": "none"
  },
  "36C25526N0404": {
-  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "36C25526N0404",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "36C25526P0010": {
   "piid": "36C25526P0010",
@@ -12956,10 +12956,9 @@
   "status": "none"
  },
  "36C26226P1519": {
-  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "36C26226P1519",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "36C26226P1544": {
   "piid": "36C26226P1544",
@@ -12977,10 +12976,9 @@
   "status": "none"
  },
  "36C26226P1591": {
-  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "36C26226P1591",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "36C26226P1597": {
   "piid": "36C26226P1597",
@@ -13385,10 +13383,9 @@
   "status": "none"
  },
  "36C26326P0610": {
-  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "36C26326P0610",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "36C26326P0612": {
   "piid": "36C26326P0612",
@@ -15998,10 +15995,9 @@
   "status": "none"
  },
  "70Z08026PMECP0149": {
-  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "70Z08026PMECP0149",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "70Z08026PMECP0195": {
   "piid": "70Z08026PMECP0195",
@@ -16709,10 +16705,9 @@
   "status": "none"
  },
  "70Z08426FNEWO0032": {
-  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "70Z08426FNEWO0032",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "70Z08426FNEWO0033": {
   "piid": "70Z08426FNEWO0033",
@@ -18235,10 +18230,9 @@
   "status": "none"
  },
  "HTC71126FE184": {
-  "error": "Request failed: Server disconnected without sending a response.",
   "piid": "HTC71126FE184",
   "sol": "",
-  "status": "error"
+  "status": "none"
  },
  "HTC71126FE185": {
   "piid": "HTC71126FE185",
